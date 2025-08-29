@@ -1,0 +1,996 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="utf-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1">
+    <meta name="keywords" content="Hexo Theme Redefine">
+    
+    <meta name="author" content="Chenxu Qiao">
+    
+    <!-- Completely eliminate flash of wrong theme -->
+    <script>
+        (function() {
+            const THEME_KEY = "REDEFINE-THEME-STATUS";
+            const DARK = "dark", LIGHT = "light";
+            
+            // Get preferred theme
+            function getTheme() {
+                try {
+                    const saved = localStorage.getItem(THEME_KEY);
+                    if (saved) {
+                        const { isDark } = JSON.parse(saved);
+                        return isDark ? DARK : LIGHT;
+                    }
+                } catch (e) {}
+                
+                return matchMedia("(prefers-color-scheme: dark)").matches ? DARK : LIGHT;
+            }
+            
+            // Apply theme to document
+            function applyTheme(theme) {
+                const isDark = theme === DARK;
+                const root = document.documentElement;
+                
+                // Set data attribute for CSS variables
+                root.setAttribute("data-theme", theme);
+                
+                // Set classes for compatibility
+                root.classList.add(theme);
+                root.classList.remove(isDark ? LIGHT : DARK);
+                root.style.colorScheme = theme;
+            }
+            
+            // Initial application
+            const theme = getTheme();
+            applyTheme(theme);
+            
+            // Listen for system preference changes
+            matchMedia("(prefers-color-scheme: dark)").addEventListener("change", ({ matches }) => {
+                // Only update if using system preference (no localStorage entry)
+                if (!localStorage.getItem(THEME_KEY)) {
+                    applyTheme(matches ? DARK : LIGHT);
+                }
+            });
+            
+            // Set body classes once DOM is ready
+            if (document.readyState !== "loading") {
+                document.body.classList.add(theme + "-mode");
+            } else {
+                document.addEventListener("DOMContentLoaded", () => {
+                    document.body.classList.add(theme + "-mode");
+                    document.body.classList.remove((theme === DARK ? LIGHT : DARK) + "-mode");
+                });
+            }
+        })();
+    </script>
+    
+    <!-- Critical CSS to prevent flash -->
+    <style>
+        :root[data-theme="dark"] {
+            --background-color: #202124;
+            --background-color-transparent: rgba(32, 33, 36, 0.6);
+            --second-background-color: #2d2e32;
+            --third-background-color: #34353a;
+            --third-background-color-transparent: rgba(32, 33, 36, 0.6);
+            --primary-color: #0066CC;
+            --first-text-color: #ffffff;
+            --second-text-color: #eeeeee;
+            --third-text-color: #bebec6;
+            --fourth-text-color: #999999;
+            --default-text-color: #bebec6;
+            --invert-text-color: #373D3F;
+            --border-color: rgba(255, 255, 255, 0.08);
+            --selection-color: #0066CC;
+            --shadow-color-1: rgba(255, 255, 255, 0.08);
+            --shadow-color-2: rgba(255, 255, 255, 0.05);
+        }
+        
+        :root[data-theme="light"] {
+            --background-color: #fff;
+            --background-color-transparent: rgba(255, 255, 255, 0.6);
+            --second-background-color: #f8f8f8;
+            --third-background-color: #f2f2f2;
+            --third-background-color-transparent: rgba(241, 241, 241, 0.6);
+            --primary-color: #0066CC;
+            --first-text-color: #16171a;
+            --second-text-color: #2f3037;
+            --third-text-color: #5e5e5e;
+            --fourth-text-color: #eeeeee;
+            --default-text-color: #373D3F;
+            --invert-text-color: #bebec6;
+            --border-color: rgba(0, 0, 0, 0.08);
+            --selection-color: #0066CC;
+            --shadow-color-1: rgba(0, 0, 0, 0.08);
+            --shadow-color-2: rgba(0, 0, 0, 0.05);
+        }
+        
+        body {
+            background-color: var(--background-color);
+            color: var(--default-text-color);
+        }
+        
+        /* Apply body classes as soon as DOM is ready */
+        :root[data-theme="dark"] body {
+            background-color: var(--background-color);
+            color: var(--default-text-color);
+        }
+    </style>
+    
+    <!-- preconnect -->
+    <link rel="preconnect" href="https://fonts.googleapis.com">
+    <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+
+    
+    <!--- Seo Part-->
+    
+    <link rel="canonical" href="http://example.com/2025/08/29/七夕节与中国现代经济发展要点/"/>
+    <meta name="robots" content="index,follow">
+    <meta name="googlebot" content="index,follow">
+    <meta name="revisit-after" content="1 days">
+    
+    
+    
+        
+        <meta name="description" content="Hexo Theme Redefine, Redefine Your Hexo Journey.">
+<meta property="og:type" content="article">
+<meta property="og:title" content="七夕节与中国现代经济发展要点">
+<meta property="og:url" content="http://example.com/2025/08/29/%E4%B8%83%E5%A4%95%E8%8A%82%E4%B8%8E%E4%B8%AD%E5%9B%BD%E7%8E%B0%E4%BB%A3%E7%BB%8F%E6%B5%8E%E5%8F%91%E5%B1%95%E8%A6%81%E7%82%B9/index.html">
+<meta property="og:site_name" content="Hexo">
+<meta property="og:description" content="Hexo Theme Redefine, Redefine Your Hexo Journey.">
+<meta property="og:locale" content="en_US">
+<meta property="og:image" content="http://example.com/images/redefine-og.webp">
+<meta property="article:published_time" content="2025-08-29T15:08:01.000Z">
+<meta property="article:modified_time" content="2025-08-29T15:14:39.562Z">
+<meta property="article:author" content="John Doe">
+<meta property="article:tag" content="七夕">
+<meta property="article:tag" content="中国经济">
+<meta property="article:tag" content="历史">
+<meta name="twitter:card" content="summary">
+<meta name="twitter:image" content="http://example.com/images/redefine-og.webp">
+    
+    
+    <!--- Icon Part-->
+    <link rel="icon" type="image/png" href="/images/favicon.jpeg" sizes="192x192">
+    <link rel="apple-touch-icon" sizes="180x180" href="/images/favicon.jpeg">
+    <meta name="theme-color" content="#A31F34">
+    <link rel="shortcut icon" href="/images/favicon.jpeg">
+    <!--- Page Info-->
+    
+    <title>
+        
+            七夕节与中国现代经济发展要点 | Chenxu Qiao
+        
+    </title>
+
+    
+<link rel="stylesheet" href="/fonts/Chillax/chillax.css">
+
+
+    <!--- Inject Part-->
+    
+
+    
+<link rel="stylesheet" href="/css/style.css">
+
+
+    
+        
+<link rel="stylesheet" href="/css/build/tailwind.css">
+
+    
+
+    
+<link rel="stylesheet" href="/fonts/GeistMono/geist-mono.css">
+
+    
+<link rel="stylesheet" href="/fonts/Geist/geist.css">
+
+    <!--- Font Part-->
+    
+    
+    
+    
+    
+    
+
+    <script id="hexo-configurations">
+    window.config = {"hostname":"example.com","root":"/","language":"en"};
+    window.theme = {"articles":{"style":{"font_size":"16px","line_height":1.5,"image_border_radius":"14px","image_alignment":"center","image_caption":false,"link_icon":true,"delete_mask":false,"title_alignment":"left","headings_top_spacing":{"h1":"3.2rem","h2":"2.4rem","h3":"1.9rem","h4":"1.6rem","h5":"1.4rem","h6":"1.3rem"}},"word_count":{"enable":true,"count":true,"min2read":true},"author_label":{"enable":true,"auto":false,"list":[]},"code_block":{"copy":true,"style":"mac","highlight_theme":{"light":"github","dark":"vs2015"},"font":{"enable":false,"family":null,"url":null}},"toc":{"enable":true,"max_depth":3,"number":false,"expand":true,"init_open":true},"copyright":{"enable":true,"default":"cc_by_nc_sa"},"lazyload":true,"pangu_js":false,"recommendation":{"enable":false,"title":"推荐阅读","limit":3,"mobile_limit":2,"placeholder":"/images/wallhaven-wqery6-light.webp","skip_dirs":[]}},"colors":{"primary":"#A31F34","secondary":null,"default_mode":"light"},"global":{"fonts":{"chinese":{"enable":false,"family":null,"url":null},"english":{"enable":false,"family":null,"url":null},"title":{"enable":false,"family":null,"url":null}},"content_max_width":"1000px","sidebar_width":"210px","hover":{"shadow":true,"scale":false},"scroll_progress":{"bar":false,"percentage":true},"website_counter":{"url":"https://cn.vercount.one/js","enable":true,"site_pv":true,"site_uv":true,"post_pv":true},"single_page":true,"preloader":{"enable":false,"custom_message":null},"side_tools":{"gear_rotation":true,"auto_expand":false},"open_graph":{"enable":true,"image":"/images/redefine-og.webp","description":"Hexo Theme Redefine, Redefine Your Hexo Journey."},"google_analytics":{"enable":false,"id":null}},"home_banner":{"enable":true,"style":"fixed","image":{"light":"/images/walllight.webp","dark":"/images/walldusk.webp"},"title":"欢迎来到我的博客～","subtitle":{"text":["by Chenxu Qiao"],"hitokoto":{"enable":false,"show_author":false,"api":"https://v1.hitokoto.cn"},"typing_speed":100,"backing_speed":80,"starting_delay":500,"backing_delay":1500,"loop":true,"smart_backspace":true},"text_color":{"light":"#fff","dark":"#d1d1b6"},"text_style":{"title_size":"2.8rem","subtitle_size":"1.5rem","line_height":1.2},"custom_font":{"enable":false,"family":null,"url":null},"social_links":{"enable":true,"style":"default","links":{"github":"https://github.com/ChenxuQiao","instagram":null,"zhihu":null,"twitter":null,"email":"qiaocx2003@gmail.com"},"qrs":{"weixin":null}}},"plugins":{"feed":{"enable":false},"aplayer":{"enable":false,"type":"fixed","audios":[{"name":null,"artist":null,"url":null,"cover":null,"lrc":null}]},"mermaid":{"enable":false,"version":"11.4.1"}},"version":"2.8.5","navbar":{"auto_hide":false,"color":{"left":"#f78736","right":"#367df7","transparency":35},"width":{"home":"1200px","pages":"1000px"},"links":{"Home":{"path":"/","icon":"fa-regular fa-house"}},"search":{"enable":false,"preload":true}},"page_templates":{"friends_column":2,"tags_style":"blur"},"home":{"sidebar":{"enable":true,"position":"left","first_item":"menu","announcement":null,"show_on_mobile":true,"links":null},"article_date_format":"auto","excerpt_length":200,"categories":{"enable":true,"limit":3},"tags":{"enable":true,"limit":3}},"footerStart":"2025/8/27 00:00:00"};
+    window.lang_ago = {"second":"%s seconds ago","minute":"%s minutes ago","hour":"%s hours ago","day":"%s days ago","week":"%s weeks ago","month":"%s months ago","year":"%s years ago"};
+    window.data = {"masonry":false};
+  </script>
+    
+    <!--- Fontawesome Part-->
+    
+<link rel="stylesheet" href="/fontawesome/fontawesome.min.css">
+
+    
+<link rel="stylesheet" href="/fontawesome/brands.min.css">
+
+    
+<link rel="stylesheet" href="/fontawesome/solid.min.css">
+
+    
+<link rel="stylesheet" href="/fontawesome/regular.min.css">
+
+    
+    
+    
+    
+<meta name="generator" content="Hexo 7.3.0"></head>
+
+
+
+<body>
+	<div class="progress-bar-container">
+	
+
+	
+	<span class="pjax-progress-bar"></span>
+	<!--        <span class="swup-progress-icon">-->
+	<!--            <i class="fa-solid fa-circle-notch fa-spin"></i>-->
+	<!--        </span>-->
+	
+</div>
+
+<main class="page-container" id="swup">
+
+	
+
+	<div class="main-content-container flex flex-col justify-between min-h-dvh">
+		<div class="main-content-header">
+			<header class="navbar-container px-6 md:px-12">
+    <div class="navbar-content transition-navbar ">
+        <div class="left">
+            
+                <a class="logo-image h-8 w-8 sm:w-10 sm:h-10 mr-3" href="/">
+                    <img src="/images/favicon.jpeg" class="w-full h-full rounded-xs">
+                </a>
+            
+            <a class="logo-title" href="/">
+                
+                Chenxu Qiao
+                
+            </a>
+        </div>
+
+        <div class="right">
+            <!-- PC -->
+            <div class="desktop">
+                <ul class="navbar-list">
+                    
+                        
+                            
+
+                            <li class="navbar-item">
+                                <!-- Menu -->
+                                <a class=""
+                                   href="/"
+                                        >
+                                    <i class="fa-regular fa-house fa-fw"></i>
+                                    HOME
+                                    
+                                </a>
+
+                                <!-- Submenu -->
+                                
+                            </li>
+                    
+                    
+                </ul>
+            </div>
+            <!-- Mobile -->
+            <div class="mobile">
+                
+                <div class="icon-item navbar-bar">
+                    <div class="navbar-bar-middle"></div>
+                </div>
+            </div>
+        </div>
+    </div>
+
+    <!-- Mobile sheet -->
+    <div class="navbar-drawer h-dvh w-full absolute top-0 left-0 bg-background-color flex flex-col justify-between">
+        <ul class="drawer-navbar-list flex flex-col px-4 justify-center items-start">
+            
+                
+                    
+
+                    <li class="drawer-navbar-item text-base my-1.5 flex flex-col w-full">
+                        
+                        <a class="py-1.5 px-2 flex flex-row items-center justify-between gap-1 hover:!text-primary active:!text-primary text-2xl font-semibold group border-b border-border-color hover:border-primary w-full "
+                           href="/"
+                        >
+                            <span>
+                                HOME
+                            </span>
+                            
+                                <i class="fa-regular fa-house fa-sm fa-fw"></i>
+                            
+                        </a>
+                        
+
+                        
+                    </li>
+            
+
+            
+            
+        </ul>
+
+        <div class="statistics flex justify-around my-2.5">
+    <a class="item tag-count-item flex flex-col justify-center items-center w-20" href="/tags">
+        <div class="number text-2xl sm:text-xl text-second-text-color font-semibold">6</div>
+        <div class="label text-third-text-color text-sm">Tags</div>
+    </a>
+    <a class="item tag-count-item flex flex-col justify-center items-center w-20" href="/categories">
+        <div class="number text-2xl sm:text-xl text-second-text-color font-semibold">1</div>
+        <div class="label text-third-text-color text-sm">Categories</div>
+    </a>
+    <a class="item tag-count-item flex flex-col justify-center items-center w-20" href="/archives">
+        <div class="number text-2xl sm:text-xl text-second-text-color font-semibold">5</div>
+        <div class="label text-third-text-color text-sm">Posts</div>
+    </a>
+</div>
+    </div>
+
+    <div class="window-mask"></div>
+
+</header>
+
+
+		</div>
+
+		<div class="main-content-body transition-fade-up">
+			
+
+			<div class="main-content">
+				<div class="post-page-container flex relative justify-between box-border w-full h-full">
+	<div class="article-content-container">
+
+		<div class="article-title relative w-full">
+			
+			<div class="w-full flex items-center pt-6 justify-start">
+				<h1 class="article-title-regular text-second-text-color tracking-tight text-4xl md:text-6xl font-semibold px-2 sm:px-6 md:px-8 py-3">七夕节与中国现代经济发展要点</h1>
+			</div>
+			
+		</div>
+
+		
+		<div class="article-header flex flex-row gap-2 items-center px-2 sm:px-6 md:px-8">
+			<div class="avatar w-[46px] h-[46px] flex-shrink-0 rounded-medium border border-border-color p-[1px]">
+				<img src="/images/favicon.jpeg">
+			</div>
+			<div class="info flex flex-col justify-between">
+				<div class="author flex items-center">
+					<span class="name text-default-text-color text-lg font-semibold">Chenxu Qiao</span>
+					
+					<span class="author-label ml-1.5 text-xs px-2 py-0.5 rounded-small text-third-text-color border border-shadow-color-1">Lv1</span>
+					
+				</div>
+				<div class="meta-info">
+					<div class="article-meta-info">
+    <span class="article-date article-meta-item">
+        <i class="fa-regular fa-pen-fancy"></i>&nbsp;
+        <span class="desktop">2025-08-29 23:08:01</span>
+        <span class="mobile">2025-08-29 23:08:01</span>
+        <span class="hover-info">Created</span>
+    </span>
+    
+        <span class="article-date article-meta-item">
+            <i class="fa-regular fa-wrench"></i>&nbsp;
+            <span class="desktop">2025-08-29 23:14:39</span>
+            <span class="mobile">2025-08-29 23:14:39</span>
+            <span class="hover-info">Updated</span>
+        </span>
+    
+
+    
+    
+        <span class="article-tags article-meta-item">
+            <i class="fa-regular fa-tags"></i>&nbsp;
+            <ul>
+                
+                    <li>
+                        <a href="/tags/%E4%B8%83%E5%A4%95/">七夕</a>&nbsp;
+                    </li>
+                
+                    <li>
+                        | <a href="/tags/%E4%B8%AD%E5%9B%BD%E7%BB%8F%E6%B5%8E/">中国经济</a>&nbsp;
+                    </li>
+                
+                    <li>
+                        | <a href="/tags/%E5%8E%86%E5%8F%B2/">历史</a>&nbsp;
+                    </li>
+                
+            </ul>
+        </span>
+    
+
+    
+    
+    
+    
+        <span class="article-pv article-meta-item">
+            <i class="fa-regular fa-eye"></i>&nbsp;<span id="busuanzi_value_page_pv"></span>
+        </span>
+    
+</div>
+
+				</div>
+			</div>
+		</div>
+		
+
+		
+
+
+		<div class="article-content markdown-body px-2 sm:px-6 md:px-8 pb-8">
+			<h2 id="Key-Points-on-Qixi-Festival-and-China’s-Modern-Economic-Development"><a href="#Key-Points-on-Qixi-Festival-and-China’s-Modern-Economic-Development" class="headerlink" title="Key Points on Qixi Festival and China’s Modern Economic Development"></a>Key Points on Qixi Festival and China’s Modern Economic Development</h2><h2 id="七夕节与中国现代经济发展要点"><a href="#七夕节与中国现代经济发展要点" class="headerlink" title="七夕节与中国现代经济发展要点"></a>七夕节与中国现代经济发展要点</h2><ul>
+<li><p>Research suggests that during the late Qing to Republic era, Qixi traditions showed early signs of commercialization, influenced by urban growth and Western ideas, though it remained primarily a folk custom focused on women’s skills rather than widespread romantic consumerism.</p>
+</li>
+<li><p>研究表明，从晚清到民国时期，七夕传统在城市发展和西方思想的影响下，已显现出商业化的早期迹象，但其本质仍主要是一个注重女性“乞巧”的民间习俗，而非广泛的浪漫主义消费。</p>
+</li>
+<li><p>Post-Reform and Opening Up, Qixi was revived and increasingly “Valentinized,” transforming into a key commercial node as businesses capitalized on romantic themes to fill promotional gaps, boosting sales among younger generations.</p>
+</li>
+<li><p>改革开放后，七夕节得以复兴并日益“情人节化”，商家利用其浪漫主题填补了市场营销的空白期，使其转变为一个重要的商业节点，极大地促进了年轻一代的消费。</p>
+</li>
+<li><p>In the contemporary digital economy, e-commerce platforms, social media, and brands have elevated Qixi into a major “festival economy” event, driving significant growth in industries like flowers, dining, jewelry, and tourism, though this raises debates about cultural dilution versus economic benefits.</p>
+</li>
+<li><p>在当代数字经济中，电子商务平台、社交媒体和各大品牌已将七夕提升为一个主要的“节日经济”事件，推动了鲜花、餐饮、珠宝和旅游等行业的显著增长，尽管这也引发了关于文化稀释与经济利益的争论。</p>
+</li>
+</ul>
+<h2 id="Historical-Context-and-Economic-Ties"><a href="#Historical-Context-and-Economic-Ties" class="headerlink" title="Historical Context and Economic Ties"></a>Historical Context and Economic Ties</h2><h2 id="历史背景与经济联系"><a href="#历史背景与经济联系" class="headerlink" title="历史背景与经济联系"></a>历史背景与经济联系</h2><p>The Qixi Festival, rooted in ancient mythology of the Cowherd and Weaver Girl, has evolved alongside China’s economic shifts. While traditionally a day for begging cleverness (qiqiao), its romantic aspects gained prominence in modern times, intersecting with commercialization trends. Evidence leans toward gradual integration with economic development, from nascent urban markets in the early 20th century to explosive digital-driven consumption today. This evolution reflects broader societal changes, including urbanization, consumer culture rise, and global influences, without overshadowing its cultural heritage.</p>
+<p>七夕节源于牛郎织女的古老神话，其发展始终与中国的经济变迁相伴。虽然传统上是“乞巧”的日子，但其浪漫色彩在现代日益凸显，并与商业化趋势交织在一起。证据表明，七夕与经济发展逐渐融合，从20世纪初初露萌芽的城市市场，发展到今天由数字驱动的爆发式消费。这一演变反映了更广泛的社会变迁，包括城市化、消费文化的兴起和全球化的影响，但并未使其文化遗产黯然失色。</p>
+<h2 id="Stages-of-Development"><a href="#Stages-of-Development" class="headerlink" title="Stages of Development"></a>Stages of Development</h2><h2 id="发展阶段"><a href="#发展阶段" class="headerlink" title="发展阶段"></a>发展阶段</h2><p>The analysis highlights three phases where Qixi’s customs intertwined with economic forces, from subtle commercial sprouts to full-fledged marketing spectacles. It seems likely that these transformations have both preserved traditions and adapted them to modern consumerism, benefiting related sectors while sparking discussions on authenticity.</p>
+<p>本分析将七夕习俗与经济力量的交织划分为三个阶段：从微妙的商业萌芽，到声势浩大的营销盛宴。这些转变似乎在保留传统的同时，也使其适应了现代消费主义，这不仅惠及了相关产业，也引发了关于其文化真实性的讨论。</p>
+<h2 id="Economic-Impacts-Overview"><a href="#Economic-Impacts-Overview" class="headerlink" title="Economic Impacts Overview"></a>Economic Impacts Overview</h2><h2 id="经济影响概述"><a href="#经济影响概述" class="headerlink" title="经济影响概述"></a>经济影响概述</h2><p>Overall, Qixi contributes to China’s “romance economy,” estimated at around $170-225 billion, with digital tools amplifying its reach. Industries see seasonal booms, but challenges like over-commercialization persist, suggesting a balanced approach to sustain long-term growth.</p>
+<p>总体而言，七夕为中国约合1700亿至2250亿美元的“浪漫经济”做出了贡献，数字化工具更扩大了其影响力。各行业都迎来了季节性的繁荣，但过度商业化等挑战依然存在，这表明需要采取一种平衡的方法来维持长期增长。</p>
+<hr>
+<p>The Qixi Festival, also known as the Double Seventh Festival, has a rich history dating back over 2,000 years, originating from the legend of the Cowherd (Niulang) and Weaver Girl (Zhinü), symbolizing separated lovers reunited annually across the Milky Way. Traditionally celebrated on the seventh day of the seventh lunar month—falling on August 29 in 2025—this festival initially emphasized women’s skills in needlework and domestic arts, known as “begging for cleverness” (qī qiǎo), rather than romance. However, its intersection with China’s economic development since the late Qing Dynasty illustrates a fascinating transformation, where cultural practices have been adapted to commercial opportunities, reflecting broader shifts in society, urbanization, and consumerism. This analysis divides into three key stages as specified, drawing on historical records, economic data, and contemporary marketing trends to explore how Qixi has evolved from a folk custom to a powerhouse in the “festival economy.”</p>
+<p>七夕节，又称双七节，拥有超过2000年的悠久历史，源于牛郎与织女的传说，象征着分离的恋人每年在银河上重逢。传统上，这个节日在农历七月初七庆祝（2025年为8月29日），最初强调的是女性在针织和家务方面的技能，即“乞巧”，而非浪漫爱情。然而，自晚清以来，七夕与中国经济发展的交汇展示了一场引人入胜的变革，文化习俗为了适应商业机遇而不断调整，反映了社会、城市化和消费主义的广泛变迁。本分析将根据历史记载、经济数据和当代营销趋势，分为三个关键阶段，探讨七夕如何从一个民间习俗演变为“节日经济”的强大引擎。</p>
+<h2 id="Late-Qing-to-Republic-Period-Budding-Commercialization-of-Qixi-Traditions"><a href="#Late-Qing-to-Republic-Period-Budding-Commercialization-of-Qixi-Traditions" class="headerlink" title="Late Qing to Republic Period: Budding Commercialization of Qixi Traditions"></a>Late Qing to Republic Period: Budding Commercialization of Qixi Traditions</h2><h2 id="晚清至民国时期：七夕传统的商业化萌芽"><a href="#晚清至民国时期：七夕传统的商业化萌芽" class="headerlink" title="晚清至民国时期：七夕传统的商业化萌芽"></a>晚清至民国时期：七夕传统的商业化萌芽</h2><p>In the late Qing Dynasty (1644–1912) and the Republic of China era (1912–1949), China underwent profound economic and social changes, including the decline of imperial rule, Western influences via treaty ports, and the emergence of modern urban economies in cities like Shanghai and Guangzhou. During this time, Qixi’s traditional customs—such as young women threading needles under moonlight to pray for dexterity or displaying handicrafts—began showing early signs of commercialization, though on a modest scale compared to later periods.</p>
+<p>在晚清（1644–1912年）和民国时期（1912–1949年），中国经历了深刻的经济和社会变革，包括帝制的衰落、西方通过通商口岸带来的影响，以及上海、广州等现代化城市经济的出现。在此期间，七夕的传统习俗——例如年轻女子在月下穿针祈求手巧或展示手工艺品——开始显现出商业化的早期迹象，尽管与后期相比规模尚小。</p>
+<p>Historical studies indicate that Qixi’s commercialization sprouted amid the rise of capitalism in China, particularly in regions with strong merchant cultures like Shanxi, where the festival’s emphasis on “male farming and female weaving” aligned with traditional economic models. Shanxi merchants, prominent from the Ming and Qing eras, integrated festival elements into trade practices, with local chronicles documenting variations in customs that hinted at economic ties, such as selling needlework tools or festival-related goods in markets. In urban centers, the influx of Western ideas during the late Qing, including through missionary activities and imported goods, subtly influenced festivals; for instance, Shanghai’s burgeoning print media and department stores began promoting seasonal items, potentially including Qixi-themed handicrafts or early romantic notions borrowed from Valentine’s Day concepts introduced via colonial interactions.</p>
+<p>历史研究表明，七夕的商业化伴随着中国资本主义的兴起而萌芽，特别是在像山西这样拥有浓厚商业文化的地区。当地“男耕女织”的传统经济模式与七夕节的重点不谋而合。自明清时代起就声名显赫的晋商，将节日元素融入贸易活动中，地方志记载的习俗变迁也暗示了其与经济的联系，例如在市场上销售针线工具或与节日相关的商品。在城市中心，晚清时期通过传教活动和进口商品传入的西方思想，也巧妙地影响了节日；例如，上海新兴的平面媒体和百货公司开始推广季节性商品，可能包括七夕主题的手工艺品，或是通过殖民交流引入的早期情人节浪漫概念。</p>
+<p>By the Republic era, amid political instability and economic modernization efforts, Qixi’s customs saw further budding commercialization. Folkloric accounts from the period describe urban fairs where vendors sold sweets, fabrics, and trinkets tied to the festival, capitalizing on its communal gatherings. This era’s capitalist萌芽 (meng ya, or sprouts) in handicraft industries aligned with Qixi’s focus on women’s skills, fostering small-scale trade in textiles and embroidery. However, commercialization remained limited, overshadowed by wars and economic turmoil; it was not yet a widespread romantic holiday but a folk event with nascent market potential. Debates among scholars suggest this period laid groundwork for later transformations, as urban migration and media exposure began shifting perceptions from skill-begging to subtle romantic undertones.</p>
+<p>到了民国时期，尽管政治动荡且经济现代化步履维艰，七夕习俗的商业化仍在继续发展。当时的民俗记载描述了城市集市上，小贩们售卖与节日相关的糖果、布料和小饰品，利用了节日的社群聚集效应。这个时代手工业中的资本主义“萌芽”与七夕对女性技能的关注相吻合，促进了纺织品和刺绣的小规模贸易。然而，商业化程度仍然有限，被战争和经济动荡所掩盖；它尚未成为一个普遍的浪漫节日，只是一个具有初步市场潜力的民间活动。学者间的讨论认为，这一时期为后来的转变奠定了基础，因为城市化进程和媒体的普及开始将人们的观念从“乞巧”转向了含蓄的浪漫色彩。</p>
+<table>
+<thead>
+<tr>
+<th>Aspect 方面</th>
+<th>Description 描述</th>
+<th>Economic Link 经济联系</th>
+</tr>
+</thead>
+<tbody><tr>
+<td>Traditional Customs 传统习俗</td>
+<td>Needle-threading, fruit displays, prayers for skills 穿针乞巧、陈列瓜果、祈求技艺</td>
+<td>Tied to agrarian economy and handicraft trade in regions like Shanxi 与山西等地区的农业经济和手工艺贸易相关</td>
+</tr>
+<tr>
+<td>Early Commercial Signs 早期商业迹象</td>
+<td>Vendor sales at fairs, media promotions in cities 集市商贩销售、城市媒体推广</td>
+<td>Emergent urban markets influenced by Western trade ports 受西方通商口岸影响的新兴城市市场</td>
+</tr>
+<tr>
+<td>Limitations 局限性</td>
+<td>Modest scale due to instability 因社会不稳定而规模有限</td>
+<td>Precursor to full commercialization in later eras 后期全面商业化的前奏</td>
+</tr>
+</tbody></table>
+<p>This stage represents a transitional phase where Qixi’s economic role was embryonic, reflecting China’s shift from feudal to semi-modern economies.</p>
+<p>这一阶段代表了一个过渡期，七夕的经济角色尚处于萌芽状态，反映了中国从封建经济向半现代化经济的转变。</p>
+<h2 id="Post-Reform-and-Opening-Up-Revival-and-“Valentinization”-as-a-Commercial-Marketing-Node"><a href="#Post-Reform-and-Opening-Up-Revival-and-“Valentinization”-as-a-Commercial-Marketing-Node" class="headerlink" title="Post-Reform and Opening Up: Revival and “Valentinization” as a Commercial Marketing Node"></a>Post-Reform and Opening Up: Revival and “Valentinization” as a Commercial Marketing Node</h2><h2 id="改革开放后：作为商业营销节点的复兴与“情人节化”"><a href="#改革开放后：作为商业营销节点的复兴与“情人节化”" class="headerlink" title="改革开放后：作为商业营销节点的复兴与“情人节化”"></a>改革开放后：作为商业营销节点的复兴与“情人节化”</h2><p>Following China’s Reform and Opening Up in 1978, which unleashed market forces and integrated global influences, Qixi underwent a significant revival, gradually morphing into a “Chinese Valentine’s Day” through deliberate cultural re-digging and commercialization. This period saw the festival rediscovered amid rising consumerism, with businesses and media promoting its romantic legend to align with Western Valentine’s Day, filling a gap in the domestic holiday calendar.</p>
+<p>自1978年中国改革开放、释放市场活力并融入全球影响之后，七夕经历了一次重要的复兴，通过有意识的文化再挖掘和商业化，逐渐演变为“中国情人节”。在这一时期，随着消费主义的兴起，这个节日被重新发现，商家和媒体大力宣传其浪漫传说，使其与西方情人节对标，填补了国内节日日历中的一个空白。</p>
+<p>Experts note that viewing Qixi as a pure romance festival is a misreading born from post-reform commercialization, where malls, restaurants, and cinemas capitalized on it to boost sales during the slow period between Dragon Boat Festival and National Day. Surveys from the 2010s show that 70.6% of post-90s couples planned celebrations, with 68.8% exchanging gifts, driven by marketing campaigns that emphasized love over traditional begging skills. Domestic travel among young groups surged 68% during Qixi, highlighting its role as a commercial node. Brands began “Valentinizing” Qixi in the 1990s and 2000s, with promotions like set meals and gift bundles, transforming it from a faded folk custom into a revenue driver. This revival mirrored China’s economic boom, where rising disposable incomes and urbanization fostered a consumer culture, with Qixi serving as a bridge between tradition and modernity.</p>
+<p>专家指出，将七夕纯粹视为浪漫节日，是改革开放后商业化环境中的一种误读。商场、餐厅和电影院利用它来提振端午节和国庆节之间的销售淡季。2010年代的调查显示，70.6%的90后情侣计划庆祝，68.8%会交换礼物，这得益于那些强调爱情而非传统乞巧技能的营销活动。七夕期间，年轻群体的国内旅游激增68%，凸显了其作为商业节点的作用。品牌在1990年代和2000年代开始将七夕“情人节化”，推出套餐和礼品组合等促销活动，将其从一个日渐式微的民间习俗转变为一个收入增长点。这次复兴反映了中国的经济繁荣，不断增长的可支配收入和城市化催生了消费文化，而七夕则成为了连接传统与现代的桥梁。</p>
+<p>Counterarguments highlight potential cultural dilution, but proponents argue it revitalized heritage in a market-driven society. By the early 2000s, Qixi had become a staple for marketing, with annual campaigns evolving from simple discounts to themed events, boosting sectors like retail and entertainment.</p>
+<p>反对者强调了潜在的文化稀释风险，但支持者认为，这在一个市场驱动的社会中振兴了文化遗产。到21世纪初，七夕已成为市场营销的常规项目，年度活动从简单的折扣发展到主题事件，推动了零售和娱乐等行业的发展。</p>
+<table>
+<thead>
+<tr>
+<th>Year&#x2F;Milestone 年份&#x2F;里程碑</th>
+<th>Key Development 关键发展</th>
+<th>Commercial Impact 商业影响</th>
+</tr>
+</thead>
+<tbody><tr>
+<td>1978–1990s 1978–1990年代</td>
+<td>Reform-era revival via media 改革时代通过媒体复兴</td>
+<td>Introduction of romantic themes, early gift sales 引入浪漫主题，初步的礼品销售</td>
+</tr>
+<tr>
+<td>2000s 2000年代</td>
+<td>“Valentinization” peaks “情人节化”达到顶峰</td>
+<td>Malls fill promo gaps, youth-driven consumption rises 商场填补促销空白，年轻人消费兴起</td>
+</tr>
+<tr>
+<td>2010s Surveys 2010年代调查</td>
+<td>High participation rates 参与率高</td>
+<td>Travel and gift exchanges surge, economic node solidified 旅游和礼物交换激增，经济节点地位巩固</td>
+</tr>
+</tbody></table>
+<p>This era positioned Qixi as a commercial powerhouse, setting the stage for digital amplification.</p>
+<p>这个时代将七夕定位为一个商业巨头，为数字时代的放大效应奠定了基础。</p>
+<h2 id="Contemporary-Digital-Economy-Era-Qixi-as-a-“Festival-Economy”-Event-and-Industry-Impacts"><a href="#Contemporary-Digital-Economy-Era-Qixi-as-a-“Festival-Economy”-Event-and-Industry-Impacts" class="headerlink" title="Contemporary Digital Economy Era: Qixi as a “Festival Economy” Event and Industry Impacts"></a>Contemporary Digital Economy Era: Qixi as a “Festival Economy” Event and Industry Impacts</h2><h2 id="当代数字经济时代：七夕作为“节日经济”事件及其行业影响"><a href="#当代数字经济时代：七夕作为“节日经济”事件及其行业影响" class="headerlink" title="当代数字经济时代：七夕作为“节日经济”事件及其行业影响"></a>当代数字经济时代：七夕作为“节日经济”事件及其行业影响</h2><p>In today’s digital economy, dominated by e-commerce giants like Alibaba and JD.com, social media platforms such as WeChat and Xiaohongshu, and brands’ innovative campaigns, Qixi has been elevated into a major “festival economy” event, generating billions in revenue annually. This transformation leverages technology for marketing, turning the festival into a high-conversion occasion for emotional consumption, with projections for China’s gift economy reaching $225.7 billion by 2027, partly fueled by Qixi.</p>
+<p>在当今由阿里巴巴、京东等电商巨头，微信、小红书等社交媒体平台以及品牌创新活动主导的数字经济中，七夕已被提升为一个重要的“节日经济”事件，每年产生数十亿的收入。这一转变利用科技进行营销，将节日变成情感消费的高转化时机，预计到2027年，中国的礼品经济规模将达到2257亿美元，其中部分由七夕驱动。</p>
+<p>E-commerce platforms drive this by offering targeted promotions; for instance, Alibaba’s Tmall and Taobao see gift sales peak a week before Qixi, with searches for flowers and chocolates jumping 30-fold on JD. Social media amplifies engagement, with brands like Prada using Xiaohongshu for interactive challenges, encouraging user-generated content and rewarding shares with limited-edition items. Luxury brands such as Burberry and Gucci incorporate cultural elements like Chinese knots in digital campaigns, fostering emotional connections and co-creation, while influencers and ambassadors boost visibility.</p>
+<p>电子商务平台通过提供精准促销来推动这一趋势；例如，阿里巴巴的天猫和淘宝在七夕前一周迎来礼品销售高峰，京东上鲜花和巧克力的搜索量猛增30倍。社交媒体放大了用户的参与度，像Prada这样的品牌利用小红书发起互动挑战，鼓励用户生成内容，并用限量版商品奖励分享。Burberry和Gucci等奢侈品牌在数字营销中融入中国结等文化元素，培养情感联系和共同创作，而网红和品牌大使则提升了活动的曝光度。</p>
+<p>This digital push profoundly impacts related industries:</p>
+<p>这种数字化推动深刻地影响了相关行业：</p>
+<ul>
+<li><p><strong>Flowers</strong>: Qixi spurs massive demand for roses and bouquets, with e-commerce sales surging; in 2023, flower-related searches on platforms increased significantly, benefiting florists and supply chains.</p>
+</li>
+<li><p><strong>鲜花</strong>：七夕刺激了对玫瑰和花束的巨大需求，电商销量激增；2023年，平台上与鲜花相关的搜索量大幅增加，惠及了花店和供应链。</p>
+</li>
+<li><p><strong>Dining</strong>: Romantic dinners and set meals see booms, with platforms like Meituan promoting themed experiences; tourism ties in, as couples book outings, contributing to a 141% search increase in regions like Chongqing.</p>
+</li>
+<li><p><strong>餐饮</strong>：浪漫晚餐和套餐迎来消费热潮，美团等平台推广主题体验；旅游业也随之受益，情侣们预订出游，使得重庆等地区的搜索量增加了141%。</p>
+</li>
+<li><p><strong>Jewelry</strong>: High-end items like jadeite (up 53%) and gold (up 148%) dominate, with brands launching Qixi collections; digital marketing targets self-gifting among young women.</p>
+</li>
+<li><p><strong>珠宝</strong>：翡翠（增长53%）和黄金（增长148%）等高端商品占据主导地位，各大品牌纷纷推出七夕系列；数字营销还瞄准了年轻女性的“悦己”消费。</p>
+</li>
+<li><p><strong>Tourism</strong>: Couples’ travel spikes, with platforms offering packages; in 2024, searches for romantic getaways rose, stimulating hospitality and local economies.</p>
+</li>
+<li><p><strong>旅游</strong>：情侣出游激增，各大平台提供打包产品；2024年，浪漫度假地的搜索量上升，刺激了酒店业和地方经济。</p>
+</li>
+</ul>
+<table>
+<thead>
+<tr>
+<th>Industry 行业</th>
+<th>Digital Impact 数字影响</th>
+<th>Economic Data&#x2F;Example 经济数据&#x2F;案例</th>
+</tr>
+</thead>
+<tbody><tr>
+<td>Flowers 鲜花</td>
+<td>E-commerce promotions, social sharing 电商促销，社交分享</td>
+<td>30x search increase on JD (2023) 京东搜索量增加30倍（2023年）</td>
+</tr>
+<tr>
+<td>Dining 餐饮</td>
+<td>App-based bookings, themed campaigns 基于App的预订，主题活动</td>
+<td>Romantic economy surges in urban areas 城市浪漫经济激增</td>
+</tr>
+<tr>
+<td>Jewelry 珠宝</td>
+<td>Influencer endorsements, limited editions 网红代言，限量版产品</td>
+<td>148% gold sales growth (2021) 黄金销售额增长148%（2021年）</td>
+</tr>
+<tr>
+<td>Tourism 旅游</td>
+<td>Online travel platforms, virtual tours 在线旅游平台，虚拟旅游</td>
+<td>68% youth travel rise post-2010s 2010年代后年轻人旅游增长68%</td>
+</tr>
+</tbody></table>
+<p>While this boosts GDP and innovation, critics argue it commodifies culture, with “inner卷” (involution) in marketing leading to homogenized campaigns. Balanced views suggest it enhances cultural confidence, with brands like Valentino creating immersive digital experiences. Overall, Qixi’s digital evolution exemplifies how festivals drive economic vitality in China’s tech-savvy landscape.</p>
+<p>尽管这促进了GDP和创新，但批评者认为它将文化商品化，营销上的“内卷”导致了同质化的活动。平衡的观点则认为，这增强了文化自信，例如Valentino等品牌创造了沉浸式的数字体验。总而言之，七夕的数字化演变是中国这个精通科技的国家如何利用节日来驱动经济活力的典范。</p>
+<p>Key Citations:</p>
+<p>主要引用来源：</p>
+<ul>
+<li><p><a class="link"   target="_blank" rel="noopener" href="https://www.macrothink.org/journal/index.php/ijch/article/download/18154/14160" >A Study of the Differences about Chinese Qixi Festival Custom<i class="fa-solid fa-arrow-up-right ml-[0.2em] font-light align-text-top text-[0.7em] link-icon"></i></a></p>
+</li>
+<li><p><a class="link"   target="_blank" rel="noopener" href="https://en.wikipedia.org/wiki/Qixi_Festival" >Qixi Festival - Wikipedia<i class="fa-solid fa-arrow-up-right ml-[0.2em] font-light align-text-top text-[0.7em] link-icon"></i></a></p>
+</li>
+<li><p><a class="link"   target="_blank" rel="noopener" href="https://thechinaproject.com/2020/08/25/qixi-the-story-past-and-present-of-chinese-valentines-day/" >Qixi: The story, past and present, of Chinese Valentine’s Day<i class="fa-solid fa-arrow-up-right ml-[0.2em] font-light align-text-top text-[0.7em] link-icon"></i></a></p>
+</li>
+<li><p><a class="link"   target="_blank" rel="noopener" href="https://www.chinanews.com.cn/m/cul/2015/08-20/7479715.shtml" >专家:把七夕看作中国情人节是商业化环境中的误读<i class="fa-solid fa-arrow-up-right ml-[0.2em] font-light align-text-top text-[0.7em] link-icon"></i></a></p>
+</li>
+<li><p><a class="link"   target="_blank" rel="noopener" href="https://jingdaily.com/wechat/when-qixi-meets-modern-love-languages" >不止浪漫，品牌如何用七夕营销俘获人心？<i class="fa-solid fa-arrow-up-right ml-[0.2em] font-light align-text-top text-[0.7em] link-icon"></i></a></p>
+</li>
+<li><p><a class="link"   target="_blank" rel="noopener" href="https://jingdaily.com/posts/from-gold-to-luxury-how-qixi-fuels-china-s-trillion-yuan-gift-market" >How Qixi fuels China’s $191B gift market<i class="fa-solid fa-arrow-up-right ml-[0.2em] font-light align-text-top text-[0.7em] link-icon"></i></a></p>
+</li>
+<li><p><a class="link"   target="_blank" rel="noopener" href="https://www.chinadaily.com.cn/a/202308/22/WS64e419f0a31035260b81d882.html" >Festive romance drives luxury goods sales<i class="fa-solid fa-arrow-up-right ml-[0.2em] font-light align-text-top text-[0.7em] link-icon"></i></a></p>
+</li>
+<li><p><a class="link"   target="_blank" rel="noopener" href="https://www.chinatradingdesk.com/post/the-evolution-of-qixi-festival-a-deep-dive-into-demographics-and-consumer-behaviour-in-china" >The Evolution of Qixi Festival: A Deep Dive into Demographics and Consumer Behaviour in China<i class="fa-solid fa-arrow-up-right ml-[0.2em] font-light align-text-top text-[0.7em] link-icon"></i></a></p>
+</li>
+<li><p><a class="link"   target="_blank" rel="noopener" href="https://jingdaily.com/posts/decoding-s-china-s-usd170-billion-romance-economy" >Decoding’s China’s $170 billion ‘romance economy’<i class="fa-solid fa-arrow-up-right ml-[0.2em] font-light align-text-top text-[0.7em] link-icon"></i></a></p>
+</li>
+<li><p><a class="link"   target="_blank" rel="noopener" href="https://chozan.co/3-successful-qixi-festival-campaigns-in-china/" >3 Successful Chinese Valentine’s Day Campaigns (Qixi Festival)<i class="fa-solid fa-arrow-up-right ml-[0.2em] font-light align-text-top text-[0.7em] link-icon"></i></a></p>
+</li>
+</ul>
+
+		</div>
+
+		
+		<div class="post-copyright-info w-full my-8 px-2 sm:px-6 md:px-8">
+			<div class="article-copyright-info-container">
+    <ul>
+        <li><strong>Title:</strong> 七夕节与中国现代经济发展要点</li>
+        <li><strong>Author:</strong> Chenxu Qiao</li>
+        <li><strong>Created at
+                :</strong> 2025-08-29 23:08:01</li>
+        
+            <li>
+                <strong>Updated at
+                    :</strong> 2025-08-29 23:14:39
+            </li>
+        
+        <li>
+            <strong>Link:</strong> https://chenxuqiao.github.io/2025/08/29/七夕节与中国现代经济发展要点/
+        </li>
+        <li>
+            <strong>
+                License:
+            </strong>
+            
+
+            
+                This work is licensed under <a class="license" target="_blank" rel="noopener" href="https://creativecommons.org/licenses/by-nc-sa/4.0">CC BY-NC-SA 4.0</a>.
+            
+        </li>
+    </ul>
+</div>
+
+		</div>
+		
+
+		
+		<ul class="post-tags-box text-lg mt-1.5 flex-wrap justify-center flex md:hidden">
+			
+			<li class="tag-item mx-0.5">
+				<a href="/tags/%E4%B8%83%E5%A4%95/">#七夕</a>&nbsp;
+			</li>
+			
+			<li class="tag-item mx-0.5">
+				<a href="/tags/%E4%B8%AD%E5%9B%BD%E7%BB%8F%E6%B5%8E/">#中国经济</a>&nbsp;
+			</li>
+			
+			<li class="tag-item mx-0.5">
+				<a href="/tags/%E5%8E%86%E5%8F%B2/">#历史</a>&nbsp;
+			</li>
+			
+		</ul>
+		
+
+		
+
+		
+		<div class="article-nav my-8 flex justify-between items-center px-2 sm:px-6 md:px-8">
+			
+			
+			<div class="article-next border-border-color shadow-redefine-flat shadow-shadow-color-2 rounded-medium px-4 py-2 hover:shadow-redefine-flat-hover hover:shadow-shadow-color-2">
+				<a class="next" rel="next" href="/2025/08/29/%E4%B8%83%E5%A4%95%E5%AF%B9%E8%AF%9D%E5%82%AC%E5%8C%96%E5%89%82%EF%BC%9A%E8%8B%B1%E8%AF%AD%E8%A7%92%E6%B7%B1%E5%BA%A6%E4%BA%A4%E6%B5%81%E5%BC%95%E5%AF%BC%E6%8C%87%E5%8D%97/">
+					<span class="title flex justify-center items-center">
+						<span class="post-nav-title-item truncate max-w-48">七夕对话催化剂：英语角深度交流引导指南</span>
+						<span class="post-nav-item">Next posts</span>
+					</span>
+					<span class="right arrow-icon flex justify-center items-center">
+						<i class="fa-solid fa-chevron-right"></i>
+					</span>
+				</a>
+			</div>
+			
+		</div>
+		
+
+
+		
+		<div class="comment-container px-2 sm:px-6 md:px-8 pb-8">
+			<div class="comments-container mt-10 w-full ">
+    <div id="comment-anchor" class="w-full h-2.5"></div>
+    <div class="comment-area-title w-full my-1.5 md:my-2.5 text-xl md:text-3xl font-bold">
+        Comments
+    </div>
+    
+
+        
+            
+    <div id="waline"></div>
+    <script type="module" data-swup-reload-script>
+      import { init } from '/js/libs/waline.mjs';
+
+      function loadWaline() {
+        init({
+          el: '#waline',
+          serverURL: 'my-blog-reviews-lemon.vercel.app',
+          dark: 'body[class~="dark-mode"]',
+          reaction: false,
+          requiredMeta: ['nick', 'mail'],
+          emoji: [],
+                    lang: 'zh-CN',
+        });
+      }
+
+      if (typeof swup !== 'undefined') {
+        loadWaline();
+      } else {
+        window.addEventListener('DOMContentLoaded', loadWaline);
+      }
+    </script>
+
+
+
+        
+    
+</div>
+
+		</div>
+		
+	</div>
+
+	
+	<div class="toc-content-container">
+		<div class="post-toc-wrap">
+	<div class="post-toc">
+		<div class="toc-title">On this page</div>
+		<div class="page-title">七夕节与中国现代经济发展要点</div>
+		<ol class="nav"><li class="nav-item nav-level-2"><a class="nav-link" href="#Key-Points-on-Qixi-Festival-and-China%E2%80%99s-Modern-Economic-Development"><span class="nav-text">Key Points on Qixi Festival and China’s Modern Economic Development</span></a></li><li class="nav-item nav-level-2"><a class="nav-link" href="#%E4%B8%83%E5%A4%95%E8%8A%82%E4%B8%8E%E4%B8%AD%E5%9B%BD%E7%8E%B0%E4%BB%A3%E7%BB%8F%E6%B5%8E%E5%8F%91%E5%B1%95%E8%A6%81%E7%82%B9"><span class="nav-text">七夕节与中国现代经济发展要点</span></a></li><li class="nav-item nav-level-2"><a class="nav-link" href="#Historical-Context-and-Economic-Ties"><span class="nav-text">Historical Context and Economic Ties</span></a></li><li class="nav-item nav-level-2"><a class="nav-link" href="#%E5%8E%86%E5%8F%B2%E8%83%8C%E6%99%AF%E4%B8%8E%E7%BB%8F%E6%B5%8E%E8%81%94%E7%B3%BB"><span class="nav-text">历史背景与经济联系</span></a></li><li class="nav-item nav-level-2"><a class="nav-link" href="#Stages-of-Development"><span class="nav-text">Stages of Development</span></a></li><li class="nav-item nav-level-2"><a class="nav-link" href="#%E5%8F%91%E5%B1%95%E9%98%B6%E6%AE%B5"><span class="nav-text">发展阶段</span></a></li><li class="nav-item nav-level-2"><a class="nav-link" href="#Economic-Impacts-Overview"><span class="nav-text">Economic Impacts Overview</span></a></li><li class="nav-item nav-level-2"><a class="nav-link" href="#%E7%BB%8F%E6%B5%8E%E5%BD%B1%E5%93%8D%E6%A6%82%E8%BF%B0"><span class="nav-text">经济影响概述</span></a></li><li class="nav-item nav-level-2"><a class="nav-link" href="#Late-Qing-to-Republic-Period-Budding-Commercialization-of-Qixi-Traditions"><span class="nav-text">Late Qing to Republic Period: Budding Commercialization of Qixi Traditions</span></a></li><li class="nav-item nav-level-2"><a class="nav-link" href="#%E6%99%9A%E6%B8%85%E8%87%B3%E6%B0%91%E5%9B%BD%E6%97%B6%E6%9C%9F%EF%BC%9A%E4%B8%83%E5%A4%95%E4%BC%A0%E7%BB%9F%E7%9A%84%E5%95%86%E4%B8%9A%E5%8C%96%E8%90%8C%E8%8A%BD"><span class="nav-text">晚清至民国时期：七夕传统的商业化萌芽</span></a></li><li class="nav-item nav-level-2"><a class="nav-link" href="#Post-Reform-and-Opening-Up-Revival-and-%E2%80%9CValentinization%E2%80%9D-as-a-Commercial-Marketing-Node"><span class="nav-text">Post-Reform and Opening Up: Revival and “Valentinization” as a Commercial Marketing Node</span></a></li><li class="nav-item nav-level-2"><a class="nav-link" href="#%E6%94%B9%E9%9D%A9%E5%BC%80%E6%94%BE%E5%90%8E%EF%BC%9A%E4%BD%9C%E4%B8%BA%E5%95%86%E4%B8%9A%E8%90%A5%E9%94%80%E8%8A%82%E7%82%B9%E7%9A%84%E5%A4%8D%E5%85%B4%E4%B8%8E%E2%80%9C%E6%83%85%E4%BA%BA%E8%8A%82%E5%8C%96%E2%80%9D"><span class="nav-text">改革开放后：作为商业营销节点的复兴与“情人节化”</span></a></li><li class="nav-item nav-level-2"><a class="nav-link" href="#Contemporary-Digital-Economy-Era-Qixi-as-a-%E2%80%9CFestival-Economy%E2%80%9D-Event-and-Industry-Impacts"><span class="nav-text">Contemporary Digital Economy Era: Qixi as a “Festival Economy” Event and Industry Impacts</span></a></li><li class="nav-item nav-level-2"><a class="nav-link" href="#%E5%BD%93%E4%BB%A3%E6%95%B0%E5%AD%97%E7%BB%8F%E6%B5%8E%E6%97%B6%E4%BB%A3%EF%BC%9A%E4%B8%83%E5%A4%95%E4%BD%9C%E4%B8%BA%E2%80%9C%E8%8A%82%E6%97%A5%E7%BB%8F%E6%B5%8E%E2%80%9D%E4%BA%8B%E4%BB%B6%E5%8F%8A%E5%85%B6%E8%A1%8C%E4%B8%9A%E5%BD%B1%E5%93%8D"><span class="nav-text">当代数字经济时代：七夕作为“节日经济”事件及其行业影响</span></a></li></ol>
+
+	</div>
+</div>
+	</div>
+	
+</div>
+			</div>
+
+			
+		</div>
+
+		<div class="main-content-footer">
+			<footer class="footer mt-5 py-5 h-auto text-base text-third-text-color relative border-t-2 border-t-border-color">
+    <div class="info-container py-3 text-center">
+        
+        <div class="text-center">
+            &copy;
+            
+              <span>2025</span>
+              -
+            
+            2025&nbsp;&nbsp;<i class="fa-solid fa-heart fa-beat" style="--fa-animation-duration: 0.5s; color: #f54545"></i>&nbsp;&nbsp;<a href="/">Chenxu Qiao</a>
+            
+                
+                <p class="post-count space-x-0.5">
+                    <span>
+                        5 posts in total
+                    </span>
+                    
+                </p>
+            
+        </div>
+        
+            <script data-swup-reload-script src="https://cn.vercount.one/js"></script>
+            <div class="relative text-center lg:absolute lg:right-[20px] lg:top-1/2 lg:-translate-y-1/2 lg:text-right">
+                
+                    <span id="busuanzi_container_site_uv" class="lg:!block">
+                        <span class="text-sm">VISITOR COUNT</span>
+                        <span id="busuanzi_value_site_uv"></span>
+                    </span>
+                
+                
+                    <span id="busuanzi_container_site_pv" class="lg:!block">
+                        <span class="text-sm">TOTAL PAGE VIEWS</span>
+                        <span id="busuanzi_value_site_pv"></span>
+                    </span>
+                
+            </div>
+        
+        <div class="relative text-center lg:absolute lg:left-[20px] lg:top-1/2 lg:-translate-y-1/2 lg:text-left">
+            <span class="lg:block text-sm">POWERED BY <?xml version="1.0" encoding="utf-8"?><!DOCTYPE svg PUBLIC "-//W3C//DTD SVG 1.1//EN" "http://www.w3.org/Graphics/SVG/1.1/DTD/svg11.dtd"><svg class="relative top-[2px] inline-block align-baseline" version="1.1" id="圖層_1" xmlns="http://www.w3.org/2000/svg" xmlns:xlink="http://www.w3.org/1999/xlink" x="0px" y="0px" width="1rem" height="1rem" viewBox="0 0 512 512" enable-background="new 0 0 512 512" xml:space="preserve"><path fill="#0E83CD" d="M256.4,25.8l-200,115.5L56,371.5l199.6,114.7l200-115.5l0.4-230.2L256.4,25.8z M349,354.6l-18.4,10.7l-18.6-11V275H200v79.6l-18.4,10.7l-18.6-11v-197l18.5-10.6l18.5,10.8V237h112v-79.6l18.5-10.6l18.5,10.8V354.6z"/></svg><a target="_blank" class="text-base" href="https://hexo.io">Hexo</a></span>
+            <span class="text-sm lg:block">THEME&nbsp;<a class="text-base" target="_blank" href="https://github.com/EvanNotFound/hexo-theme-redefine">Redefine v2.8.5</a></span>
+        </div>
+        
+        
+            <div>
+                Blog up for <span class="odometer" id="runtime_days" ></span> days <span class="odometer" id="runtime_hours"></span> hrs <span class="odometer" id="runtime_minutes"></span> Min <span class="odometer" id="runtime_seconds"></span> Sec
+            </div>
+        
+        
+            <script data-swup-reload-script>
+                try {
+                    function odometer_init() {
+                    const elements = document.querySelectorAll('.odometer');
+                    elements.forEach(el => {
+                        new Odometer({
+                            el,
+                            format: '( ddd).dd',
+                            duration: 200
+                        });
+                    });
+                    }
+                    odometer_init();
+                } catch (error) {}
+            </script>
+        
+        
+        
+    </div>  
+</footer>
+		</div>
+	</div>
+
+	
+	<div class="post-tools">
+		<div class="post-tools-container">
+	<ul class="article-tools-list">
+		<!-- TOC aside toggle -->
+		
+		<li class="right-bottom-tools page-aside-toggle">
+			<i class="fa-regular fa-outdent"></i>
+		</li>
+		
+
+		<!-- go comment -->
+		
+		<li class="go-comment">
+			<i class="fa-regular fa-comments"></i>
+		</li>
+		
+	</ul>
+</div>
+	</div>
+	
+
+	<div class="right-side-tools-container">
+		<div class="side-tools-container">
+	<ul class="hidden-tools-list">
+		<li class="right-bottom-tools tool-font-adjust-plus flex justify-center items-center">
+			<i class="fa-regular fa-magnifying-glass-plus"></i>
+		</li>
+
+		<li class="right-bottom-tools tool-font-adjust-minus flex justify-center items-center">
+			<i class="fa-regular fa-magnifying-glass-minus"></i>
+		</li>
+
+		<li class="right-bottom-tools tool-dark-light-toggle flex justify-center items-center">
+			<i class="fa-regular fa-moon"></i>
+		</li>
+
+		<!-- rss -->
+		
+
+		
+
+		<li class="right-bottom-tools tool-scroll-to-bottom flex justify-center items-center">
+			<i class="fa-regular fa-arrow-down"></i>
+		</li>
+	</ul>
+
+	<ul class="visible-tools-list">
+		<li class="right-bottom-tools toggle-tools-list flex justify-center items-center">
+			<i class="fa-regular fa-cog fa-spin"></i>
+		</li>
+		
+		<li class="right-bottom-tools tool-scroll-to-top flex justify-center items-center">
+			<i class="arrow-up fas fa-arrow-up"></i>
+			<span class="percent"></span>
+		</li>
+		
+		
+	</ul>
+</div>
+	</div>
+
+	<div class="image-viewer-container">
+	<img src="">
+</div>
+
+	
+
+</main>
+
+
+
+<script src="/js/build/libs/Swup.min.js"></script>
+
+<script src="/js/build/libs/SwupSlideTheme.min.js"></script>
+
+<script src="/js/build/libs/SwupScriptsPlugin.min.js"></script>
+
+<script src="/js/build/libs/SwupProgressPlugin.min.js"></script>
+
+<script src="/js/build/libs/SwupScrollPlugin.min.js"></script>
+
+<script src="/js/build/libs/SwupPreloadPlugin.min.js"></script>
+
+<script>
+    const swup = new Swup({
+        plugins: [
+            new SwupScriptsPlugin({
+                optin: true,
+            }),
+            new SwupProgressPlugin(),
+            new SwupScrollPlugin({
+                offset: 80,
+            }),
+            new SwupSlideTheme({
+                mainElement: ".main-content-body",
+            }),
+            new SwupPreloadPlugin(),
+        ],
+        containers: ["#swup"],
+    });
+</script>
+
+
+
+
+	
+<script src="/js/build/tools/imageViewer.js" type="module"></script>
+
+<script src="/js/build/utils.js" type="module"></script>
+
+<script src="/js/build/main.js" type="module"></script>
+
+<script src="/js/build/layouts/navbarShrink.js" type="module"></script>
+
+<script src="/js/build/tools/scrollTopBottom.js" type="module"></script>
+
+<script src="/js/build/tools/lightDarkSwitch.js" type="module"></script>
+
+<script src="/js/build/layouts/categoryList.js" type="module"></script>
+
+
+
+
+
+    
+<script src="/js/build/tools/codeBlock.js" type="module"></script>
+
+
+
+
+    
+<script src="/js/build/layouts/lazyload.js" type="module"></script>
+
+
+
+
+    
+<script src="/js/build/tools/runtime.js"></script>
+
+    
+<script src="/js/build/libs/odometer.min.js"></script>
+
+    
+<link rel="stylesheet" href="/assets/odometer-theme-minimal.css">
+
+
+
+
+  
+<script src="/js/build/libs/Typed.min.js"></script>
+
+  
+<script src="/js/build/plugins/typed.js" type="module"></script>
+
+
+
+
+
+
+
+
+    
+<script src="/js/build/libs/anime.min.js"></script>
+
+
+
+
+
+    
+<script src="/js/build/tools/tocToggle.js" type="module" data-swup-reload-script=""></script>
+
+<script src="/js/build/layouts/toc.js" type="module" data-swup-reload-script=""></script>
+
+<script src="/js/build/plugins/tabs.js" type="module" data-swup-reload-script=""></script>
+
+
+
+
+<script src="/js/build/libs/moment-with-locales.min.js" data-swup-reload-script=""></script>
+
+
+<script src="/js/build/layouts/essays.js" type="module" data-swup-reload-script=""></script>
+
+
+
+
+
+	
+</body>
+
+</html>
