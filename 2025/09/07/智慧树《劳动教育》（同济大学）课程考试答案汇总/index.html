@@ -1,1064 +1,4150 @@
 <!DOCTYPE html>
-<html lang="en">
-<head>
-    <meta charset="utf-8">
-    <meta name="viewport" content="width=device-width, initial-scale=1">
-    <meta name="keywords" content="Hexo Theme Redefine">
-    
-    <meta name="author" content="Chenxu Qiao">
-    
-    <!-- Completely eliminate flash of wrong theme -->
-    <script>
-        (function() {
-            const THEME_KEY = "REDEFINE-THEME-STATUS";
-            const DARK = "dark", LIGHT = "light";
-            
-            // Get preferred theme
-            function getTheme() {
-                try {
-                    const saved = localStorage.getItem(THEME_KEY);
-                    if (saved) {
-                        const { isDark } = JSON.parse(saved);
-                        return isDark ? DARK : LIGHT;
-                    }
-                } catch (e) {}
-                
-                return matchMedia("(prefers-color-scheme: dark)").matches ? DARK : LIGHT;
-            }
-            
-            // Apply theme to document
-            function applyTheme(theme) {
-                const isDark = theme === DARK;
-                const root = document.documentElement;
-                
-                // Set data attribute for CSS variables
-                root.setAttribute("data-theme", theme);
-                
-                // Set classes for compatibility
-                root.classList.add(theme);
-                root.classList.remove(isDark ? LIGHT : DARK);
-                root.style.colorScheme = theme;
-            }
-            
-            // Initial application
-            const theme = getTheme();
-            applyTheme(theme);
-            
-            // Listen for system preference changes
-            matchMedia("(prefers-color-scheme: dark)").addEventListener("change", ({ matches }) => {
-                // Only update if using system preference (no localStorage entry)
-                if (!localStorage.getItem(THEME_KEY)) {
-                    applyTheme(matches ? DARK : LIGHT);
-                }
-            });
-            
-            // Set body classes once DOM is ready
-            if (document.readyState !== "loading") {
-                document.body.classList.add(theme + "-mode");
-            } else {
-                document.addEventListener("DOMContentLoaded", () => {
-                    document.body.classList.add(theme + "-mode");
-                    document.body.classList.remove((theme === DARK ? LIGHT : DARK) + "-mode");
-                });
-            }
-        })();
-    </script>
-    
-    <!-- Critical CSS to prevent flash -->
-    <style>
-        :root[data-theme="dark"] {
-            --background-color: #202124;
-            --background-color-transparent: rgba(32, 33, 36, 0.6);
-            --second-background-color: #2d2e32;
-            --third-background-color: #34353a;
-            --third-background-color-transparent: rgba(32, 33, 36, 0.6);
-            --primary-color: #0066CC;
-            --first-text-color: #ffffff;
-            --second-text-color: #eeeeee;
-            --third-text-color: #bebec6;
-            --fourth-text-color: #999999;
-            --default-text-color: #bebec6;
-            --invert-text-color: #373D3F;
-            --border-color: rgba(255, 255, 255, 0.08);
-            --selection-color: #0066CC;
-            --shadow-color-1: rgba(255, 255, 255, 0.08);
-            --shadow-color-2: rgba(255, 255, 255, 0.05);
-        }
-        
-        :root[data-theme="light"] {
-            --background-color: #fff;
-            --background-color-transparent: rgba(255, 255, 255, 0.6);
-            --second-background-color: #f8f8f8;
-            --third-background-color: #f2f2f2;
-            --third-background-color-transparent: rgba(241, 241, 241, 0.6);
-            --primary-color: #0066CC;
-            --first-text-color: #16171a;
-            --second-text-color: #2f3037;
-            --third-text-color: #5e5e5e;
-            --fourth-text-color: #eeeeee;
-            --default-text-color: #373D3F;
-            --invert-text-color: #bebec6;
-            --border-color: rgba(0, 0, 0, 0.08);
-            --selection-color: #0066CC;
-            --shadow-color-1: rgba(0, 0, 0, 0.08);
-            --shadow-color-2: rgba(0, 0, 0, 0.05);
-        }
-        
-        body {
-            background-color: var(--background-color);
-            color: var(--default-text-color);
-        }
-        
-        /* Apply body classes as soon as DOM is ready */
-        :root[data-theme="dark"] body {
-            background-color: var(--background-color);
-            color: var(--default-text-color);
-        }
-    </style>
-    
-    <!-- preconnect -->
-    <link rel="preconnect" href="https://fonts.googleapis.com">
-    <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+<html lang="zh-CN">
+    <head hexo-theme='https://github.com/volantis-x/hexo-theme-volantis/#5.8.0'>
+  <meta name="generator" content="Hexo 7.3.0">
+  <meta name="Volantis" content="5.8.0">
+  <meta charset="utf-8">
+  <!-- SEO相关 -->
+  
+  <link rel="canonical" href="https://chenxuqiao.github.io/2025/09/07/智慧树《劳动教育》（同济大学）课程考试答案汇总/"/>
+  <!-- 渲染优化 -->
+    <meta http-equiv='x-dns-prefetch-control' content='on' />
+      <link rel='dns-prefetch' href='https://unpkg.com'>
+      <link rel="preconnect" href="https://unpkg.com" crossorigin>
+      <link rel='dns-prefetch' href='https://cdn.bootcdn.net'>
+      <link rel="preconnect" href="https://cdn.bootcdn.net" crossorigin>
+  <meta name="renderer" content="webkit">
+  <meta name="force-rendering" content="webkit">
+  <meta http-equiv="X-UA-Compatible" content="IE=Edge,chrome=1">
+    <meta http-equiv="Content-Security-Policy" content=" default-src 'self' https:; block-all-mixed-content; base-uri 'self' https:; form-action 'self' https:; worker-src 'self' https:; connect-src 'self' https: *; img-src 'self' data: https: *; media-src 'self' https: *; font-src 'self' data: https: *; frame-src 'self' https: *; manifest-src 'self' https: *; child-src https:; script-src 'self' https: 'unsafe-inline' *; style-src 'self' https: 'unsafe-inline' *; ">
+  <meta name="HandheldFriendly" content="True" >
+  <meta name="apple-mobile-web-app-capable" content="yes">
+  <meta name="viewport" content="width=device-width, initial-scale=1, maximum-scale=5">
+  <meta content="black-translucent" name="apple-mobile-web-app-status-bar-style">
+  <meta content="telephone=no" name="format-detection">
+  <!-- import head_begin begin -->
+  <!-- import head_begin end -->
+  <!-- Custom Files headBegin begin-->
+  
+  <!-- Custom Files headBegin end-->
+  <!-- front-matter head_begin begin -->
+  <!-- front-matter head_begin end -->
+  <link rel="preload" href="/css/style.css" as="style">
+  <link rel="preload" href="https://unpkg.com/volantis-static@0.0.1654736714924/media/fonts/VarelaRound/VarelaRound-Regular.ttf" as="font" type="font/ttf" crossorigin="anonymous">
+<link rel="preload" href="https://unpkg.com/volantis-static@0.0.1654736714924/media/fonts/UbuntuMono/UbuntuMono-Regular.ttf" as="font" type="font/ttf" crossorigin="anonymous">
 
-    
-    <!--- Seo Part-->
-    
-    <link rel="canonical" href="http://example.com/2025/09/07/智慧树《劳动教育》（同济大学）课程考试答案汇总/"/>
-    <meta name="robots" content="index,follow">
-    <meta name="googlebot" content="index,follow">
-    <meta name="revisit-after" content="1 days">
-    
-    
-    
-        
-        <meta name="description" content="Hexo Theme Redefine, Redefine Your Hexo Journey.">
+  <!-- feed -->
+  <!-- 页面元数据 -->
+  <title>智慧树《劳动教育》（同济大学）课程考试答案汇总 - Chenxu Qiao</title>
+  <meta name="keywords" content="智慧树,同济大学,劳动教育,课程答案,考试答案,null">
+  <meta desc name="description" content="分享关于学习、技术实践、产品设计和个人成长的思考与总结 - Chenxu Qiao - Chenxu Qiao">
+  
 <meta property="og:type" content="article">
 <meta property="og:title" content="智慧树《劳动教育》（同济大学）课程考试答案汇总">
-<meta property="og:url" content="http://example.com/2025/09/07/%E6%99%BA%E6%85%A7%E6%A0%91%E3%80%8A%E5%8A%B3%E5%8A%A8%E6%95%99%E8%82%B2%E3%80%8B%EF%BC%88%E5%90%8C%E6%B5%8E%E5%A4%A7%E5%AD%A6%EF%BC%89%E8%AF%BE%E7%A8%8B%E8%80%83%E8%AF%95%E7%AD%94%E6%A1%88%E6%B1%87%E6%80%BB/index.html">
-<meta property="og:site_name" content="Hexo">
-<meta property="og:description" content="Hexo Theme Redefine, Redefine Your Hexo Journey.">
-<meta property="og:locale" content="en_US">
-<meta property="og:image" content="http://example.com/images/redefine-og.webp">
+<meta property="og:url" content="https://chenxuqiao.github.io/2025/09/07/%E6%99%BA%E6%85%A7%E6%A0%91%E3%80%8A%E5%8A%B3%E5%8A%A8%E6%95%99%E8%82%B2%E3%80%8B%EF%BC%88%E5%90%8C%E6%B5%8E%E5%A4%A7%E5%AD%A6%EF%BC%89%E8%AF%BE%E7%A8%8B%E8%80%83%E8%AF%95%E7%AD%94%E6%A1%88%E6%B1%87%E6%80%BB/">
+<meta property="og:site_name" content="Chenxu Qiao">
+<meta property="og:description" content="本文汇总了智慧树知到平台，由同济大学开设的《劳动教育》课程的见面课、章节测试及期末考试的题目与答案。  点击此处下载答案 见面课：劳动教育在各专业中的实践 1、问题:研究生要结合学科开展劳动教育与评价。 选项： A:对 B:错 答案: 【对】 2、问题:劳动教育不需要与专业实践结合。 选项： A:对 B:错 答案: 【错】 3、问题:加强劳动教育对以下哪些具有重大意义？ 选项： A:全面提高国民综">
+<meta property="og:locale" content="zh_CN">
+<meta property="og:image" content="https://unpkg.com/volantis-static@0.0.1654736714924/media/org.volantis/blog/favicon/android-chrome-192x192.png">
 <meta property="article:published_time" content="2025-09-06T21:40:00.000Z">
-<meta property="article:modified_time" content="2025-09-07T09:46:16.377Z">
-<meta property="article:author" content="John Doe">
+<meta property="article:modified_time" content="2025-09-07T10:06:44.551Z">
+<meta property="article:author" content="Chenxu Qiao">
 <meta property="article:tag" content="智慧树">
 <meta property="article:tag" content="同济大学">
 <meta property="article:tag" content="劳动教育">
 <meta property="article:tag" content="课程答案">
 <meta property="article:tag" content="考试答案">
 <meta name="twitter:card" content="summary">
-<meta name="twitter:image" content="http://example.com/images/redefine-og.webp">
-    
-    
-    <!--- Icon Part-->
-    <link rel="icon" type="image/png" href="/images/favicon.jpeg" sizes="192x192">
-    <link rel="apple-touch-icon" sizes="180x180" href="/images/favicon.jpeg">
-    <meta name="theme-color" content="#A31F34">
-    <link rel="shortcut icon" href="/images/favicon.jpeg">
-    <!--- Page Info-->
-    
-    <title>
-        
-            智慧树《劳动教育》（同济大学）课程考试答案汇总 | Chenxu Qiao
-        
-    </title>
+<meta name="twitter:image" content="https://unpkg.com/volantis-static@0.0.1654736714924/media/org.volantis/blog/favicon/android-chrome-192x192.png">
+  <style>
+    /* 首屏样式 */
+    #safearea {
+  display: none;
+}
+:root {
+  --color-site-body: #f4f4f4;
+  --color-site-bg: #f4f4f4;
+  --color-site-inner: #fff;
+  --color-site-footer: #666;
+  --color-card: #fff;
+  --color-text: #444;
+  --color-block: #f6f6f6;
+  --color-inlinecode: #c74f00;
+  --color-codeblock: #fff7ea;
+  --color-h1: #3a3a3a;
+  --color-h2: #3a3a3a;
+  --color-h3: #333;
+  --color-h4: #444;
+  --color-h5: #555;
+  --color-h6: #666;
+  --color-p: #444;
+  --color-list: #666;
+  --color-list-hl: #30ad91;
+  --color-meta: #888;
+  --color-read-bkg: #e0d8c8;
+  --color-read-post: #f8f1e2;
+  --color-copyright-bkg: #f5f5f5;
+}
+* {
+  box-sizing: border-box;
+  -webkit-box-sizing: border-box;
+  -moz-box-sizing: border-box;
+  outline: none;
+  margin: 0;
+  padding: 0;
+}
+*::-webkit-scrollbar {
+  height: 4px;
+  width: 4px;
+}
+*::-webkit-scrollbar-track-piece {
+  background: transparent;
+}
+*::-webkit-scrollbar-thumb {
+  background: #3dd9b6;
+  cursor: pointer;
+  border-radius: 2px;
+  -webkit-border-radius: 2px;
+}
+*::-webkit-scrollbar-thumb:hover {
+  background: #ff5722;
+}
+html {
+  color: var(--color-text);
+  width: 100%;
+  height: 100%;
+  font-family: UbuntuMono, "Varela Round", "PingFang SC", "Microsoft YaHei", Helvetica, Arial, Menlo, Monaco, monospace, sans-serif;
+  font-size: 16px;
+}
+html >::-webkit-scrollbar {
+  height: 4px;
+  width: 4px;
+}
+html >::-webkit-scrollbar-track-piece {
+  background: transparent;
+}
+html >::-webkit-scrollbar-thumb {
+  background: #54b5a0 linear-gradient(45deg, rgba(255,255,255,0.4) 25%, transparent 25%, transparent 50%, rgba(255,255,255,0.4) 50%, rgba(255,255,255,0.4) 75%, transparent 75%, transparent);
+  cursor: pointer;
+  border-radius: 2px;
+  -webkit-border-radius: 2px;
+}
+html >::-webkit-scrollbar-thumb:hover {
+  background: #54b5a0 linear-gradient(45deg, rgba(255,255,255,0.4) 25%, transparent 25%, transparent 50%, rgba(255,255,255,0.4) 50%, rgba(255,255,255,0.4) 75%, transparent 75%, transparent);
+}
+body {
+  background-color: var(--color-site-body);
+  text-rendering: optimizelegibility;
+  -webkit-tap-highlight-color: rgba(0,0,0,0);
+  line-height: 1.6;
+  -webkit-text-size-adjust: 100%;
+  -ms-text-size-adjust: 100%;
+}
+body.modal-active {
+  overflow: hidden;
+}
+@media screen and (max-width: 680px) {
+  body.modal-active {
+    position: fixed;
+    top: 0;
+    right: 0;
+    bottom: 0;
+    left: 0;
+  }
+}
+a {
+  color: #2092ec;
+  cursor: pointer;
+  text-decoration: none;
+  transition: all 0.28s ease;
+  -webkit-transition: all 0.28s ease;
+  -khtml-transition: all 0.28s ease;
+  -moz-transition: all 0.28s ease;
+  -o-transition: all 0.28s ease;
+  -ms-transition: all 0.28s ease;
+}
+a:hover {
+  color: #ff5722;
+}
+a:active,
+a:hover {
+  outline: 0;
+}
+ul,
+ol {
+  padding-left: 0;
+}
+ul li,
+ol li {
+  list-style: none;
+}
+header {
+  display: -webkit-box /* OLD - iOS 6-, Safari 3.1-6 */;
+  display: -moz-box /* OLD - Firefox 19- (buggy but mostly works) */;
+  display: block;
+}
+img {
+  border: 0;
+  background: none;
+  max-width: 100%;
+}
+svg:not(:root) {
+  overflow: hidden;
+}
+hr {
+  -moz-box-sizing: content-box;
+  box-sizing: content-box;
+  -webkit-box-sizing: content-box;
+  -moz-box-sizing: content-box;
+  height: 0;
+  border: 0;
+  border-radius: 1px;
+  -webkit-border-radius: 1px;
+  border-bottom: 1px solid rgba(68,68,68,0.1);
+}
+button,
+input {
+  color: inherit;
+  font: inherit;
+  margin: 0;
+}
+button {
+  overflow: visible;
+  text-transform: none;
+  -webkit-appearance: button;
+  cursor: pointer;
+}
+@supports (backdrop-filter: blur(20px)) {
+  .blur {
+    background: rgba(255,255,255,0.9) !important;
+    backdrop-filter: saturate(200%) blur(20px);
+  }
+}
+@supports (backdrop-filter: blur(20px)) {
+  .blur#comments {
+    backdrop-filter: unset;
+  }
+}
+#layoutHelper-comments {
+  margin-bottom: 100px;
+}
+.shadow {
+  box-shadow: 0 1px 2px 0px rgba(0,0,0,0.1);
+  -webkit-box-shadow: 0 1px 2px 0px rgba(0,0,0,0.1);
+}
+.shadow.floatable {
+  transition: all 0.28s ease;
+  -webkit-transition: all 0.28s ease;
+  -khtml-transition: all 0.28s ease;
+  -moz-transition: all 0.28s ease;
+  -o-transition: all 0.28s ease;
+  -ms-transition: all 0.28s ease;
+}
+.shadow.floatable:hover {
+  box-shadow: 0 2px 4px 0px rgba(0,0,0,0.1), 0 4px 8px 0px rgba(0,0,0,0.1), 0 8px 16px 0px rgba(0,0,0,0.1);
+  -webkit-box-shadow: 0 2px 4px 0px rgba(0,0,0,0.1), 0 4px 8px 0px rgba(0,0,0,0.1), 0 8px 16px 0px rgba(0,0,0,0.1);
+}
+#l_cover {
+  min-height: 64px;
+}
+.cover-wrapper {
+  top: 0;
+  left: 0;
+  max-width: 100%;
+  height: 100vh;
+  display: -webkit-box /* OLD - iOS 6-, Safari 3.1-6 */;
+  display: -moz-box /* OLD - Firefox 19- (buggy but mostly works) */;
+  display: -ms-flexbox /* TWEENER - IE 10 */;
+  display: -webkit-flex /* NEW - Chrome */;
+  display: flex /* NEW, Spec - Opera 12.1, Firefox 20+ */;
+  display: flex;
+  flex-wrap: nowrap;
+  -webkit-flex-wrap: nowrap;
+  -khtml-flex-wrap: nowrap;
+  -moz-flex-wrap: nowrap;
+  -o-flex-wrap: nowrap;
+  -ms-flex-wrap: nowrap;
+  -webkit-box-direction: normal;
+  -moz-box-direction: normal;
+  -webkit-box-orient: vertical;
+  -moz-box-orient: vertical;
+  -webkit-flex-direction: column;
+  -ms-flex-direction: column;
+  flex-direction: column;
+  align-items: center;
+  align-self: center;
+  align-content: center;
+  color: var(--color-site-inner);
+  padding: 0 16px;
+  user-select: none;
+  -webkit-user-select: none;
+  -moz-user-select: none;
+  -ms-user-select: none;
+  position: relative;
+  overflow: hidden;
+  margin-bottom: -100px;
+}
+.cover-wrapper .cover-bg {
+  position: absolute;
+  width: 100%;
+  height: 100%;
+  background-position: center;
+  background-size: cover;
+  -webkit-background-size: cover;
+  -moz-background-size: cover;
+}
+.cover-wrapper .cover-bg.lazyload:not(.loaded) {
+  opacity: 0;
+  -webkit-opacity: 0;
+  -moz-opacity: 0;
+}
+.cover-wrapper .cover-bg.lazyload.loaded {
+  animation-delay: 0s;
+  animation-duration: 0.5s;
+  animation-fill-mode: forwards;
+  animation-timing-function: ease-out;
+  animation-name: fadeIn;
+}
+@-moz-keyframes fadeIn {
+  0% {
+    opacity: 0;
+    -webkit-opacity: 0;
+    -moz-opacity: 0;
+    filter: blur(12px);
+    transform: scale(1.02);
+    -webkit-transform: scale(1.02);
+    -khtml-transform: scale(1.02);
+    -moz-transform: scale(1.02);
+    -o-transform: scale(1.02);
+    -ms-transform: scale(1.02);
+  }
+  100% {
+    opacity: 1;
+    -webkit-opacity: 1;
+    -moz-opacity: 1;
+  }
+}
+@-webkit-keyframes fadeIn {
+  0% {
+    opacity: 0;
+    -webkit-opacity: 0;
+    -moz-opacity: 0;
+    filter: blur(12px);
+    transform: scale(1.02);
+    -webkit-transform: scale(1.02);
+    -khtml-transform: scale(1.02);
+    -moz-transform: scale(1.02);
+    -o-transform: scale(1.02);
+    -ms-transform: scale(1.02);
+  }
+  100% {
+    opacity: 1;
+    -webkit-opacity: 1;
+    -moz-opacity: 1;
+  }
+}
+@-o-keyframes fadeIn {
+  0% {
+    opacity: 0;
+    -webkit-opacity: 0;
+    -moz-opacity: 0;
+    filter: blur(12px);
+    transform: scale(1.02);
+    -webkit-transform: scale(1.02);
+    -khtml-transform: scale(1.02);
+    -moz-transform: scale(1.02);
+    -o-transform: scale(1.02);
+    -ms-transform: scale(1.02);
+  }
+  100% {
+    opacity: 1;
+    -webkit-opacity: 1;
+    -moz-opacity: 1;
+  }
+}
+@keyframes fadeIn {
+  0% {
+    opacity: 0;
+    -webkit-opacity: 0;
+    -moz-opacity: 0;
+    filter: blur(12px);
+    transform: scale(1.02);
+    -webkit-transform: scale(1.02);
+    -khtml-transform: scale(1.02);
+    -moz-transform: scale(1.02);
+    -o-transform: scale(1.02);
+    -ms-transform: scale(1.02);
+  }
+  100% {
+    opacity: 1;
+    -webkit-opacity: 1;
+    -moz-opacity: 1;
+  }
+}
+.cover-wrapper .cover-body {
+  z-index: 1;
+  position: relative;
+  width: 100%;
+  height: 100%;
+}
+.cover-wrapper#full {
+  height: calc(100vh + 100px);
+  padding-bottom: 100px;
+}
+.cover-wrapper#half {
+  max-height: 640px;
+  min-height: 400px;
+  height: calc(36vh - 64px + 200px);
+}
+.cover-wrapper #scroll-down {
+  width: 100%;
+  height: 64px;
+  position: absolute;
+  bottom: 100px;
+  text-align: center;
+  cursor: pointer;
+}
+.cover-wrapper #scroll-down .scroll-down-effects {
+  color: #fff;
+  font-size: 24px;
+  line-height: 64px;
+  position: absolute;
+  width: 24px;
+  left: calc(50% - 12px);
+  text-shadow: 0 1px 2px rgba(0,0,0,0.1);
+  animation: scroll-down-effect 1.5s infinite;
+  -webkit-animation: scroll-down-effect 1.5s infinite;
+  -khtml-animation: scroll-down-effect 1.5s infinite;
+  -moz-animation: scroll-down-effect 1.5s infinite;
+  -o-animation: scroll-down-effect 1.5s infinite;
+  -ms-animation: scroll-down-effect 1.5s infinite;
+}
+@-moz-keyframes scroll-down-effect {
+  0% {
+    top: 0;
+    opacity: 1;
+    -webkit-opacity: 1;
+    -moz-opacity: 1;
+  }
+  50% {
+    top: -16px;
+    opacity: 0.4;
+    -webkit-opacity: 0.4;
+    -moz-opacity: 0.4;
+  }
+  100% {
+    top: 0;
+    opacity: 1;
+    -webkit-opacity: 1;
+    -moz-opacity: 1;
+  }
+}
+@-webkit-keyframes scroll-down-effect {
+  0% {
+    top: 0;
+    opacity: 1;
+    -webkit-opacity: 1;
+    -moz-opacity: 1;
+  }
+  50% {
+    top: -16px;
+    opacity: 0.4;
+    -webkit-opacity: 0.4;
+    -moz-opacity: 0.4;
+  }
+  100% {
+    top: 0;
+    opacity: 1;
+    -webkit-opacity: 1;
+    -moz-opacity: 1;
+  }
+}
+@-o-keyframes scroll-down-effect {
+  0% {
+    top: 0;
+    opacity: 1;
+    -webkit-opacity: 1;
+    -moz-opacity: 1;
+  }
+  50% {
+    top: -16px;
+    opacity: 0.4;
+    -webkit-opacity: 0.4;
+    -moz-opacity: 0.4;
+  }
+  100% {
+    top: 0;
+    opacity: 1;
+    -webkit-opacity: 1;
+    -moz-opacity: 1;
+  }
+}
+@keyframes scroll-down-effect {
+  0% {
+    top: 0;
+    opacity: 1;
+    -webkit-opacity: 1;
+    -moz-opacity: 1;
+  }
+  50% {
+    top: -16px;
+    opacity: 0.4;
+    -webkit-opacity: 0.4;
+    -moz-opacity: 0.4;
+  }
+  100% {
+    top: 0;
+    opacity: 1;
+    -webkit-opacity: 1;
+    -moz-opacity: 1;
+  }
+}
+.cover-wrapper .cover-body {
+  margin-top: 64px;
+  margin-bottom: 100px;
+}
+.cover-wrapper .cover-body,
+.cover-wrapper .cover-body .top,
+.cover-wrapper .cover-body .bottom {
+  display: -webkit-box /* OLD - iOS 6-, Safari 3.1-6 */;
+  display: -moz-box /* OLD - Firefox 19- (buggy but mostly works) */;
+  display: -ms-flexbox /* TWEENER - IE 10 */;
+  display: -webkit-flex /* NEW - Chrome */;
+  display: flex /* NEW, Spec - Opera 12.1, Firefox 20+ */;
+  display: flex;
+  -webkit-box-direction: normal;
+  -moz-box-direction: normal;
+  -webkit-box-orient: vertical;
+  -moz-box-orient: vertical;
+  -webkit-flex-direction: column;
+  -ms-flex-direction: column;
+  flex-direction: column;
+  align-items: center;
+  justify-content: center;
+  -webkit-justify-content: center;
+  -khtml-justify-content: center;
+  -moz-justify-content: center;
+  -o-justify-content: center;
+  -ms-justify-content: center;
+  max-width: 100%;
+}
+.cover-wrapper .cover-body .bottom {
+  margin-top: 32px;
+}
+.cover-wrapper .cover-body .title {
+  font-family: "Varela Round", "PingFang SC", "Microsoft YaHei", Helvetica, Arial, Helvetica, monospace;
+  font-size: 3.125rem;
+  line-height: 1.2;
+  text-shadow: 0 1px 2px rgba(0,0,0,0.1);
+}
+.cover-wrapper .cover-body .subtitle {
+  font-size: 20px;
+}
+.cover-wrapper .cover-body .logo {
+  max-height: 120px;
+  max-width: calc(100% - 4 * 16px);
+}
+@media screen and (min-height: 1024px) {
+  .cover-wrapper .cover-body .title {
+    font-size: 3rem;
+  }
+  .cover-wrapper .cover-body .subtitle {
+    font-size: 1.05rem;
+  }
+  .cover-wrapper .cover-body .logo {
+    max-height: 150px;
+  }
+}
+.cover-wrapper .cover-body .m_search {
+  position: relative;
+  max-width: calc(100% - 16px);
+  width: 320px;
+  vertical-align: middle;
+}
+.cover-wrapper .cover-body .m_search .form {
+  position: relative;
+  display: -webkit-box /* OLD - iOS 6-, Safari 3.1-6 */;
+  display: -moz-box /* OLD - Firefox 19- (buggy but mostly works) */;
+  display: block;
+  width: 100%;
+}
+.cover-wrapper .cover-body .m_search .icon,
+.cover-wrapper .cover-body .m_search .input {
+  transition: all 0.28s ease;
+  -webkit-transition: all 0.28s ease;
+  -khtml-transition: all 0.28s ease;
+  -moz-transition: all 0.28s ease;
+  -o-transition: all 0.28s ease;
+  -ms-transition: all 0.28s ease;
+}
+.cover-wrapper .cover-body .m_search .icon {
+  position: absolute;
+  display: -webkit-box /* OLD - iOS 6-, Safari 3.1-6 */;
+  display: -moz-box /* OLD - Firefox 19- (buggy but mostly works) */;
+  display: block;
+  line-height: 2.5rem;
+  width: 32px;
+  top: 0;
+  left: 5px;
+  color: rgba(68,68,68,0.75);
+}
+.cover-wrapper .cover-body .m_search .input {
+  display: -webkit-box /* OLD - iOS 6-, Safari 3.1-6 */;
+  display: -moz-box /* OLD - Firefox 19- (buggy but mostly works) */;
+  display: block;
+  height: 2.5rem;
+  width: 100%;
+  box-shadow: none;
+  -webkit-box-shadow: none;
+  box-sizing: border-box;
+  -webkit-box-sizing: border-box;
+  -moz-box-sizing: border-box;
+  font-size: 0.875rem;
+  -webkit-appearance: none;
+  padding-left: 36px;
+  border-radius: 1.4rem;
+  -webkit-border-radius: 1.4rem;
+  background: rgba(255,255,255,0.6);
+  backdrop-filter: blur(10px);
+  border: none;
+  color: var(--color-text);
+}
+@media screen and (max-width: 500px) {
+  .cover-wrapper .cover-body .m_search .input {
+    padding-left: 36px;
+  }
+}
+.cover-wrapper .cover-body .m_search .input:hover {
+  background: rgba(255,255,255,0.8);
+}
+.cover-wrapper .cover-body .m_search .input:focus {
+  background: #fff;
+}
+.cover-wrapper .list-h {
+  display: -webkit-box /* OLD - iOS 6-, Safari 3.1-6 */;
+  display: -moz-box /* OLD - Firefox 19- (buggy but mostly works) */;
+  display: -ms-flexbox /* TWEENER - IE 10 */;
+  display: -webkit-flex /* NEW - Chrome */;
+  display: flex /* NEW, Spec - Opera 12.1, Firefox 20+ */;
+  display: flex;
+  -webkit-box-direction: normal;
+  -moz-box-direction: normal;
+  -webkit-box-orient: horizontal;
+  -moz-box-orient: horizontal;
+  -webkit-flex-direction: row;
+  -ms-flex-direction: row;
+  flex-direction: row;
+  flex-wrap: wrap;
+  -webkit-flex-wrap: wrap;
+  -khtml-flex-wrap: wrap;
+  -moz-flex-wrap: wrap;
+  -o-flex-wrap: wrap;
+  -ms-flex-wrap: wrap;
+  align-items: stretch;
+  border-radius: 4px;
+  -webkit-border-radius: 4px;
+  user-select: none;
+  -webkit-user-select: none;
+  -moz-user-select: none;
+  -ms-user-select: none;
+}
+.cover-wrapper .list-h a {
+  -webkit-box-flex: 1;
+  -moz-box-flex: 1;
+  -webkit-flex: 1 0;
+  -ms-flex: 1 0;
+  flex: 1 0;
+  display: -webkit-box /* OLD - iOS 6-, Safari 3.1-6 */;
+  display: -moz-box /* OLD - Firefox 19- (buggy but mostly works) */;
+  display: -ms-flexbox /* TWEENER - IE 10 */;
+  display: -webkit-flex /* NEW - Chrome */;
+  display: flex /* NEW, Spec - Opera 12.1, Firefox 20+ */;
+  display: flex;
+  font-weight: 600;
+}
+.cover-wrapper .list-h a img {
+  display: -webkit-box /* OLD - iOS 6-, Safari 3.1-6 */;
+  display: -moz-box /* OLD - Firefox 19- (buggy but mostly works) */;
+  display: block;
+  border-radius: 2px;
+  -webkit-border-radius: 2px;
+  margin: 4px;
+  min-width: 40px;
+  max-width: 44px;
+}
+@media screen and (max-width: 768px) {
+  .cover-wrapper .list-h a img {
+    min-width: 36px;
+    max-width: 40px;
+  }
+}
+@media screen and (max-width: 500px) {
+  .cover-wrapper .list-h a img {
+    margin: 2px 4px;
+    min-width: 32px;
+    max-width: 36px;
+  }
+}
+@media screen and (max-width: 375px) {
+  .cover-wrapper .list-h a img {
+    min-width: 28px;
+    max-width: 32px;
+  }
+}
+.cover-wrapper {
+  max-width: 100%;
+}
+.cover-wrapper.search .bottom .menu {
+  margin-top: 16px;
+}
+.cover-wrapper.search .bottom .menu .list-h a {
+  white-space: nowrap;
+  -webkit-box-direction: normal;
+  -moz-box-direction: normal;
+  -webkit-box-orient: horizontal;
+  -moz-box-orient: horizontal;
+  -webkit-flex-direction: row;
+  -ms-flex-direction: row;
+  flex-direction: row;
+  align-items: baseline;
+  padding: 2px;
+  margin: 4px;
+  color: var(--color-site-inner);
+  opacity: 0.75;
+  -webkit-opacity: 0.75;
+  -moz-opacity: 0.75;
+  text-shadow: 0 1px 2px rgba(0,0,0,0.05);
+  border-bottom: 2px solid transparent;
+}
+.cover-wrapper.search .bottom .menu .list-h a i {
+  margin-right: 4px;
+}
+.cover-wrapper.search .bottom .menu .list-h a p {
+  font-size: 0.9375rem;
+}
+.cover-wrapper.search .bottom .menu .list-h a:hover,
+.cover-wrapper.search .bottom .menu .list-h a.active,
+.cover-wrapper.search .bottom .menu .list-h a:active {
+  opacity: 1;
+  -webkit-opacity: 1;
+  -moz-opacity: 1;
+  border-bottom: 2px solid var(--color-site-inner);
+}
+.cover-wrapper.dock .menu,
+.cover-wrapper.featured .menu,
+.cover-wrapper.focus .menu {
+  border-radius: 6px;
+  -webkit-border-radius: 6px;
+}
+.cover-wrapper.dock .menu .list-h a,
+.cover-wrapper.featured .menu .list-h a,
+.cover-wrapper.focus .menu .list-h a {
+  -webkit-box-direction: normal;
+  -moz-box-direction: normal;
+  -webkit-box-orient: vertical;
+  -moz-box-orient: vertical;
+  -webkit-flex-direction: column;
+  -ms-flex-direction: column;
+  flex-direction: column;
+  align-items: center;
+  padding: 12px;
+  line-height: 24px;
+  border-radius: 4px;
+  -webkit-border-radius: 4px;
+  border-bottom: none;
+  text-align: center;
+  align-content: flex-end;
+  color: rgba(68,68,68,0.7);
+  font-size: 1.5rem;
+}
+@media screen and (max-width: 500px) {
+  .cover-wrapper.dock .menu .list-h a,
+  .cover-wrapper.featured .menu .list-h a,
+  .cover-wrapper.focus .menu .list-h a {
+    padding: 12px 8px;
+  }
+}
+.cover-wrapper.dock .menu .list-h a i,
+.cover-wrapper.featured .menu .list-h a i,
+.cover-wrapper.focus .menu .list-h a i {
+  margin: 8px;
+}
+.cover-wrapper.dock .menu .list-h a p,
+.cover-wrapper.featured .menu .list-h a p,
+.cover-wrapper.focus .menu .list-h a p {
+  font-size: 0.875rem;
+}
+.cover-wrapper.dock .menu .list-h a.active,
+.cover-wrapper.featured .menu .list-h a.active,
+.cover-wrapper.focus .menu .list-h a.active {
+  background: var(--color-card);
+  backdrop-filter: none;
+}
+.cover-wrapper.dock .menu .list-h a.active i,
+.cover-wrapper.featured .menu .list-h a.active i,
+.cover-wrapper.focus .menu .list-h a.active i,
+.cover-wrapper.dock .menu .list-h a.active i+p,
+.cover-wrapper.featured .menu .list-h a.active i+p,
+.cover-wrapper.focus .menu .list-h a.active i+p {
+  color: #3dd9b6;
+}
+.cover-wrapper.dock .menu .list-h a.active img+p,
+.cover-wrapper.featured .menu .list-h a.active img+p,
+.cover-wrapper.focus .menu .list-h a.active img+p {
+  color: var(--color-text);
+}
+.cover-wrapper.dock .menu .list-h a:hover,
+.cover-wrapper.featured .menu .list-h a:hover,
+.cover-wrapper.focus .menu .list-h a:hover {
+  background: var(--color-card);
+}
+.cover-wrapper.dock .top {
+  margin-bottom: 48px;
+}
+.cover-wrapper.dock .menu {
+  background: rgba(255,255,255,0.5);
+  position: absolute;
+  bottom: 0;
+  max-width: 100%;
+}
+.cover-wrapper.dock .menu .list-h {
+  flex-wrap: nowrap;
+  -webkit-flex-wrap: nowrap;
+  -khtml-flex-wrap: nowrap;
+  -moz-flex-wrap: nowrap;
+  -o-flex-wrap: nowrap;
+  -ms-flex-wrap: nowrap;
+  margin: 4px;
+}
+.cover-wrapper.dock .menu .list-h a+a {
+  margin-left: 4px;
+}
+@media screen and (max-width: 500px) {
+  .cover-wrapper.dock .menu .list-h {
+    overflow-x: scroll;
+  }
+  .cover-wrapper.dock .menu .list-h::-webkit-scrollbar {
+    height: 0;
+    width: 0;
+  }
+  .cover-wrapper.dock .menu .list-h::-webkit-scrollbar-track-piece {
+    background: transparent;
+  }
+  .cover-wrapper.dock .menu .list-h::-webkit-scrollbar-thumb {
+    background: #3dd9b6;
+    cursor: pointer;
+    border-radius: 0;
+    -webkit-border-radius: 0;
+  }
+  .cover-wrapper.dock .menu .list-h::-webkit-scrollbar-thumb:hover {
+    background: #ff5722;
+  }
+}
+@supports (backdrop-filter: blur(20px)) {
+  .cover-wrapper.dock .menu {
+    background: rgba(255,255,255,0.5);
+    backdrop-filter: saturate(200%) blur(20px);
+  }
+}
+@font-face {
+  font-family: 'UbuntuMono';
+  src: url("https://unpkg.com/volantis-static@0.0.1654736714924/media/fonts/UbuntuMono/UbuntuMono-Regular.ttf");
+  font-weight: 'normal';
+  font-style: 'normal';
+  font-display: swap;
+}
+@font-face {
+  font-family: 'Varela Round';
+  src: url("https://unpkg.com/volantis-static@0.0.1654736714924/media/fonts/VarelaRound/VarelaRound-Regular.ttf");
+  font-weight: 'normal';
+  font-style: 'normal';
+  font-display: swap;
+}
+.l_header {
+  position: fixed;
+  z-index: 1000;
+  top: 0;
+  width: 100%;
+  height: 64px;
+  background: var(--color-card);
+  box-shadow: 0 1px 2px 0px rgba(0,0,0,0.1);
+  -webkit-box-shadow: 0 1px 2px 0px rgba(0,0,0,0.1);
+}
+.l_header.auto {
+  transition: opacity 0.4s ease;
+  -webkit-transition: opacity 0.4s ease;
+  -khtml-transition: opacity 0.4s ease;
+  -moz-transition: opacity 0.4s ease;
+  -o-transition: opacity 0.4s ease;
+  -ms-transition: opacity 0.4s ease;
+  visibility: hidden;
+}
+.l_header.auto.show {
+  opacity: 1 !important;
+  -webkit-opacity: 1 !important;
+  -moz-opacity: 1 !important;
+  visibility: visible;
+}
+.l_header .container {
+  margin-left: 16px;
+  margin-right: 16px;
+}
+.l_header #wrapper {
+  height: 100%;
+  user-select: none;
+  -webkit-user-select: none;
+  -moz-user-select: none;
+  -ms-user-select: none;
+}
+.l_header #wrapper .nav-main,
+.l_header #wrapper .nav-sub {
+  display: -webkit-box /* OLD - iOS 6-, Safari 3.1-6 */;
+  display: -moz-box /* OLD - Firefox 19- (buggy but mostly works) */;
+  display: -ms-flexbox /* TWEENER - IE 10 */;
+  display: -webkit-flex /* NEW - Chrome */;
+  display: flex /* NEW, Spec - Opera 12.1, Firefox 20+ */;
+  display: flex;
+  flex-wrap: nowrap;
+  -webkit-flex-wrap: nowrap;
+  -khtml-flex-wrap: nowrap;
+  -moz-flex-wrap: nowrap;
+  -o-flex-wrap: nowrap;
+  -ms-flex-wrap: nowrap;
+  justify-content: space-between;
+  -webkit-justify-content: space-between;
+  -khtml-justify-content: space-between;
+  -moz-justify-content: space-between;
+  -o-justify-content: space-between;
+  -ms-justify-content: space-between;
+  align-items: center;
+}
+.l_header #wrapper .nav-main {
+  transition: all 0.28s ease;
+  -webkit-transition: all 0.28s ease;
+  -khtml-transition: all 0.28s ease;
+  -moz-transition: all 0.28s ease;
+  -o-transition: all 0.28s ease;
+  -ms-transition: all 0.28s ease;
+}
+.l_header #wrapper.sub .nav-main {
+  transform: translateY(-64px);
+  -webkit-transform: translateY(-64px);
+  -khtml-transform: translateY(-64px);
+  -moz-transform: translateY(-64px);
+  -o-transform: translateY(-64px);
+  -ms-transform: translateY(-64px);
+}
+.l_header #wrapper .nav-sub {
+  transition: all 0.28s ease;
+  -webkit-transition: all 0.28s ease;
+  -khtml-transition: all 0.28s ease;
+  -moz-transition: all 0.28s ease;
+  -o-transition: all 0.28s ease;
+  -ms-transition: all 0.28s ease;
+  opacity: 0;
+  -webkit-opacity: 0;
+  -moz-opacity: 0;
+  height: 64px;
+  width: calc(100% - 2 * 16px);
+  position: absolute;
+}
+.l_header #wrapper .nav-sub ::-webkit-scrollbar {
+  display: -webkit-box /* OLD - iOS 6-, Safari 3.1-6 */;
+  display: -moz-box /* OLD - Firefox 19- (buggy but mostly works) */;
+  display: none;
+}
+@media screen and (min-width: 2048px) {
+  .l_header #wrapper .nav-sub {
+    max-width: 55vw;
+    margin: auto;
+  }
+}
+.l_header #wrapper.sub .nav-sub {
+  opacity: 1;
+  -webkit-opacity: 1;
+  -moz-opacity: 1;
+}
+.l_header #wrapper .title {
+  position: relative;
+  color: var(--color-text);
+  padding-left: 24px;
+  max-height: 64px;
+}
+.l_header #wrapper .nav-main .title {
+  white-space: nowrap;
+  overflow: hidden;
+  text-overflow: ellipsis;
+  flex-shrink: 0;
+  line-height: 64px;
+  padding: 0 24px;
+  font-size: 1.25rem;
+  font-family: "Varela Round", "PingFang SC", "Microsoft YaHei", Helvetica, Arial, Helvetica, monospace;
+}
+.l_header #wrapper .nav-main .title img {
+  height: 64px;
+}
+.l_header .nav-sub {
+  max-width: 1080px;
+  margin: auto;
+}
+.l_header .nav-sub .title {
+  font-weight: bold;
+  font-family: UbuntuMono, "Varela Round", "PingFang SC", "Microsoft YaHei", Helvetica, Arial, Menlo, Monaco, monospace, sans-serif;
+  line-height: 1.2;
+  max-height: 64px;
+  white-space: normal;
+  flex-shrink: 1;
+}
+.l_header .switcher {
+  display: -webkit-box /* OLD - iOS 6-, Safari 3.1-6 */;
+  display: -moz-box /* OLD - Firefox 19- (buggy but mostly works) */;
+  display: none;
+  line-height: 64px;
+  align-items: center;
+}
+.l_header .switcher .s-toc {
+  display: -webkit-box /* OLD - iOS 6-, Safari 3.1-6 */;
+  display: -moz-box /* OLD - Firefox 19- (buggy but mostly works) */;
+  display: none;
+}
+@media screen and (max-width: 768px) {
+  .l_header .switcher .s-toc {
+    display: -webkit-box /* OLD - iOS 6-, Safari 3.1-6 */;
+    display: -moz-box /* OLD - Firefox 19- (buggy but mostly works) */;
+    display: -ms-flexbox /* TWEENER - IE 10 */;
+    display: -webkit-flex /* NEW - Chrome */;
+    display: flex /* NEW, Spec - Opera 12.1, Firefox 20+ */;
+    display: flex;
+  }
+}
+.l_header .switcher >li {
+  height: 48px;
+  transition: all 0.28s ease;
+  -webkit-transition: all 0.28s ease;
+  -khtml-transition: all 0.28s ease;
+  -moz-transition: all 0.28s ease;
+  -o-transition: all 0.28s ease;
+  -ms-transition: all 0.28s ease;
+  margin: 2px;
+}
+@media screen and (max-width: 500px) {
+  .l_header .switcher >li {
+    margin: 0 1px;
+    height: 48px;
+  }
+}
+.l_header .switcher >li >a {
+  display: -webkit-box /* OLD - iOS 6-, Safari 3.1-6 */;
+  display: -moz-box /* OLD - Firefox 19- (buggy but mostly works) */;
+  display: -ms-flexbox /* TWEENER - IE 10 */;
+  display: -webkit-flex /* NEW - Chrome */;
+  display: flex /* NEW, Spec - Opera 12.1, Firefox 20+ */;
+  display: flex;
+  justify-content: center;
+  -webkit-justify-content: center;
+  -khtml-justify-content: center;
+  -moz-justify-content: center;
+  -o-justify-content: center;
+  -ms-justify-content: center;
+  align-items: center;
+  width: 48px;
+  height: 48px;
+  padding: 0.85em 1.1em;
+  border-radius: 100px;
+  -webkit-border-radius: 100px;
+  border: none;
+  transition: all 0.28s ease;
+  -webkit-transition: all 0.28s ease;
+  -khtml-transition: all 0.28s ease;
+  -moz-transition: all 0.28s ease;
+  -o-transition: all 0.28s ease;
+  -ms-transition: all 0.28s ease;
+  color: #3dd9b6;
+}
+.l_header .switcher >li >a:hover {
+  border: none;
+}
+.l_header .switcher >li >a.active,
+.l_header .switcher >li >a:active {
+  border: none;
+  background: var(--color-site-bg);
+}
+@media screen and (max-width: 500px) {
+  .l_header .switcher >li >a {
+    width: 36px;
+    height: 48px;
+  }
+}
+.l_header .nav-sub .switcher {
+  display: -webkit-box /* OLD - iOS 6-, Safari 3.1-6 */;
+  display: -moz-box /* OLD - Firefox 19- (buggy but mostly works) */;
+  display: -ms-flexbox /* TWEENER - IE 10 */;
+  display: -webkit-flex /* NEW - Chrome */;
+  display: flex /* NEW, Spec - Opera 12.1, Firefox 20+ */;
+  display: flex;
+}
+.l_header .m_search {
+  display: -webkit-box /* OLD - iOS 6-, Safari 3.1-6 */;
+  display: -moz-box /* OLD - Firefox 19- (buggy but mostly works) */;
+  display: -ms-flexbox /* TWEENER - IE 10 */;
+  display: -webkit-flex /* NEW - Chrome */;
+  display: flex /* NEW, Spec - Opera 12.1, Firefox 20+ */;
+  display: flex;
+  height: 64px;
+  width: 240px;
+  transition: all 0.28s ease;
+  -webkit-transition: all 0.28s ease;
+  -khtml-transition: all 0.28s ease;
+  -moz-transition: all 0.28s ease;
+  -o-transition: all 0.28s ease;
+  -ms-transition: all 0.28s ease;
+}
+@media screen and (max-width: 1024px) {
+  .l_header .m_search {
+    width: 44px;
+    min-width: 44px;
+  }
+  .l_header .m_search input::placeholder {
+    opacity: 0;
+    -webkit-opacity: 0;
+    -moz-opacity: 0;
+  }
+  .l_header .m_search:hover {
+    width: 240px;
+  }
+  .l_header .m_search:hover input::placeholder {
+    opacity: 1;
+    -webkit-opacity: 1;
+    -moz-opacity: 1;
+  }
+}
+@media screen and (min-width: 500px) {
+  .l_header .m_search:hover .input {
+    width: 100%;
+  }
+  .l_header .m_search:hover .input::placeholder {
+    opacity: 1;
+    -webkit-opacity: 1;
+    -moz-opacity: 1;
+  }
+}
+@media screen and (max-width: 500px) {
+  .l_header .m_search {
+    min-width: 0;
+  }
+  .l_header .m_search input::placeholder {
+    opacity: 1;
+    -webkit-opacity: 1;
+    -moz-opacity: 1;
+  }
+}
+.l_header .m_search .form {
+  position: relative;
+  display: -webkit-box /* OLD - iOS 6-, Safari 3.1-6 */;
+  display: -moz-box /* OLD - Firefox 19- (buggy but mostly works) */;
+  display: -ms-flexbox /* TWEENER - IE 10 */;
+  display: -webkit-flex /* NEW - Chrome */;
+  display: flex /* NEW, Spec - Opera 12.1, Firefox 20+ */;
+  display: flex;
+  width: 100%;
+  align-items: center;
+}
+.l_header .m_search .icon {
+  position: absolute;
+  width: 36px;
+  left: 5px;
+  color: var(--color-meta);
+}
+@media screen and (max-width: 500px) {
+  .l_header .m_search .icon {
+    display: -webkit-box /* OLD - iOS 6-, Safari 3.1-6 */;
+    display: -moz-box /* OLD - Firefox 19- (buggy but mostly works) */;
+    display: none;
+  }
+}
+.l_header .m_search .input {
+  display: -webkit-box /* OLD - iOS 6-, Safari 3.1-6 */;
+  display: -moz-box /* OLD - Firefox 19- (buggy but mostly works) */;
+  display: block;
+  padding-top: 8px;
+  padding-bottom: 8px;
+  line-height: 1.3;
+  width: 100%;
+  color: var(--color-text);
+  background: #fafafa;
+  box-shadow: none;
+  -webkit-box-shadow: none;
+  box-sizing: border-box;
+  -webkit-box-sizing: border-box;
+  -moz-box-sizing: border-box;
+  padding-left: 40px;
+  font-size: 0.875rem;
+  border-radius: 8px;
+  -webkit-border-radius: 8px;
+  border: none;
+  transition: all 0.28s ease;
+  -webkit-transition: all 0.28s ease;
+  -khtml-transition: all 0.28s ease;
+  -moz-transition: all 0.28s ease;
+  -o-transition: all 0.28s ease;
+  -ms-transition: all 0.28s ease;
+}
+@media screen and (min-width: 500px) {
+  .l_header .m_search .input:focus {
+    box-shadow: 0 4px 8px 0px rgba(0,0,0,0.1);
+    -webkit-box-shadow: 0 4px 8px 0px rgba(0,0,0,0.1);
+  }
+}
+@media screen and (max-width: 500px) {
+  .l_header .m_search .input {
+    background: var(--color-block);
+    padding-left: 8px;
+    border: none;
+  }
+  .l_header .m_search .input:hover,
+  .l_header .m_search .input:focus {
+    border: none;
+  }
+}
+@media (max-width: 500px) {
+  .l_header .m_search {
+    left: 0;
+    width: 0;
+    overflow: hidden;
+    position: absolute;
+    background: #fff;
+    transition: all 0.28s ease;
+    -webkit-transition: all 0.28s ease;
+    -khtml-transition: all 0.28s ease;
+    -moz-transition: all 0.28s ease;
+    -o-transition: all 0.28s ease;
+    -ms-transition: all 0.28s ease;
+  }
+  .l_header .m_search .input {
+    border-radius: 32px;
+    -webkit-border-radius: 32px;
+    margin-left: 16px;
+    padding-left: 16px;
+  }
+  .l_header.z_search-open .m_search {
+    width: 100%;
+  }
+  .l_header.z_search-open .m_search .input {
+    width: calc(100% - 120px);
+  }
+}
+ul.m-pc >li>a {
+  color: inherit;
+  border-bottom: 2px solid transparent;
+}
+ul.m-pc >li>a:active,
+ul.m-pc >li>a.active {
+  border-bottom: 2px solid #3dd9b6;
+}
+ul.m-pc li:hover >ul.list-v,
+ul.list-v li:hover >ul.list-v {
+  display: -webkit-box /* OLD - iOS 6-, Safari 3.1-6 */;
+  display: -moz-box /* OLD - Firefox 19- (buggy but mostly works) */;
+  display: block;
+}
+ul.nav-list-h {
+  display: -webkit-box /* OLD - iOS 6-, Safari 3.1-6 */;
+  display: -moz-box /* OLD - Firefox 19- (buggy but mostly works) */;
+  display: -ms-flexbox /* TWEENER - IE 10 */;
+  display: -webkit-flex /* NEW - Chrome */;
+  display: flex /* NEW, Spec - Opera 12.1, Firefox 20+ */;
+  display: flex;
+  align-items: stretch;
+}
+ul.nav-list-h>li {
+  position: relative;
+  justify-content: center;
+  -webkit-justify-content: center;
+  -khtml-justify-content: center;
+  -moz-justify-content: center;
+  -o-justify-content: center;
+  -ms-justify-content: center;
+  height: 100%;
+  line-height: 2.4;
+  border-radius: 4px;
+  -webkit-border-radius: 4px;
+}
+ul.nav-list-h>li >a {
+  -webkit-font-smoothing: antialiased;
+  -moz-osx-font-smoothing: grayscale;
+  font-weight: 600;
+}
+ul.list-v {
+  z-index: 1;
+  display: -webkit-box /* OLD - iOS 6-, Safari 3.1-6 */;
+  display: -moz-box /* OLD - Firefox 19- (buggy but mostly works) */;
+  display: none;
+  position: absolute;
+  background: var(--color-card);
+  box-shadow: 0 2px 4px 0px rgba(0,0,0,0.08), 0 4px 8px 0px rgba(0,0,0,0.08), 0 8px 16px 0px rgba(0,0,0,0.08);
+  -webkit-box-shadow: 0 2px 4px 0px rgba(0,0,0,0.08), 0 4px 8px 0px rgba(0,0,0,0.08), 0 8px 16px 0px rgba(0,0,0,0.08);
+  margin-top: -6px;
+  border-radius: 4px;
+  -webkit-border-radius: 4px;
+  padding: 8px 0;
+}
+ul.list-v.show {
+  display: -webkit-box /* OLD - iOS 6-, Safari 3.1-6 */;
+  display: -moz-box /* OLD - Firefox 19- (buggy but mostly works) */;
+  display: block;
+}
+ul.list-v hr {
+  margin-top: 8px;
+  margin-bottom: 8px;
+}
+ul.list-v >li {
+  white-space: nowrap;
+  word-break: keep-all;
+}
+ul.list-v >li.header {
+  font-size: 0.78125rem;
+  font-weight: bold;
+  line-height: 2em;
+  color: var(--color-meta);
+  margin: 8px 16px 4px;
+}
+ul.list-v >li.header i {
+  margin-right: 8px;
+}
+ul.list-v >li ul {
+  margin-left: 0;
+  display: -webkit-box /* OLD - iOS 6-, Safari 3.1-6 */;
+  display: -moz-box /* OLD - Firefox 19- (buggy but mostly works) */;
+  display: none;
+  margin-top: -40px;
+}
+ul.list-v .aplayer-container {
+  min-height: 64px;
+  padding: 6px 16px;
+}
+ul.list-v >li>a {
+  transition: all 0.28s ease;
+  -webkit-transition: all 0.28s ease;
+  -khtml-transition: all 0.28s ease;
+  -moz-transition: all 0.28s ease;
+  -o-transition: all 0.28s ease;
+  -ms-transition: all 0.28s ease;
+  display: -webkit-box /* OLD - iOS 6-, Safari 3.1-6 */;
+  display: -moz-box /* OLD - Firefox 19- (buggy but mostly works) */;
+  display: block;
+  color: var(--color-list);
+  font-size: 0.875rem;
+  font-weight: bold;
+  line-height: 36px;
+  padding: 0 20px 0 16px;
+  text-overflow: ellipsis;
+  margin: 0 4px;
+  border-radius: 4px;
+  -webkit-border-radius: 4px;
+}
+@media screen and (max-width: 1024px) {
+  ul.list-v >li>a {
+    line-height: 40px;
+  }
+}
+ul.list-v >li>a >i {
+  margin-right: 8px;
+}
+ul.list-v >li>a:active,
+ul.list-v >li>a.active {
+  color: var(--color-list-hl);
+}
+ul.list-v >li>a:hover {
+  color: var(--color-list-hl);
+  background: var(--color-site-bg);
+}
+.l_header .menu >ul>li>a {
+  display: -webkit-box /* OLD - iOS 6-, Safari 3.1-6 */;
+  display: -moz-box /* OLD - Firefox 19- (buggy but mostly works) */;
+  display: block;
+  padding: 0 8px;
+}
+.l_header .menu >ul>li>a >i {
+  margin-right: 4px;
+}
+.l_header ul.nav-list-h>li {
+  color: var(--color-list);
+  line-height: 64px;
+}
+.l_header ul.nav-list-h>li >a {
+  max-height: 64px;
+  overflow: hidden;
+  color: inherit;
+}
+.l_header ul.nav-list-h>li >a:active,
+.l_header ul.nav-list-h>li >a.active {
+  color: #3dd9b6;
+}
+.l_header ul.nav-list-h>li:hover>a {
+  color: var(--color-list-hl);
+}
+.l_header ul.nav-list-h>li i.music {
+  animation: rotate-effect 1.5s linear infinite;
+  -webkit-animation: rotate-effect 1.5s linear infinite;
+  -khtml-animation: rotate-effect 1.5s linear infinite;
+  -moz-animation: rotate-effect 1.5s linear infinite;
+  -o-animation: rotate-effect 1.5s linear infinite;
+  -ms-animation: rotate-effect 1.5s linear infinite;
+}
+@-moz-keyframes rotate-effect {
+  0% {
+    transform: rotate(0);
+    -webkit-transform: rotate(0);
+    -khtml-transform: rotate(0);
+    -moz-transform: rotate(0);
+    -o-transform: rotate(0);
+    -ms-transform: rotate(0);
+  }
+  25% {
+    transform: rotate(90deg);
+    -webkit-transform: rotate(90deg);
+    -khtml-transform: rotate(90deg);
+    -moz-transform: rotate(90deg);
+    -o-transform: rotate(90deg);
+    -ms-transform: rotate(90deg);
+  }
+  50% {
+    transform: rotate(180deg);
+    -webkit-transform: rotate(180deg);
+    -khtml-transform: rotate(180deg);
+    -moz-transform: rotate(180deg);
+    -o-transform: rotate(180deg);
+    -ms-transform: rotate(180deg);
+  }
+  75% {
+    transform: rotate(270deg);
+    -webkit-transform: rotate(270deg);
+    -khtml-transform: rotate(270deg);
+    -moz-transform: rotate(270deg);
+    -o-transform: rotate(270deg);
+    -ms-transform: rotate(270deg);
+  }
+  100% {
+    transform: rotate(360deg);
+    -webkit-transform: rotate(360deg);
+    -khtml-transform: rotate(360deg);
+    -moz-transform: rotate(360deg);
+    -o-transform: rotate(360deg);
+    -ms-transform: rotate(360deg);
+  }
+}
+@-webkit-keyframes rotate-effect {
+  0% {
+    transform: rotate(0);
+    -webkit-transform: rotate(0);
+    -khtml-transform: rotate(0);
+    -moz-transform: rotate(0);
+    -o-transform: rotate(0);
+    -ms-transform: rotate(0);
+  }
+  25% {
+    transform: rotate(90deg);
+    -webkit-transform: rotate(90deg);
+    -khtml-transform: rotate(90deg);
+    -moz-transform: rotate(90deg);
+    -o-transform: rotate(90deg);
+    -ms-transform: rotate(90deg);
+  }
+  50% {
+    transform: rotate(180deg);
+    -webkit-transform: rotate(180deg);
+    -khtml-transform: rotate(180deg);
+    -moz-transform: rotate(180deg);
+    -o-transform: rotate(180deg);
+    -ms-transform: rotate(180deg);
+  }
+  75% {
+    transform: rotate(270deg);
+    -webkit-transform: rotate(270deg);
+    -khtml-transform: rotate(270deg);
+    -moz-transform: rotate(270deg);
+    -o-transform: rotate(270deg);
+    -ms-transform: rotate(270deg);
+  }
+  100% {
+    transform: rotate(360deg);
+    -webkit-transform: rotate(360deg);
+    -khtml-transform: rotate(360deg);
+    -moz-transform: rotate(360deg);
+    -o-transform: rotate(360deg);
+    -ms-transform: rotate(360deg);
+  }
+}
+@-o-keyframes rotate-effect {
+  0% {
+    transform: rotate(0);
+    -webkit-transform: rotate(0);
+    -khtml-transform: rotate(0);
+    -moz-transform: rotate(0);
+    -o-transform: rotate(0);
+    -ms-transform: rotate(0);
+  }
+  25% {
+    transform: rotate(90deg);
+    -webkit-transform: rotate(90deg);
+    -khtml-transform: rotate(90deg);
+    -moz-transform: rotate(90deg);
+    -o-transform: rotate(90deg);
+    -ms-transform: rotate(90deg);
+  }
+  50% {
+    transform: rotate(180deg);
+    -webkit-transform: rotate(180deg);
+    -khtml-transform: rotate(180deg);
+    -moz-transform: rotate(180deg);
+    -o-transform: rotate(180deg);
+    -ms-transform: rotate(180deg);
+  }
+  75% {
+    transform: rotate(270deg);
+    -webkit-transform: rotate(270deg);
+    -khtml-transform: rotate(270deg);
+    -moz-transform: rotate(270deg);
+    -o-transform: rotate(270deg);
+    -ms-transform: rotate(270deg);
+  }
+  100% {
+    transform: rotate(360deg);
+    -webkit-transform: rotate(360deg);
+    -khtml-transform: rotate(360deg);
+    -moz-transform: rotate(360deg);
+    -o-transform: rotate(360deg);
+    -ms-transform: rotate(360deg);
+  }
+}
+@keyframes rotate-effect {
+  0% {
+    transform: rotate(0);
+    -webkit-transform: rotate(0);
+    -khtml-transform: rotate(0);
+    -moz-transform: rotate(0);
+    -o-transform: rotate(0);
+    -ms-transform: rotate(0);
+  }
+  25% {
+    transform: rotate(90deg);
+    -webkit-transform: rotate(90deg);
+    -khtml-transform: rotate(90deg);
+    -moz-transform: rotate(90deg);
+    -o-transform: rotate(90deg);
+    -ms-transform: rotate(90deg);
+  }
+  50% {
+    transform: rotate(180deg);
+    -webkit-transform: rotate(180deg);
+    -khtml-transform: rotate(180deg);
+    -moz-transform: rotate(180deg);
+    -o-transform: rotate(180deg);
+    -ms-transform: rotate(180deg);
+  }
+  75% {
+    transform: rotate(270deg);
+    -webkit-transform: rotate(270deg);
+    -khtml-transform: rotate(270deg);
+    -moz-transform: rotate(270deg);
+    -o-transform: rotate(270deg);
+    -ms-transform: rotate(270deg);
+  }
+  100% {
+    transform: rotate(360deg);
+    -webkit-transform: rotate(360deg);
+    -khtml-transform: rotate(360deg);
+    -moz-transform: rotate(360deg);
+    -o-transform: rotate(360deg);
+    -ms-transform: rotate(360deg);
+  }
+}
+.menu-phone li ul.list-v {
+  right: calc(100% - 0.5 * 16px);
+}
+.menu-phone li ul.list-v ul {
+  right: calc(100% - 0.5 * 16px);
+}
+#wrapper {
+  max-width: 1080px;
+  margin: auto;
+}
+@media screen and (min-width: 2048px) {
+  #wrapper {
+    max-width: 55vw;
+  }
+}
+#wrapper .menu {
+  -webkit-box-flex: 1;
+  -moz-box-flex: 1;
+  -webkit-flex: 1 1;
+  -ms-flex: 1 1;
+  flex: 1 1;
+  margin: 0 16px 0 0;
+}
+#wrapper .menu .list-v ul {
+  left: calc(100% - 0.5 * 16px);
+}
+.menu-phone {
+  display: -webkit-box /* OLD - iOS 6-, Safari 3.1-6 */;
+  display: -moz-box /* OLD - Firefox 19- (buggy but mostly works) */;
+  display: none;
+  margin-top: 16px;
+  right: 8px;
+  transition: all 0.28s ease;
+  -webkit-transition: all 0.28s ease;
+  -khtml-transition: all 0.28s ease;
+  -moz-transition: all 0.28s ease;
+  -o-transition: all 0.28s ease;
+  -ms-transition: all 0.28s ease;
+}
+.menu-phone ul {
+  right: calc(100% - 0.5 * 16px);
+}
+@media screen and (max-width: 500px) {
+  .menu-phone {
+    display: -webkit-box /* OLD - iOS 6-, Safari 3.1-6 */;
+    display: -moz-box /* OLD - Firefox 19- (buggy but mostly works) */;
+    display: block;
+  }
+}
+.l_header {
+  max-width: 65vw;
+  left: calc((100% - 65vw) * 0.5);
+  border-bottom-left-radius: 8px;
+  border-bottom-right-radius: 8px;
+}
+@media screen and (max-width: 2048px) {
+  .l_header {
+    max-width: 1112px;
+    left: calc((100% - 1112px) * 0.5);
+  }
+}
+@media screen and (max-width: 1112px) {
+  .l_header {
+    left: 0;
+    border-radius: 0;
+    -webkit-border-radius: 0;
+    max-width: 100%;
+  }
+}
+@media screen and (max-width: 500px) {
+  .l_header .container {
+    margin-left: 0;
+    margin-right: 0;
+  }
+  .l_header #wrapper .nav-main .title {
+    padding-left: 16px;
+    padding-right: 16px;
+  }
+  .l_header #wrapper .nav-sub {
+    width: 100%;
+  }
+  .l_header #wrapper .nav-sub .title {
+    overflow-y: scroll;
+    margin-top: 2px;
+    padding: 8px 16px;
+  }
+  .l_header #wrapper .switcher {
+    display: -webkit-box /* OLD - iOS 6-, Safari 3.1-6 */;
+    display: -moz-box /* OLD - Firefox 19- (buggy but mostly works) */;
+    display: -ms-flexbox /* TWEENER - IE 10 */;
+    display: -webkit-flex /* NEW - Chrome */;
+    display: flex /* NEW, Spec - Opera 12.1, Firefox 20+ */;
+    display: flex;
+    margin-right: 8px;
+  }
+  .l_header .menu {
+    display: -webkit-box /* OLD - iOS 6-, Safari 3.1-6 */;
+    display: -moz-box /* OLD - Firefox 19- (buggy but mostly works) */;
+    display: none;
+  }
+}
+@media screen and (max-width: 500px) {
+  .list-v li {
+    max-width: 270px;
+  }
+}
+#u-search {
+  display: -webkit-box /* OLD - iOS 6-, Safari 3.1-6 */;
+  display: -moz-box /* OLD - Firefox 19- (buggy but mostly works) */;
+  display: none;
+  position: fixed;
+  top: 0;
+  left: 0;
+  width: 100%;
+  height: 100%;
+  padding: 60px 20px;
+  z-index: 1001;
+}
+@media screen and (max-width: 680px) {
+  #u-search {
+    padding: 0px;
+  }
+}
 
-    
-<link rel="stylesheet" href="/fonts/Chillax/chillax.css">
+  </style>
+  <link rel="stylesheet" href="/css/style.css" media="print" onload="this.media='all';this.onload=null">
+  <noscript><link rel="stylesheet" href="/css/style.css"></noscript>
+  
+<script>
+if (/*@cc_on!@*/false || (!!window.MSInputMethodContext && !!document.documentMode))
+    document.write(
+	'<style>'+
+		'html{'+
+			'overflow-x: hidden !important;'+
+			'overflow-y: hidden !important;'+
+		'}'+
+		'.kill-ie{'+
+			'text-align:center;'+
+			'height: 100%;'+
+			'margin-top: 15%;'+
+			'margin-bottom: 5500%;'+
+		'}'+
+    '.kill-t{'+
+      'font-size: 2rem;'+
+    '}'+
+    '.kill-c{'+
+      'font-size: 1.2rem;'+
+    '}'+
+		'#l_header,#l_body{'+
+			'display: none;'+
+		'}'+
+	'</style>'+
+    '<div class="kill-ie">'+
+        `<span class="kill-t"><b>抱歉，您的浏览器无法访问本站</b></span><br/>`+
+        `<span class="kill-c">微软已经于2016年终止了对 Internet Explorer (IE) 10 及更早版本的支持，<br/>继续使用存在极大的安全隐患，请使用当代主流的浏览器进行访问。</span><br/>`+
+        `<a target="_blank" rel="noopener" href="https://blogs.windows.com/windowsexperience/2021/05/19/the-future-of-internet-explorer-on-windows-10-is-in-microsoft-edge/"><strong>了解详情 ></strong></a>`+
+    '</div>');
+</script>
 
 
-    <!--- Inject Part-->
-    
-
-    
-<link rel="stylesheet" href="/css/style.css">
-
-
-    
-        
-<link rel="stylesheet" href="/css/build/tailwind.css">
-
-    
-
-    
-<link rel="stylesheet" href="/fonts/GeistMono/geist-mono.css">
-
-    
-<link rel="stylesheet" href="/fonts/Geist/geist.css">
-
-    <!--- Font Part-->
-    
-    
-    
-    
-    
-    
-
-    <script id="hexo-configurations">
-    window.config = {"hostname":"example.com","root":"/","language":"en"};
-    window.theme = {"articles":{"style":{"font_size":"16px","line_height":1.5,"image_border_radius":"14px","image_alignment":"center","image_caption":false,"link_icon":true,"delete_mask":false,"title_alignment":"left","headings_top_spacing":{"h1":"3.2rem","h2":"2.4rem","h3":"1.9rem","h4":"1.6rem","h5":"1.4rem","h6":"1.3rem"}},"word_count":{"enable":true,"count":true,"min2read":true},"author_label":{"enable":true,"auto":false,"list":[]},"code_block":{"copy":true,"style":"mac","highlight_theme":{"light":"github","dark":"vs2015"},"font":{"enable":false,"family":null,"url":null}},"toc":{"enable":true,"max_depth":3,"number":false,"expand":true,"init_open":true},"copyright":{"enable":true,"default":"cc_by_nc_sa"},"lazyload":true,"pangu_js":false,"recommendation":{"enable":false,"title":"推荐阅读","limit":3,"mobile_limit":2,"placeholder":"/images/wallhaven-wqery6-light.webp","skip_dirs":[]}},"colors":{"primary":"#A31F34","secondary":null,"default_mode":"light"},"global":{"fonts":{"chinese":{"enable":false,"family":null,"url":null},"english":{"enable":false,"family":null,"url":null},"title":{"enable":false,"family":null,"url":null}},"content_max_width":"1000px","sidebar_width":"210px","hover":{"shadow":true,"scale":false},"scroll_progress":{"bar":false,"percentage":true},"website_counter":{"url":"https://cn.vercount.one/js","enable":true,"site_pv":true,"site_uv":true,"post_pv":true},"single_page":true,"preloader":{"enable":false,"custom_message":null},"side_tools":{"gear_rotation":true,"auto_expand":false},"open_graph":{"enable":true,"image":"/images/redefine-og.webp","description":"Hexo Theme Redefine, Redefine Your Hexo Journey."},"google_analytics":{"enable":false,"id":null}},"home_banner":{"enable":true,"style":"fixed","image":{"light":"/images/walllight.webp","dark":"/images/walldusk.webp"},"title":"欢迎来到我的博客～","subtitle":{"text":["by Chenxu Qiao"],"hitokoto":{"enable":false,"show_author":false,"api":"https://v1.hitokoto.cn"},"typing_speed":100,"backing_speed":80,"starting_delay":500,"backing_delay":1500,"loop":true,"smart_backspace":true},"text_color":{"light":"#fff","dark":"#d1d1b6"},"text_style":{"title_size":"2.8rem","subtitle_size":"1.5rem","line_height":1.2},"custom_font":{"enable":false,"family":null,"url":null},"social_links":{"enable":true,"style":"default","links":{"github":"https://github.com/ChenxuQiao","instagram":null,"zhihu":null,"twitter":null,"email":"qiaocx2003@gmail.com"},"qrs":{"weixin":null}}},"plugins":{"feed":{"enable":false},"aplayer":{"enable":false,"type":"fixed","audios":[{"name":null,"artist":null,"url":null,"cover":null,"lrc":null}]},"mermaid":{"enable":false,"version":"11.4.1"}},"version":"2.8.5","navbar":{"auto_hide":false,"color":{"left":"#f78736","right":"#367df7","transparency":35},"width":{"home":"1200px","pages":"1000px"},"links":{"Home":{"path":"/","icon":"fa-regular fa-house"}},"search":{"enable":false,"preload":true}},"page_templates":{"friends_column":2,"tags_style":"blur"},"home":{"sidebar":{"enable":true,"position":"left","first_item":"menu","announcement":null,"show_on_mobile":true,"links":null},"article_date_format":"auto","excerpt_length":200,"categories":{"enable":true,"limit":3},"tags":{"enable":true,"limit":3}},"footerStart":"2025/8/27 00:00:00"};
-    window.lang_ago = {"second":"%s seconds ago","minute":"%s minutes ago","hour":"%s hours ago","day":"%s days ago","week":"%s weeks ago","month":"%s months ago","year":"%s years ago"};
-    window.data = {"masonry":false};
-  </script>
-    
-    <!--- Fontawesome Part-->
-    
-<link rel="stylesheet" href="/fontawesome/fontawesome.min.css">
-
-    
-<link rel="stylesheet" href="/fontawesome/brands.min.css">
-
-    
-<link rel="stylesheet" href="/fontawesome/solid.min.css">
-
-    
-<link rel="stylesheet" href="/fontawesome/regular.min.css">
-
-    
-    
-    
-    
-<meta name="generator" content="Hexo 7.3.0"></head>
-
-
-
-<body>
-	<div class="progress-bar-container">
-	
-
-	
-	<span class="pjax-progress-bar"></span>
-	<!--        <span class="swup-progress-icon">-->
-	<!--            <i class="fa-solid fa-circle-notch fa-spin"></i>-->
-	<!--        </span>-->
-	
-</div>
-
-<main class="page-container" id="swup">
-
-	
-
-	<div class="main-content-container flex flex-col justify-between min-h-dvh">
-		<div class="main-content-header">
-			<header class="navbar-container px-6 md:px-12">
-    <div class="navbar-content transition-navbar ">
-        <div class="left">
-            
-                <a class="logo-image h-8 w-8 sm:w-10 sm:h-10 mr-3" href="/">
-                    <img src="/images/favicon.jpeg" class="w-full h-full rounded-xs">
-                </a>
-            
-            <a class="logo-title" href="/">
-                
-                Chenxu Qiao
-                
-            </a>
-        </div>
-
-        <div class="right">
-            <!-- PC -->
-            <div class="desktop">
-                <ul class="navbar-list">
-                    
-                        
-                            
-
-                            <li class="navbar-item">
-                                <!-- Menu -->
-                                <a class=""
-                                   href="/"
-                                        >
-                                    <i class="fa-regular fa-house fa-fw"></i>
-                                    HOME
-                                    
-                                </a>
-
-                                <!-- Submenu -->
-                                
-                            </li>
-                    
-                    
-                </ul>
-            </div>
-            <!-- Mobile -->
-            <div class="mobile">
-                
-                <div class="icon-item navbar-bar">
-                    <div class="navbar-bar-middle"></div>
-                </div>
-            </div>
-        </div>
+<noscript>
+	<style>
+		html{
+			overflow-x: hidden !important;
+			overflow-y: hidden !important;
+		}
+		.kill-noscript{
+			text-align:center;
+			height: 100%;
+			margin-top: 15%;
+			margin-bottom: 5500%;
+		}
+    .kill-t{
+      font-size: 2rem;
+    }
+    .kill-c{
+      font-size: 1.2rem;
+    }
+		#l_header,#l_body{
+			display: none;
+		}
+	</style>
+    <div class="kill-noscript">
+        <span class="kill-t"><b>抱歉，您的浏览器无法访问本站</b></span><br/>
+        <span class="kill-c">本页面需要浏览器支持（启用）JavaScript</span><br/>
+        <a target="_blank" rel="noopener" href="https://www.baidu.com/s?wd=启用JavaScript"><strong>了解详情 ></strong></a>
     </div>
-
-    <!-- Mobile sheet -->
-    <div class="navbar-drawer h-dvh w-full absolute top-0 left-0 bg-background-color flex flex-col justify-between">
-        <ul class="drawer-navbar-list flex flex-col px-4 justify-center items-start">
-            
-                
-                    
-
-                    <li class="drawer-navbar-item text-base my-1.5 flex flex-col w-full">
-                        
-                        <a class="py-1.5 px-2 flex flex-row items-center justify-between gap-1 hover:!text-primary active:!text-primary text-2xl font-semibold group border-b border-border-color hover:border-primary w-full "
-                           href="/"
-                        >
-                            <span>
-                                HOME
-                            </span>
-                            
-                                <i class="fa-regular fa-house fa-sm fa-fw"></i>
-                            
-                        </a>
-                        
-
-                        
-                    </li>
-            
-
-            
-            
-        </ul>
-
-        <div class="statistics flex justify-around my-2.5">
-    <a class="item tag-count-item flex flex-col justify-center items-center w-20" href="/tags">
-        <div class="number text-2xl sm:text-xl text-second-text-color font-semibold">15</div>
-        <div class="label text-third-text-color text-sm">Tags</div>
-    </a>
-    <a class="item tag-count-item flex flex-col justify-center items-center w-20" href="/categories">
-        <div class="number text-2xl sm:text-xl text-second-text-color font-semibold">2</div>
-        <div class="label text-third-text-color text-sm">Categories</div>
-    </a>
-    <a class="item tag-count-item flex flex-col justify-center items-center w-20" href="/archives">
-        <div class="number text-2xl sm:text-xl text-second-text-color font-semibold">5</div>
-        <div class="label text-third-text-color text-sm">Posts</div>
-    </a>
-</div>
-    </div>
-
-    <div class="window-mask"></div>
-
-</header>
+</noscript>
 
 
-		</div>
+  <script>
+  /************这个文件存放不需要重载的全局变量和全局函数*********/
+  window.volantis = {}; // volantis 全局变量
+  volantis.debug = "env"; // 调试模式
+  volantis.dom = {}; // 页面Dom see: /source/js/app.js etc.
 
-		<div class="main-content-body transition-fade-up">
-			
+  volantis.GLOBAL_CONFIG ={
+    debug: "env",
+    cdn: {"js":{"app":"/js/app.js","parallax":"/js/plugins/parallax.js","rightMenu":"/js/plugins/rightMenu.js","rightMenus":"/js/plugins/rightMenus.js","sites":"/js/plugins/tags/sites.js","friends":"/js/plugins/tags/friends.js","contributors":"/js/plugins/tags/contributors.js","search":"/js/search/hexo.js"},"css":{"style":"/css/style.css"}},
+    default: {"avatar":"https://unpkg.com/volantis-static@0.0.1654736714924/media/placeholder/avatar/round/3442075.svg","link":"https://unpkg.com/volantis-static@0.0.1654736714924/media/placeholder/link/8f277b4ee0ecd.svg","cover":"https://unpkg.com/volantis-static@0.0.1654736714924/media/placeholder/cover/76b86c0226ffd.svg","image":"https://unpkg.com/volantis-static@0.0.1654736714924/media/placeholder/image/2659360.svg"},
+    lastupdate: new Date(1758341688570),
+    sidebar: {
+      for_page: ["blogger","tagcloud","donate"],
+      for_post: ["toc"],
+      webinfo: {
+        lastupd: {
+          enable: true,
+          friendlyShow: true
+        },
+        runtime: {
+          data: "2020/01/01",
+          unit: "天"
+        }
+      }
+    },
+    plugins: {
+      message: {"enable":true,"css":"https://unpkg.com/volantis-static@0.0.1654736714924/libs/izitoast/dist/css/iziToast.min.css","js":"https://unpkg.com/volantis-static@0.0.1654736714924/libs/izitoast/dist/js/iziToast.min.js","icon":{"default":"fa-solid fa-info-circle light-blue","quection":"fa-solid fa-question-circle light-blue"},"time":{"default":5000,"quection":20000},"position":"topRight","transitionIn":"bounceInLeft","transitionOut":"fadeOutRight","titleColor":"var(--color-text)","messageColor":"var(--color-text)","backgroundColor":"var(--color-card)","zindex":2147483647,"copyright":{"enable":true,"title":"知识共享许可协议","message":"请遵守 CC BY-NC-SA 4.0 协议。","icon":"far fa-copyright light-blue"},"aplayer":{"enable":true,"play":"fa-solid fa-play","pause":"fa-solid fa-pause"},"rightmenu":{"enable":true,"notice":true}},
+      fancybox: {"css":"https://unpkg.com/volantis-static@0.0.1654736714924/libs/@fancyapps/ui/dist/fancybox.css","js":"https://unpkg.com/volantis-static@0.0.1654736714924/libs/@fancyapps/ui/dist/fancybox.umd.js"},
+      
+      
+      
+    }
+  }
 
-			<div class="main-content">
-				<div class="post-page-container flex relative justify-between box-border w-full h-full">
-	<div class="article-content-container">
+  /******************** volantis.EventListener ********************************/
+  // 事件监听器 see: /source/js/app.js
+  volantis.EventListener = {}
+  // 这里存放pjax切换页面时将被移除的事件监听器
+  volantis.EventListener.list = []
+  //构造方法
+  function volantisEventListener(type, f, ele) {
+    this.type = type
+    this.f = f
+    this.ele = ele
+  }
+  // 移除事件监听器
+  volantis.EventListener.remove = () => {
+    volantis.EventListener.list.forEach(function (i) {
+      i.ele.removeEventListener(i.type, i.f, false)
+    })
+    volantis.EventListener.list = []
+  }
+  /******************** volantis.dom.$ ********************************/
+  // 注：这里没有选择器，也没有forEach一次只处理一个dom，这里重新封装主题常用的dom方法，返回的是dom对象，对象包含了以下方法，同时保留dom的原生API
+  function volantisDom(ele) {
+    if (!ele) ele = document.createElement("div")
+    this.ele = ele;
+    // ==============================================================
+    this.ele.find = (c) => {
+      let q = this.ele.querySelector(c)
+      if (q)
+        return new volantisDom(q)
+    }
+    // ==============================================================
+    this.ele.hasClass = (c) => {
+      return this.ele.className.match(new RegExp('(\\s|^)' + c + '(\\s|$)'));
+    }
+    this.ele.addClass = (c) => {
+      this.ele.classList.add(c);
+      return this.ele
+    }
+    this.ele.removeClass = (c) => {
+      this.ele.classList.remove(c);
+      return this.ele
+    }
+    this.ele.toggleClass = (c) => {
+      if (this.ele.hasClass(c)) {
+        this.ele.removeClass(c)
+      } else {
+        this.ele.addClass(c)
+      }
+      return this.ele
+    }
+    // ==============================================================
+    // 参数 r 为 true 表示pjax切换页面时事件监听器将被移除，false不移除
+    this.ele.on = (c, f, r = 1) => {
+      this.ele.addEventListener(c, f, false)
+      if (r) {
+        volantis.EventListener.list.push(new volantisEventListener(c, f, this.ele))
+      }
+      return this.ele
+    }
+    this.ele.click = (f, r) => {
+      this.ele.on("click", f, r)
+      return this.ele
+    }
+    this.ele.scroll = (f, r) => {
+      this.ele.on("scroll", f, r)
+      return this.ele
+    }
+    // ==============================================================
+    this.ele.html = (c) => {
+      // if(c=== undefined){
+      //   return this.ele.innerHTML
+      // }else{
+      this.ele.innerHTML = c
+      return this.ele
+      // }
+    }
+    // ==============================================================
+    this.ele.hide = (c) => {
+      this.ele.style.display = "none"
+      return this.ele
+    }
+    this.ele.show = (c) => {
+      this.ele.style.display = "block"
+      return this.ele
+    }
+    // ==============================================================
+    return this.ele
+  }
+  volantis.dom.$ = (ele) => {
+    return !!ele ? new volantisDom(ele) : null;
+  }
+  /******************** RunItem ********************************/
+  function RunItem() {
+    this.list = []; // 存放回调函数
+    this.start = () => {
+      for (var i = 0; i < this.list.length; i++) {
+        this.list[i].run();
+      }
+    };
+    this.push = (fn, name, setRequestAnimationFrame = true) => {
+      let myfn = fn
+      if (setRequestAnimationFrame) {
+        myfn = ()=>{
+          volantis.requestAnimationFrame(fn)
+        }
+      }
+      var f = new Item(myfn, name);
+      this.list.push(f);
+    };
+    this.remove = (name) =>{
+      for (let index = 0; index < this.list.length; index++) {
+        const e = this.list[index];
+        if (e.name == name) {
+          this.list.splice(index,1);
+        }
+      }
+    }
+    // 构造一个可以run的对象
+    function Item(fn, name) {
+      // 函数名称
+      this.name = name || fn.name;
+      // run方法
+      this.run = () => {
+        try {
+          fn()
+        } catch (error) {
+          console.log(error);
+        }
+      };
+    }
+  }
+  /******************** Pjax ********************************/
+  // /layout/_plugins/pjax/index.ejs
+  // volantis.pjax.send(callBack[,"callBackName"]) 传入pjax:send回调函数
+  // volantis.pjax.push(callBack[,"callBackName"]) 传入pjax:complete回调函数
+  // volantis.pjax.error(callBack[,"callBackName"]) 传入pjax:error回调函数
+  volantis.pjax = {};
+  volantis.pjax.method = {
+    complete: new RunItem(),
+    error: new RunItem(),
+    send: new RunItem(),
+  };
+  volantis.pjax = Object.assign(volantis.pjax, {
+    push: volantis.pjax.method.complete.push,
+    error: volantis.pjax.method.error.push,
+    send: volantis.pjax.method.send.push,
+  });
+  /******************** RightMenu ********************************/
+  // volantis.rightmenu.handle(callBack[,"callBackName"]) 外部菜单项控制
+  // 可在 volantis.mouseEvent 处获取右键事件
+  volantis.rightmenu = {};
+  volantis.rightmenu.method = {
+    handle: new RunItem(),
+  }
+  volantis.rightmenu = Object.assign(volantis.rightmenu, {
+    handle: volantis.rightmenu.method.handle.push,
+  });
+  /********************  Dark Mode  ********************************/
+  // /layout/_partial/scripts/darkmode.ejs
+  // volantis.dark.mode 当前模式 dark or light
+  // volantis.dark.toggle() 暗黑模式触发器
+  // volantis.dark.push(callBack[,"callBackName"]) 传入触发器回调函数
+  volantis.dark = {};
+  volantis.dark.method = {
+    toggle: new RunItem(),
+  };
+  volantis.dark = Object.assign(volantis.dark, {
+    push: volantis.dark.method.toggle.push,
+  });
+  /********************  Message  ********************************/
+  // VolantisApp.message
+  /********************  isMobile  ********************************/
+  // /source/js/app.js
+  // volantis.isMobile
+  // volantis.isMobileOld
+  /********************脚本动态加载函数********************************/
+  // volantis.js(src, cb)  cb 可以传入onload回调函数 或者 JSON对象 例如: volantis.js("src", ()=>{}) 或 volantis.js("src", {defer:true,onload:()=>{}})
+  // volantis.css(src)
 
-		<div class="article-title relative w-full">
-			
-			<div class="w-full flex items-center pt-6 justify-start">
-				<h1 class="article-title-regular text-second-text-color tracking-tight text-4xl md:text-6xl font-semibold px-2 sm:px-6 md:px-8 py-3">智慧树《劳动教育》（同济大学）课程考试答案汇总</h1>
-			</div>
-			
-		</div>
+  // 返回Promise对象，如下方法同步加载资源，这利于处理文件资源之间的依赖关系，例如：APlayer 需要在 MetingJS 之前加载
+  // (async () => {
+  //     await volantis.js("...theme.plugins.aplayer.js.aplayer...")
+  //     await volantis.js("...theme.plugins.aplayer.js.meting...")
+  // })();
 
-		
-		<div class="article-header flex flex-row gap-2 items-center px-2 sm:px-6 md:px-8">
-			<div class="avatar w-[46px] h-[46px] flex-shrink-0 rounded-medium border border-border-color p-[1px]">
-				<img src="/images/favicon.jpeg">
-			</div>
-			<div class="info flex flex-col justify-between">
-				<div class="author flex items-center">
-					<span class="name text-default-text-color text-lg font-semibold">Chenxu Qiao</span>
-					
-					<span class="author-label ml-1.5 text-xs px-2 py-0.5 rounded-small text-third-text-color border border-shadow-color-1">Lv1</span>
-					
-				</div>
-				<div class="meta-info">
-					<div class="article-meta-info">
-    <span class="article-date article-meta-item">
-        <i class="fa-regular fa-pen-fancy"></i>&nbsp;
-        <span class="desktop">2025-09-07 05:40</span>
-        <span class="mobile">2025-09-07 05:40</span>
-        <span class="hover-info">Created</span>
-    </span>
-    
-        <span class="article-date article-meta-item">
-            <i class="fa-regular fa-wrench"></i>&nbsp;
-            <span class="desktop">2025-09-07 17:46:16</span>
-            <span class="mobile">2025-09-07 17:46:16</span>
-            <span class="hover-info">Updated</span>
-        </span>
-    
-
-    
-        <span class="article-categories article-meta-item">
-            <i class="fa-regular fa-folders"></i>&nbsp;
-            <ul>
-                
-                
-                    
-                        
-                        <li>
-                            <a href="/categories/%E4%B8%AD%E5%8D%97%E8%B4%A2%E8%AF%BE%E7%A8%8B%E8%B5%84%E6%BA%90/">中南财课程资源</a>&nbsp;
-                        </li>
-                    
-                    
-                
-            </ul>
-        </span>
-    
-    
-        <span class="article-tags article-meta-item">
-            <i class="fa-regular fa-tags"></i>&nbsp;
-            <ul>
-                
-                    <li>
-                        <a href="/tags/%E6%99%BA%E6%85%A7%E6%A0%91/">智慧树</a>&nbsp;
-                    </li>
-                
-                    <li>
-                        | <a href="/tags/%E5%90%8C%E6%B5%8E%E5%A4%A7%E5%AD%A6/">同济大学</a>&nbsp;
-                    </li>
-                
-                    <li>
-                        | <a href="/tags/%E5%8A%B3%E5%8A%A8%E6%95%99%E8%82%B2/">劳动教育</a>&nbsp;
-                    </li>
-                
-                    <li>
-                        | <a href="/tags/%E8%AF%BE%E7%A8%8B%E7%AD%94%E6%A1%88/">课程答案</a>&nbsp;
-                    </li>
-                
-                    <li>
-                        | <a href="/tags/%E8%80%83%E8%AF%95%E7%AD%94%E6%A1%88/">考试答案</a>&nbsp;
-                    </li>
-                
-            </ul>
-        </span>
-    
-
-    
-    
-    
-    
-        <span class="article-pv article-meta-item">
-            <i class="fa-regular fa-eye"></i>&nbsp;<span id="busuanzi_value_page_pv"></span>
-        </span>
-    
-</div>
-
-				</div>
-			</div>
-		</div>
-		
-
-		
-
-
-		<div class="article-content markdown-body px-2 sm:px-6 md:px-8 pb-8">
-			<h2 id="本文汇总了智慧树知到平台，由同济大学开设的《劳动教育》课程的见面课、章节测试及期末考试的题目与答案，方便同学们学习和复习。"><a href="#本文汇总了智慧树知到平台，由同济大学开设的《劳动教育》课程的见面课、章节测试及期末考试的题目与答案，方便同学们学习和复习。" class="headerlink" title="本文汇总了智慧树知到平台，由同济大学开设的《劳动教育》课程的见面课、章节测试及期末考试的题目与答案，方便同学们学习和复习。"></a>本文汇总了智慧树知到平台，由同济大学开设的《劳动教育》课程的见面课、章节测试及期末考试的题目与答案，方便同学们学习和复习。<br></h2><p>见面课：劳动教育在各专业中的实践<br>1、问题:研究生要结合学科开展劳动教育与评价。<br>选项：<br>A:对<br>B:错<br>答案: 【对】</p>
-<p>2、问题:劳动教育不需要与专业实践结合。<br>选项：<br>A:对<br>B:错<br>答案: 【错】</p>
-<p>3、问题:加强劳动教育对以下哪些具有重大意义？<br>选项：<br>A:全面提高国民综合素质<br>B:践行社会主义核心价值观<br>C:传承和弘扬中华民族优良传统<br>D:实现中华民族伟大复兴<br>答案: 【全面提高国民综合素质;<br>践行社会主义核心价值观;<br>传承和弘扬中华民族优良传统;<br>实现中华民族伟大复兴】</p>
-<p>4、问题:劳动教育线下实践环节将哪些相结合，形成同济特色劳动教育线下实践模式？<br>选项：<br>A:日常生活劳动<br>B:生产劳动<br>C:服务型劳动<br>D:创造性劳动<br>答案: 【日常生活劳动;<br>生产劳动;<br>服务型劳动;<br>创造性劳动】</p>
-<p>5、问题:（ ）年全国教育大会上，习近平总书记要求把劳动教育纳入培养社会主义建设者和接班人的总体要求之中，明确提出构建大中小学劳动教育体系。<br>选项：<br>A:2017<br>B:2018<br>C:2019<br>D:2020<br>答案: 【2018】<br>见面课：大学生实习与就业法律风险与防范<br>1、问题:劳动者无过失，用人单位解除劳动合同，如未依法提前通知，用人单位应额外支付劳动者一个月工资。（ ）<br>选项：<br>A:对<br>B:错<br>答案: 【对】</p>
-<p>2、问题:经济补偿按劳动者在本单位工作的年限，每满一年支付一个月工资的标准向劳动者支付。六个月以上不满一年的，按一年计算；不满六个月的，向劳动者支付半个月工资的经济补偿。（ ）<br>选项：<br>A:对<br>B:错<br>答案: 【对】</p>
-<p>3、问题:协商解除劳动合同情形中，即使由用人单位提出解除劳动合同的，用人单位也不需要支付经济补偿金（ ）<br>选项：<br>A:对<br>B:错<br>答案: 【错】</p>
-<p>4、问题:根据劳动法相关规定，在下列哪些情况下，用人单位有权解除合同，但是必须提前30日以书面的形式通知劳动者本人？（ ）<br>选项：<br>A:劳动者不能胜任工作，经过培训或者调整工作岗位，仍不能胜任工作的<br>B:劳动者在试用期间被证明不符合录用条件的<br>C:劳动者同时与其他用人单位建立劳动关系，对完成本单位的工作任务造成严重影响<br>D:劳动者患病或者非因工负伤，在规定的医疗期满后不能从事原工作，也不能从事由用人单位另行安排的工作的<br>E:在本单位因工负伤并被确认丧失或者部分丧失劳动能力的<br>答案: 【劳动者不能胜任工作，经过培训或者调整工作岗位，仍不能胜任工作的;<br>劳动者患病或者非因工负伤，在规定的医疗期满后不能从事原工作，也不能从事由用人单位另行安排的工作的】</p>
-<p>5、问题:根据劳动法相关规定，以下哪些情形属于劳动合同法定终止情形？（ ）<br>选项：<br>A:用人单位被责令关闭的<br>B:用人单位决定提前解散的<br>C:劳动者达到法定退休年龄<br>D:劳动者开始依法享受基本养老保险待遇<br>E:劳动者被人民法院宣告失踪<br>答案: 【用人单位被责令关闭的;<br>用人单位决定提前解散的;<br>劳动者达到法定退休年龄;<br>劳动者开始依法享受基本养老保险待遇;<br>劳动者被人民法院宣告失踪】</p>
-<p>6、问题:在经济性裁员的情况下，用人单位从裁减人员之日起，（ ）内需要新招人员的，应当优先录用本单位被裁减的人员。<br>选项：<br>A:1个月<br>B:3个月<br>C:6个月<br>D:12个月<br>答案: 【6个月】</p>
-<p>7、问题:劳动者提前（ ）以书面形式通知用人单位，可以解除劳动合同。劳动者在试用期内提前（ ）通知用人单位，可以解除劳动合同。<br>选项：<br>A:30日；3日<br>B:15日；3日<br>C:30日；5日<br>D:15日；5日<br>答案: 【30日；3日】</p>
-<p>8、问题:用人单位有下列（ ）情形时，劳动者可以立即解除劳动合同，不需事先告知用人单位。<br>选项：<br>A:用人单位的规章制度违反法律、法规的规定，损害劳动者权益的<br>B:用人单位违章指挥、强令冒险作业危及劳动者人身安全的<br>C:未按照劳动合同约定提供劳动保护或者劳动条件的<br>D:未依法为劳动者缴纳社会保险费的<br>答案: 【用人单位违章指挥、强令冒险作业危及劳动者人身安全的】<br>见面课：浅谈新时代劳动教育<br>1、问题:2018 年全国教育大会上，习近平强调“培养德智体美劳全面发展的社会主义（ ）”。<br>选项：<br>A: 劳动者<br>B:建设者<br>C:奋斗者<br>D:接班人<br>答案: 【建设者;<br>接班人】</p>
-<p>2、问题:马克思论述了异化劳动的四个规定是（ ）。<br>选项：<br>A:劳动者同劳动产品相异化<br>B:劳动者同劳动活动相异化<br>C:动者同人的类本质相异化<br>D:人同人相异化<br>答案: 【劳动者同劳动产品相异化;<br>劳动者同劳动活动相异化;<br>动者同人的类本质相异化;<br>人同人相异化】</p>
-<p>3、问题:邓小平劳动思想的重要着力点是（ ）。<br>选项：<br>A:尊重劳动<br>B:主张按劳分配的社会主义原则<br>C:重视教育和生产劳动相结合<br>D:培养有社会主义觉悟的有文化的劳动者<br>答案: 【主张按劳分配的社会主义原则】</p>
-<p>4、问题:只有物质生产领域的活劳动才是价值唯一源泉。<br>选项：<br>A:对<br>B:错<br>答案: 【错】</p>
-<p>5、问题:劳动教育的核心在于培养劳动价值观。<br>选项：<br>A:对<br>B:错<br>答案: 【对】<br>绪论 单元测试<br>1、 问题:《劳动教育》是一门什么性质的课程？（ ）。<br>选项：<br>A:选修课<br>B:必修课<br>C:专业课<br>答案: 【<br>必修课<br>】</p>
-<p>绪论单元测试<br>1.《劳动教育》是一门什么性质的课程？（ ）。<br>A:选修课<br>B:专业课<br>C:必修课</p>
-<p>答案:必修课</p>
-<p>第一章测试<br>1、【多选题】马克思的劳动异化理论主要包括（ ）。<br>A.劳动者同人的类本质相异化<br>B.劳动者同劳动产品相异化<br>C.劳动者同劳动活动相异化<br>D.人同人相异化<br>我的答案：ABCD</p>
-<p>2、【单选题】新中国成立伊始，被确立为全体中国人民应当遵守的社会公德的是（ ）。<br>A.爱学习<br>B.爱劳动<br>C.爱祖国<br>D.爱运动<br>我的答案：B</p>
-<p>3、【单选题】建国初期，我国劳动教育的总体目标是（ ）。<br>A.好好学习，天天向上<br>B.培养有社会主义觉悟、有文化的劳动者<br>C.知识就是力量<br>D.成功是奋斗出来的<br>我的答案：B</p>
-<p>4、【判断题】面对新时代多样化价值选择，我们的劳动教育需要训练劳动者掌握劳动技能，帮助劳动者提升劳动素质，努力使其具备奋斗精神和创新精神，并能在学习和实践中不断进取。（ ）<br>我的答案：√</p>
-<p>5、【多选题】高校落实和推动劳动教育必须意识到（ ）。<br>A.劳动教育关乎合格社会主义劳动者的长成<br>B.劳动教育关乎大学生正确爱情观的形成<br>C.劳动教育关乎大学生正确人生观和价值观的形成<br>D.劳动教育关乎大学生公民道德规范的养成<br>我的答案：ACD</p>
-<p>第二章单元测试<br>1.禁止用人单位招用未满十六岁周岁的未成年人。（ ）<br>A:错 B:对<br>答案:对<br>2.就业协议书约定违约金时应当遵循公平合理原则，一般不超过五千元人民币、一个月工资或者因招聘行为可能造成损失的一定比例。（ ）<br>A:错 B:对<br>我的答案：B</p>
-<p>3.下列属于大学生求职招聘过程中的风险有（ ）。<br>A:非法收费风险 B:侵犯个人隐私风险 C:引诱开展非法活动 D:虚假招聘风险<br>我的答案：ABCD</p>
-<p>4.中华人民共和国公民有劳动的权利和义务。( )<br>A:错 B:对<br>我的答案：B</p>
-<p>5.勤工助学活动按照（ ）的原则，由学校在不影响正常教学秩序和学生正常学习的前提下有组织地开展。<br>A:立足校园、服务社会 B:竞争上岗、遵纪守法 C:学有余力、自愿申请 D:信息公开、扶困优先<br>我的答案：BCD</p>
-<p>第三章测试<br>1、【多选题】土木工程试验研究中劳动的意义有哪些（ ）？<br>A.让研究者精神愉悦<br>B.促进研究者身体健康<br>C.让研究者获得丰厚的经济报酬<br>D.提高研究质量<br>我的答案：BD</p>
-<p>2、【判断题】土木试验中的劳动，包括脑力劳动和体力劳动。（ ）<br>我的答案：√</p>
-<p>3、【多选题】张郁与团队争分夺秒，凌晨、假期、甚至春假都坚守岗位，只为保障地铁的安全正常运行。请问这体现了张郁团队什么样的劳动精神？（ )<br>A.艰苦奋斗<br>B.甘于奉献<br>C.争创一流<br>D.爱岗敬业<br>我的答案：ABCD</p>
-<p>4、【判断题】智慧运维的案例让我们明白，在劳动中不仅要勤奋，更重要的是要利用聪明才智、创新、巧干。（ ）<br>我的答案：√</p>
-<p>5、【判断题】劳模张郁给到同学们的成长建议是读好书、学好专业知识,提前做人生规划.( ）<br>我的答案：√</p>
-<p>6、【多选题】作为建筑设计师，如何发扬工匠精神？（ )<br>A.拥有执着的品质<br>B.追求细节<br>C.保持专注的工作态度<br>我的答案：ABC</p>
-<p>7、【多选题】你认为雨水花园的设计，如钢栈桥、座椅、灯具、地面格栅等设计，体现了设计团队怎样的精神？（ )<br>A.追求卓越<br>B.精益求精<br>C.一丝不苟<br>我的答案：ABC</p>
-<p>8、【多选题】章明教授给到同学们“自我修炼”的建议是：（ )<br>A.提升专业技能，做到熟能生巧<br>B.持续学习积累、锻炼自身修为<br>C.开阔眼界、提升自身能力<br>我的答案：ABC</p>
-<p>9、【判断题】国家体育总局，汽摩管理中心的领导用“中国赛车运动发展史上的里程碑”来赞扬姚启明对中国汽运做出的开创性的贡献。（ ）<br>我的答案：√</p>
-<p>10、【多选题】劳模精神的内涵是（ ）<br>A.勇于创新<br>B.艰苦奋斗<br>C.甘于奉献<br>D.爱岗敬业<br>E.争创一流<br>F.淡泊名利<br>我的答案：ABCDEF</p>
-<p>11、【多选题】劳模姚启明给到同学们的“逐梦”建议是（ ）<br>A.向身边的劳模们多学习<br>B.要培育热爱劳动，尊重劳动，崇尚劳动的这种价值观<br>C.要养成热爱劳动的好习惯<br>D.要真正明白劳动创作幸福的道理<br>我的答案：ABCD</p>
-<p>12、【多选题】初入汽车行业，在上汽大众工作时遇到了诸多挑战，付涛的解决方法有（ ）。<br>A.全身心付出<br>B.做好本职工作<br>C.虚心向前辈请教<br>D.严格要求自己<br>我的答案：ABCD</p>
-<p>13、【判断题】付涛在工作中一直秉持的优秀品质有肯吃苦、肯钻研以及精益求精的精神和勇气。（ ）<br>我的答案：√</p>
-<p>14、【判断题】工匠精神是我国从制造业大国走向制造业强国的基础、支撑、关键。（ ）<br>我的答案：√</p>
-<p>15、【判断题】城市更新中的工匠精神就是在传承传统工艺的基础上，不断采用新技术进行创新，把历史建筑修缮的更好。（ ）<br>我的答案：√</p>
-<p>16、【判断题】上海玉佛寺大雄宝殿移位运用了物联网技术，包括实时传感技术，对其进行安全监测。（ ）<br>我的答案：√</p>
-<p>17、【多选题】工匠精神应该如何传承（ ）?<br>A.要有进取心<br>B.要有自信心<br>C.要有专注心<br>D.要有责任心<br>我的答案：ABCD</p>
-<p>期末考试题库</p>
-<p>1.毕业生签订三方协议后没有如约去用人单位报到属于典型的单方违约行为。（ ）<br>答案:对</p>
-<p>2.不得以性别为由限制妇女求职就业、拒绝录用妇女。（ ）<br>答案:对</p>
-<p>3.就业协议书只能约定由毕业生承担的违约金。（ ）<br>答案:错</p>
-<p>4.判断是否存在劳动关系应该看双方签订了何种协议。（ ）<br>答案:错</p>
-<p>5.劳动教育应坚持因地制宜。根据各地区和学校实际，结合当地在自然、经济、文化等方面条件，充分挖掘行业企业、职业院校等可利用资源，宜工则工、宜农则农，采取多种方式开展劳动教育，避免“一刀切”。（ ）<br>答案:对</p>
-<p>6.用人单位可以安排应聘者参加“乙肝五项”和HBV-DNA检测等体检项目。（ ）<br>答案:错</p>
-<p>7.脑力劳动者的待遇和报酬应该高于体力劳动者。 （ ）<br>答案:错</p>
-<p>8.我们需要向劳模学习不畏艰难的意志品质，在挫折中沉淀与成长。（ ）<br>答案:对</p>
-<p>9.竞业限制的人员限于用人单位的高级管理人员、高级技术人员和其他负有保密义务的人员。（ ）<br>答案:对</p>
-<p>10.劳动教育是学校和家庭的事情，政府和社会不用承担责任。（ ）<br>答案:错</p>
-<p>11.劳模精神的特点是（ )<br>答案:劳模精神是社会主义核心价值观的具体化、人格化和现实化的体现。###劳模精神鲜活而生动的存在在我们的现实生活中。###劳模精神有鲜明的时代特征，随着国家意识形态、经济社会的形势和以及我们时代变迁在不断地演变和发展。</p>
-<p>12.劳动教育的总体目标是准确把握社会主义建设者和接班人的劳动精神面貌、劳动价值取向和劳动技能水平的培养要求，全面提高学生劳动素养，使学生：（ ）<br>答案:树立正确的劳动观念。###养成良好的劳动习惯和品质###具有必备的劳动能力。###培育积极的劳动精神。</p>
-<p>13.“一切劳动，一方面是人类劳动力在生理学意义上的耗费；就相同的或抽象的人类劳动这个属性来说，它形成商品价值。一切劳动，另一方面是人类劳动力在特殊的有一定目的的形式上的耗费；就具体的有用的劳动这个属性来说，它生产使用价值”阐释了劳动的二重性统一于劳动过程之中，这段话出自《资本论》。（ ）<br>答案:对</p>
-<p>14.科学家精神是指什么？（ ）<br>答案:淡泊名利、潜心研究的奉献精神###胸怀祖国、服务人民的爱国精神###勇攀高峰、敢为人先的创新精神</p>
-<p>15.中国发展生产力的必由之路是什么？（《邓小平文选》第三卷）（ ）<br>答案:改革</p>
-<p>16.劳动教育的关键环节包括（ ）<br>答案:讲解说明###淬炼操作###反思交流###榜样激励###项目实践</p>
-<p>17.教学型实习的特点有（ ）。<br>答案:单位管理较为宽松，学校参与度高###无报酬或只有较低的补贴###为了完成专业培养目标和教学计划###学生仍在接受学校教育</p>
-<p>18.劳动教育的总体目标包括（ ）。<br>答案:具备必要的劳动能力###树立正确的劳动观念###培养积极的劳动精神</p>
-<p>19.实习协议可以约定（ ）事项。<br>答案:.实习期限###意外伤害保险###实习方式、内容和岗位###实习终止条件</p>
-<p>20.马克思对劳动异化的阐述，处处体现了对于（ ）的控诉。<br>答案:资本主义</p>
-<p>21.马克思说，“在共产主义社会高级阶段上，迫使人们奴隶般地服从社会分工的情形已经消失，从而脑力劳动和体力劳动的（ ）也随之消失……”<br>答案:对立</p>
-<p>22.用人单位不能和（ ）类人员约定离职竞业限制义务<br>答案:实习生</p>
-<p>23.单选题：对开展日常生活劳动、生产劳动、服务性劳动三类劳动教育，哪个描述是错误的？（ ）<br>答案:三类劳动教育内容不同，各学段可以有所侧重，总体上看可以偏重。</p>
-<p>24.新时代劳动教育的核心是培养学生的（ ）。<br>答案:劳动价值观</p>
-<p>25.加强劳动教育对以下哪些具有重大意义？<br>答案:践行社会主义核心价值观###传承和弘扬中华民族优良传统###全面提高国民综合素质###实现中华民族伟大复兴</p>
-<p>26.劳动教育不需要与专业实践结合。<br>答案:错</p>
-<p>27.研究生要结合学科开展劳动教育与评价。<br>答案:对</p>
-<p>28.劳动教育线下实践环节将哪些相结合，形成同济特色劳动教育线下实践模式？<br>答案:生产劳动###日常生活劳动###服务型劳动###创造性劳动</p>
-<p>29.（  ）年全国教育大会上，习近平总书记要求把劳动教育纳入培养社会主义建设者和接班人的总体要求之中，明确提出构建大中小学劳动教育体系。<br>答案:2018</p>
-<p>30.经济补偿按劳动者在本单位工作的年限，每满一年支付一个月工资的标准向劳动者支付。六个月以上不满一年的，按一年计算；不满六个月的，向劳动者支付半个月工资的经济补偿。（  ）<br>答案:对</p>
-<p>31.根据劳动法相关规定，在下列哪些情况下，用人单位有权解除合同，但是必须提前30日以书面的形式通知劳动者本人？（   ）<br>答案:劳动者不能胜任工作，经过培训或者调整工作岗位，仍不能胜任工作的###劳动者患病或者非因工负伤，在规定的医疗期满后不能从事原工作，也不能从事由用人单位另行安排的工作的</p>
-<p>32.用人单位有下列（  ）情形时，劳动者可以立即解除劳动合同，不需事先告知用人单位。<br>答案:用人单位违章指挥、强令冒险作业危及劳动者人身安全的</p>
-<p>33.劳动者无过失，用人单位解除劳动合同，如未依法提前通知，用人单位应额外支付劳动者一个月工资。（  ）<br>答案:对</p>
-<p>34.根据劳动法相关规定，以下哪些情形属于劳动合同法定终止情形？（   ）<br>答案:劳动者开始依法享受基本养老保险待遇###劳动者达到法定退休年龄###劳动者被人民法院宣告失踪###用人单位被责令关闭的###用人单位决定提前解散的</p>
-<p>35.协商解除劳动合同情形中，即使由用人单位提出解除劳动合同的，用人单位也不需要支付经济补偿金（  ）<br>答案:错</p>
-<p>36.在经济性裁员的情况下，用人单位从裁减人员之日起，（   ）内需要新招人员的，应当优先录用本单位被裁减的人员。<br>答案:6个月</p>
-<p>37.劳动者提前（   ）以书面形式通知用人单位，可以解除劳动合同。劳动者在试用期内提前（    ）通知用人单位，可以解除劳动合同。<br>答案:30日；3日</p>
-<p>38.只有物质生产领域的活劳动才是价值唯一源泉。<br>答案:错</p>
-<p>39.劳动教育的核心在于培养劳动价值观。<br>答案:对</p>
-<p>40.马克思论述了异化劳动的四个规定是（ ）。<br>答案:人同人相异化###劳动者同劳动活动相异化###动者同人的类本质相异化###劳动者同劳动产品相异化</p>
-<p>41.邓小平劳动思想的重要着力点是（ ）。<br>答案:主张按劳分配的社会主义原则</p>
-<p>42.家庭应在劳动教育中发挥主导作用，注重衣食住行等日常生活中的劳动实践机会，鼓励孩子自觉参与，自己动手，随时随地、坚持不懈进行劳动，掌握洗衣做饭等必要的家务劳动技能，每年有针对性地学会1至2项生活技能。（ ）<br>答案:错</p>
-<p>43.未采取书面形式的劳动合同无效。（ ）<br>答案:错</p>
-<p>44.劳动教育是国民教育体系的重要内容，是学生成长的必要途径，具有树德、增智、强体、育美的综合育人价值。（ ）<br>答案:对</p>
-<p>45.列宁的共产主义概念仅仅是指共产主义的最高社会形态。（ ）<br>答案:错</p>
-<p>46.劳动创造了人本身，是促进人全面发展的必由之路。 （ ）<br>答案:对</p>
-<p>47.1949年9月29日，中国人民政治协商会议第一届全体会议通过《中国人民政治协商会议共同纲领》，在文化教育政策部分明确指出，“提倡（ ）、爱护公共财物为中华人民共和国全体国民的公德。“<br>答案:爱祖国###爱劳动###爱科学###爱人民</p>
-<p>48.下面( )单位可以作为用人单位？<br>答案:国家机关、事业单位、社会团体###民办非企业单位###企业、个体经济组织、</p>
-<p>49.马克思在《青年在选择职业时的考虑》一文中提到，“如果我们选择了最能为（ ）而劳动的职业，那么，重担就不能使我们压倒……”<br>答案:人类福利</p>
-<p>50.我国将（ ）作为劳动教育的指导原则。<br>答案:尊重知识###尊重劳动###尊重创造###尊重人才</p>
-<p>51.1949年，中国人民政治协商会议第一届全体会议通过《中国人民政治协商会议共同纲领》，其中第42条规定了什么作为中华人民共和国全体国民的公德，可见劳动教育在建国之初的重要性。（ ）<br>答案:提倡爱祖国、爱人民、爱劳动、爱科学、爱护公共财物</p>
-<p>52.树立科学的劳动观念，首先就要坚持（ ）的社会主义分配原则。<br>答案:按劳分配</p>
-<p>53.中共中央 国务院《关于全面加强新时代大中小学劳动教育的意见》发布的时间？（ ）<br>答案:2020年</p>
-<p>54.“工人生产的财富越多，他就越贫穷。工人创造的商品越多，他就越变成廉价的商品”出自以下哪本马恩经典？（ ）<br>答案:《1844年经济学哲学手稿》</p>
-<p>55.”加强劳动保护，改善劳动条件“是我国宪法为保护劳动者在生产过程中的（ ）而制定的原则。<br>答案:安全与健康</p>
-<p>56.“剩余劳动”是指“一切为养活不劳动的人而从事的劳动”，而且“支配着这种剩余劳动的不是工人，而是资本家”（ ）<br>答案:对</p>
-<p>57.社会应在劳动教育中发挥基础作用，充分利用社会各方面资源，为劳动教育提供必要保障。（ ）<br>答案:错</p>
-<p>58.大学生一律不是劳动者。（ ）<br>答案:错</p>
-<p>59.强烈的民族自尊心促使姚启明萌生“中国人的赛道应该由中国人自己设计”的想法。（ ）<br>答案:对</p>
-<p>60.下面（ ）不是劳动法意义上的劳动者？<br>答案:家庭保姆###警察###法官###私人保镖</p>
-<p>61.典型的招聘陷阱有（ ）<br>答案:信息泄露###骗入传销组织###押金、保证金、诚意金###培训贷款</p>
-<p>62.“共产主义星期六义务劳动”是由以下哪位领导人提出的？（ ）<br>答案:列宁</p>
-<p>63.允许一部分人先富起来与崇尚劳动最光荣是矛盾的。 （ ）<br>答案:错</p>
-<p>64.劳动教育的基本理念（ ）<br>答案:发挥主体作用，激发创新创造。###强化劳动观念，弘扬劳动精神。###强调身心参与，注重手脑并用。###继承优良传统，彰显时代特征。</p>
-<p>65.劳动不仅决定和制约着（ ），而且劳动状况也决定着人的发展状况。<br>答案:社会面貌###社会结构###社会性质</p>
-<p>66.毛泽东指出，社会主义劳动教育就是要培养（ ）的劳动者。<br>答案:有社会主义觉悟###有文化</p>
-<p>67.1957年，毛泽东同志在《关于正确处理人民内部矛盾的问题》一文中指出：“我们的教育方针，应该使受教育者在（ ）几个方面都得到发展。A.德、智<br>答案:德、智、体、美</p>
-<p>68.劳动教育评价不包括（ ）<br>答案:过程性评价</p>
-<p>69.广东省的实习协议可以根据实习的性质和需要，约定意外伤害保险的投保人、投保额度、损害赔偿、实习报酬、保密等其他事项。（ ）<br>答案:对</p>
-<p>70.高校落实和推动劳动教育必须意识到（ ）。<br>答案:劳动教育关乎合格社会主义劳动者的长成###劳动教育关乎大学生公民道德规范的养成###劳动教育关乎大学生正确人生观和价值观的形成</p>
-<p>71.新中国成立伊始，被确立为全体中国人民应当遵守的社会公德的是（ ）。<br>答案:爱劳动</p>
-<p>72.建国初期，我国劳动教育的总体目标是（ ）。<br>答案:培养有社会主义觉悟、有文化的劳动者</p>
-<p>73.面对新时代多样化价值选择，我们的劳动教育需要训练劳动者掌握劳动技能，帮助劳动者提升劳动素质，努力使其具备奋斗精神和创新精神，并能在学习和实践中不断进取。（ ）<br>答案:对</p>
-<p>74.马克思的劳动异化理论主要包括（ ）。<br>答案:劳动者同劳动产品相异化###人同人相异化###劳动者同劳动活动相异化###劳动者同人的类本质相异化</p>
-<p>75.中国古代对劳动的问题上是有缺陷的，就是所谓的“劳心者治人，劳力者治于人”，读书人是不动手的。（ ）<br>答案:对</p>
-<p>76.章明教授建设的杨浦滨江南段公共空间，得到了习近平总书记的评价“人民城市人民建”。（ ）<br>答案:对</p>
-<p>77.对工作的执着源于你对工作的热爱，热爱是基本的出发点。（ ）<br>答案:对</p>
-<p>78.建筑设计师设计作品时不需要考虑历史、文化等因素。（ ）<br>答案:错</p>
-<p>79.劳动教育是中国特色社会主义教育制度的重要内容，间接决定社会主义建设者和接班人的劳动精神面貌、劳动价值取向和劳动技能水平。（ ）<br>答案:错</p>
-<p>80.对历史建筑进行改造时，要带着社会责任感和对历史建筑的敬畏心。（ ）<br>答案:对</p>
-<p>81.智慧运维的本质是提高地铁运行的维护质量，宗旨是提升市民的出行感受。（ ）<br>答案:对</p>
-<p>82.工艺文档的维护的制度，包括零件的投产的管理，工装夹具的管理，人员生产组织安排，成本的控制，特殊车辆的制作。（ ）<br>答案:对</p>
-<p>83.在试验研究中，研究人员只需要参与设计，不需要亲自动手。（ ）<br>答案:错</p>
-<p>84.将历史建筑“修旧如故”，最大程度接近的还原，是对历史建筑保护最大的尊重。（ ）<br>答案:对</p>
-<p>85.马克思认为，劳动是创造价值的唯一源泉。 （ ）<br>答案:对</p>
-<p>86.用人单位在试用期无需为劳动者缴纳社会保险。（ ）<br>答案:错</p>
-<p>87.面试过程中HR问有没有男朋友，打算什么时候结婚，以后打算生几胎，面对这些问题你必须如实回答。（ ）<br>答案:错</p>
-<p>88.无论哪一种行业，想要做好，成为行业精英，都离不开坚持不懈、勤于钻研的精神。（ ）<br>答案:对</p>
-<p>89.“劳心者治人，劳力者治于人”，所以体力劳动是没本事，无能的表现（ ）<br>答案:错</p>
-<p>90.劳动是一切价值的创造者，是脑力和体力的统一，机器大工业、现代社会的分工导致了体力劳动与脑力劳动的二次分离，也必将促进二者在更高水平上的结合。（ ）<br>答案:对</p>
-<p>91.地铁出现5分钟晚点，对于社会的影响不是很大。（ ）<br>答案:错</p>
-<p>92.新时代劳动教育强调教育与劳动相结合。 （ ）<br>答案:对</p>
-<p>93.用人单位招用劳动者未订立书面劳动合同，但同时具备下列（ ）情形的，劳动关系成立？<br>答案:用人单位和劳动者符合法律、法规规定的主体资格###劳动者提供的劳动是用人单位业务的组成部分###用人单位依法制定的各项劳动规章制度适用于劳动者，劳动者受用人单位的劳动管理，从事用人单位安排的有报酬的劳动</p>
-<p>94.劳模精神是指什么？（ ）<br>答案:淡泊名利、甘于奉献###艰苦奋斗、勇于创新###爱岗敬业、争创一流</p>
-<p>95.“向史而新”的意义是（ )<br>答案:眷顾过去###映射未来###映射当下</p>
-<p>96.劳动教育应遵循教育规律。符合学生年龄特点，以体力劳动为主，注意手脑并用、安全适度，强化实践体验，让学生亲历劳动过程，提升育人实效性。（ ）<br>答案:对</p>
-<p>97.招聘时用人单位有权了解（ ）情况<br>答案:学习经历###职业资格###工作经验</p>
-<p>98.目前国家非常重视劳动教育，新时代劳动教育的内涵与意义以下哪些说法是正确的？（ ）<br>答案:新时代劳动教育强调教育与劳动相结合。教育与劳动相结合是马克思主义教育的基本思想，也是我国《教育法》规定的明确要求。强调劳动教育重点是要让学生在系统的文化知识学习之外有目的、有计划地参加劳动实践，实现知行合一，获得身心全面发展。###新时代劳动教育关注劳动素养的培养。与侧重劳动有关的知识、技能、方法等传统劳动教育方式不同，新时代劳动教育观更重视对学生劳动价值观、劳动精神、劳动思维等更深层次素养的培养。###新时代劳动教育体现了我国教育坚持综合育人理念。新时代劳动教育立足于人的整体性，融合多学科知识，对人、社会和自然进行整合，将理论知识有机融入现实社会，对学生健全人格发展起着重要作用。###新时代劳动教育直接体现了我国教育的本质。马克思主义认为，劳动创造了世界，劳动创造了历史，劳动创造了人本身。新时代劳动教育是社会主义教育的重要内容，是我国教育体系不可缺少的一部分，是学校教育教学工作的重要一环。</p>
-<p>99.实务中认定劳动关系需要的条件有（ ）。<br>答案:劳动者提供的劳动是用人单位的业务组成部分###用人单位和劳动者都要符合法律法规规定的主体资格###用人单位和劳动者之间有管理和被管理的关系，劳动者从事的是用人单位安排的有报酬的劳动</p>
-<p>100.付涛认为成为一个合格的工匠，不仅要不断磨砺自己而且要戒骄戒躁。（ ）<br>答案:对</p>
-<p>101.用工之日起满一年，用人单位仍未与劳动者签订书面劳动合同的，视为已订立无固定期限劳动合同。（ ）<br>答案:对</p>
-<p>102.列宁所赞赏并推崇的共产主义劳动态度，是（ ）的劳动态度。<br>答案:自愿的###忘我的###不计报酬的###人人为我、我为人人</p>
-<p>103.落实劳动教育，高校应该（ ）<br>答案:努力通过多种途径构建大学生的劳动教育环境###从理论教学和实践教学相结合的角度构建劳动教育体系###从意识形态建设的高度重视劳动教育</p>
-<p>104.就业协议书有（ ）作用<br>答案:为毕业生办理就业落户手续等有关事项的重要依据。###用人单位确认毕业生相关信息真实可靠以及接收毕业生的重要凭据###高校进行毕业生就业管理、编制就业方案的依据###毕业生和用人单位确立就业关系、明确双方权利和义务</p>
-<p>105.劳动者就（ ）情况没有如实说明义务<br>答案:婚姻状态###恋爱经历</p>
-<p>106.下面（ ）情形下用人单位可以约定由劳动者承担的违约金？<br>答案:劳动者在劳动合同期限届满之前辞职###用人单位为劳动者办理了户口</p>
-<p>107.下面（ ）不属于劳动合同的必备条款？<br>答案:违约金</p>
-<p>108.高等学校劳动教育的主要内容是什么？ （ ）<br>答案:使学生掌握通用劳动科学知识，深刻理解马克思主义劳动观和社会主义劳动关系，树立正确的择业就业创业观，具有到艰苦地区和行业工作的奋斗精神###使学生强化服务性劳动，自觉参与教室、食堂、校园场所的卫生保洁、绿化美化和管理服务等，结合“三支一扶”、大学生志愿服务西部计划、“青年红色筑梦之旅”“三下乡”等社会实践活动开展服务性劳动，强化公共服务意识和面对重大疫情、灾害等危机主动作为的奉献精神###使学生巩固良好日常生活劳动习惯，自觉做好宿舍卫生保洁，独立处理个人生活事务，积极参加勤工助学活动，提高劳动自立自强能力###使学生重视生产劳动锻炼，积极参加实习实训、专业服务和创新创业活动，重视新知识、新技术、新工艺、新方法的运用，提高在生产实践中发现问题和创造性解决问题的能力，在动手实践的过程中创造有价值的物化劳动成果。</p>
-<p>109.工匠精神是指什么？（ ）<br>答案:追求卓越的创新精神###协作共进的团队精神###精益求精的品质精神###爱岗敬业的职业精神</p>
-<p>110.智力劳动在勤劳上的表现（ ）<br>答案:精力集中###独立思考###保持好奇心</p>
-<p>111.“劳动是整个人类生活的第一个基本条件······劳动创造了人本身”出自下列哪本著作，他的作者是？（ ）<br>答案:《劳动在从猿到人转变过程中的作用》恩格斯</p>
-<p>112.2018 年全国教育大会上，习近平强调“培养德智体美劳全面发展的社会主义（ ）”。<br>答案:建设者###接班人</p>
-<p>113.《劳动合同法》对以下（ ）没有规定<br>答案:试用期期间的社保缴纳</p>
-<p>114.单选题：为了培养大学生的劳动观念和劳动纪律，使之掌握一些劳动技能，应组织大学生参加（ ）社会实践活动<br>答案:生产劳动</p>
-<p>115.1957年，毛泽东同志在《关于正确处理人民内部矛盾的问题》一文中指出：“我们的教育方针，应该使受教育者在（ ）几个方面都得到发展。<br>答案:德、智、体</p>
-<p>116.马克思哪两个划时代的伟大发现，都是建立在劳动学说基础上的？（ ）<br>答案:唯物史观 剩余价值理论</p>
-<p>117.马克思主义劳动观包括 ？ （ ）<br>答案:劳动创造世界 劳动创造历史 劳动创造人本身</p>
-<p>118.单选题：劳动教育具有的特征（ ）<br>答案:思想性、实践性、社会性</p>
-<p>119.1876年，马克思的亲密战友恩格斯写作了《劳动在从猿到人的转变中的作用》一书，详尽阐释了什么论断？（ ）<br>答案:劳动创造人本身</p>
-<p>120.以下哪个主体应在新时代劳动教育中发挥主导作用？（ ）<br>答案:学校</p>
-<p>121.通过劳动教育，使学生树立马克思主义劳动观，包括以下哪些方面？（ ）<br>答案:劳动最光荣 劳动最崇高 劳动最伟大 劳动最美丽</p>
-<p>122.工匠精神是我国从制造业大国走向制造业强国的基础、支撑、关键。（ ）<br>答案:对</p>
-<p>123.付涛在工作中一直秉持的优秀品质有肯吃苦、肯钻研以及精益求精的精神和勇气。（ ）<br>答案:对</p>
-<p>124.初入汽车行业，在上汽大众工作时遇到了诸多挑战，付涛的解决方法有（ ）。<br>答案:做好本职工作###全身心付出###严格要求自己###虚心向前辈请教</p>
-<p>125.劳模姚启明给到同学们的“逐梦”建议是（ ）<br>答案:向身边的劳模们多学习###要养成热爱劳动的好习惯###要培育热爱劳动，尊重劳动，崇尚劳动的这种价值观###要真正明白劳动创作幸福的道理</p>
-<p>126.上海玉佛寺大雄宝殿移位运用了物联网技术，包括实时传感技术，对其进行安全监测。（ ）<br>答案:对</p>
-<p>127.工匠精神应该如何传承（ ）?<br>答案:要有责任心###要有进取心###要有专注心###要有自信心</p>
-<p>128.城市更新中的工匠精神就是在传承传统工艺的基础上，不断采用新技术进行创新，把历史建筑修缮的更好。（ ）<br>答案:对</p>
-<p>129.章明教授给到同学们“自我修炼”的建议是：（ )<br>答案:持续学习积累、锻炼自身修为###提升专业技能，做到熟能生巧###开阔眼界、提升自身能力</p>
-<p>130.张郁与团队争分夺秒，凌晨、假期、甚至春假都坚守岗位，只为保障地铁的安全正常运行。请问这体现了张郁团队什么样的劳动精神？（ )<br>答案:艰苦奋斗###爱岗敬业###甘于奉献###争创一流</p>
-<p>131.作为建筑设计师，如何发扬工匠精神？（ )<br>答案:拥有执着的品质###追求细节###保持专注的工作态度</p>
-<p>132.土木工程试验研究中劳动的意义有哪些（ ）？<br>答案:促进研究者身体健康###提高研究质量</p>
-<p>133.国家体育总局，汽摩管理中心的领导用“中国赛车运动发展史上的里程碑”来赞扬姚启明对中国汽运做出的开创性的贡献。（ ）<br>答案:对</p>
-<p>134.你认为雨水花园的设计，如钢栈桥、座椅、灯具、地面格栅等设计，体现了设计团队怎样的精神？（ )<br>答案:追求卓越###一丝不苟###精益求精</p>
-<p>135.土木试验中的劳动，包括脑力劳动和体力劳动。（ ）<br>答案:对</p>
-<p>136.智慧运维的案例让我们明白，在劳动中不仅要勤奋，更重要的是要利用聪明才智、创新、巧干。（ ）<br>答案:对</p>
-<p>137.劳模精神的内涵是（ ）<br>答案:勇于创新###甘于奉献###艰苦奋斗###争创一流###爱岗敬业###淡泊名利</p>
-<p>138.劳模张郁给到同学们的成长建议是读好书、学好专业知识,提前做人生规划.( ）<br>答案:对</p>
-<p>139.学生的身份并不当然的限制郭懿作为一个普通的劳动者加入劳动力的群体。（ ）<br>答案:对</p>
-<p>140.求职中可能遇到的陷阱有（ ）。<br>答案:培训贷款###押金、保证金、诚意金###信息泄露###骗入传销组织</p>
-<p>141.劳动合同法的新规定有（ ）。<br>答案:试用期期间的工资###禁止重复约定试用期###试用期期限与合同期限挂钩###禁止约定试用期的情形###试用期期间解除劳动合同</p>
-<p>142.三方协议的法律性质虽然属于民事协议，但是由它引起的争议也需要经过劳动仲裁再进入法院的一审和二审程序。（ ）<br>答案:错</p>
-<p>143.《劳动教育》是一门什么性质的课程？（ ）。<br>答案:必修课</p>
-<p>144.【判断题】进入改革开放时期之后，为了践行让全体劳动者共享发展成果的新时期劳动教育观，在农村实行家庭联产承包责任制以调动广大农民的生产积极性；在城市推动城乡统一的劳动力市场建设以允许劳动者自由流动、自主择业。（ ）<br>答案：对</p>
-<p>145.【判断题】1、一般年满十八周岁的在校大学生被视为法律上的完全民事行为能力人。（  ）<br>答案：对</p>
-<p>146 【判断题】依据相关法律规定，符合条件的在校大学生可以成立雇佣关系，订立合法的民事雇佣协议。（  ）<br>答案：对</p>
-<p>147 【判断题】用人单位招用劳动者，不得扣押劳动者的居民身份证和其他证件，不得要求劳动者提供担保或者以其他名义向劳动者收取财物。（  ）<br>答案：对</p>
-<p>148 【判断题】签订劳动合同过程中，可能存在缔约双方主体不合格、未在法律规定的期限内签署书面合同；用人单位收取相关身份证件或财物、违法签订试用期合同、不给劳动者正式劳动合同文本；劳动合同内容违反法律法规等风险。（  ）<br>答案：对</p>
-<p>【判断题】中国古代对劳动的问题上是有缺陷的，就是所谓的“劳心者治人，劳力者治于人”，读书人是不动手的。（ ）<br>答案：对</p>
-<p>【多选题】汪品先院士从Slavin教授处学到的习惯是（ ）<br>答案：不喝水；不戴帽子；不吃饭</p>
-<p>【判断题】即使没有安排工作任务，我们也需要凸显的勤奋？<br>答案：错</p>
-<p>【多选题】2010年上海世博会的亮点有<br>这是历史上第一个公交世博会；世博园规划中，大量保留及改造了老厂房；同济大学多门学科的教师及学生团队参与建设及运营</p>
-<p>【判断题】劳动是快乐的，劳动会促使个人成长，促使团队创新。<br>对</p>
-<p>【判断题】科学研究的过程中，学习的是研究思路及研究方法。<br>对</p>
-<p>【判断题】同济大学的校训是“严谨求实、团结创新”<br>对</p>
-
-		</div>
-
-		
-		<div class="post-copyright-info w-full my-8 px-2 sm:px-6 md:px-8">
-			<div class="article-copyright-info-container">
-    <ul>
-        <li><strong>Title:</strong> 智慧树《劳动教育》（同济大学）课程考试答案汇总</li>
-        <li><strong>Author:</strong> Chenxu Qiao</li>
-        <li><strong>Created at
-                :</strong> 2025-09-07 05:40:00</li>
-        
-            <li>
-                <strong>Updated at
-                    :</strong> 2025-09-07 17:46:16
-            </li>
-        
-        <li>
-            <strong>Link:</strong> https://chenxuqiao.github.io/2025/09/07/智慧树《劳动教育》（同济大学）课程考试答案汇总/
-        </li>
-        <li>
-            <strong>
-                License:
-            </strong>
-            
-
-            
-                This work is licensed under <a class="license" target="_blank" rel="noopener" href="https://creativecommons.org/licenses/by-nc-sa/4.0">CC BY-NC-SA 4.0</a>.
-            
-        </li>
-    </ul>
-</div>
-
-		</div>
-		
-
-		
-		<ul class="post-tags-box text-lg mt-1.5 flex-wrap justify-center flex md:hidden">
-			
-			<li class="tag-item mx-0.5">
-				<a href="/tags/%E6%99%BA%E6%85%A7%E6%A0%91/">#智慧树</a>&nbsp;
-			</li>
-			
-			<li class="tag-item mx-0.5">
-				<a href="/tags/%E5%90%8C%E6%B5%8E%E5%A4%A7%E5%AD%A6/">#同济大学</a>&nbsp;
-			</li>
-			
-			<li class="tag-item mx-0.5">
-				<a href="/tags/%E5%8A%B3%E5%8A%A8%E6%95%99%E8%82%B2/">#劳动教育</a>&nbsp;
-			</li>
-			
-			<li class="tag-item mx-0.5">
-				<a href="/tags/%E8%AF%BE%E7%A8%8B%E7%AD%94%E6%A1%88/">#课程答案</a>&nbsp;
-			</li>
-			
-			<li class="tag-item mx-0.5">
-				<a href="/tags/%E8%80%83%E8%AF%95%E7%AD%94%E6%A1%88/">#考试答案</a>&nbsp;
-			</li>
-			
-		</ul>
-		
-
-		
-
-		
-		<div class="article-nav my-8 flex justify-between items-center px-2 sm:px-6 md:px-8">
-			
-			
-			<div class="article-next border-border-color shadow-redefine-flat shadow-shadow-color-2 rounded-medium px-4 py-2 hover:shadow-redefine-flat-hover hover:shadow-shadow-color-2">
-				<a class="next" rel="next" href="/2025/09/03/%E4%B8%AD%E5%8D%97%E8%B4%A2%E7%BB%8F%E6%94%BF%E6%B3%95%E5%A4%A7%E5%AD%A6%E8%8B%B1%E6%96%87%E6%8E%A8%E8%8D%90%E4%BF%A1/">
-					<span class="title flex justify-center items-center">
-						<span class="post-nav-title-item truncate max-w-48">中南财经政法大学英文推荐信 LaTeX 模板（工商管理学院）</span>
-						<span class="post-nav-item">Next posts</span>
-					</span>
-					<span class="right arrow-icon flex justify-center items-center">
-						<i class="fa-solid fa-chevron-right"></i>
-					</span>
-				</a>
-			</div>
-			
-		</div>
-		
-
-
-		
-		<div class="comment-container px-2 sm:px-6 md:px-8 pb-8">
-			<div class="comments-container mt-10 w-full ">
-    <div id="comment-anchor" class="w-full h-2.5"></div>
-    <div class="comment-area-title w-full my-1.5 md:my-2.5 text-xl md:text-3xl font-bold">
-        Comments
-    </div>
-    
-
-        
-            
-    <div id="waline"></div>
-    <script type="module" data-swup-reload-script>
-      import { init } from '/js/libs/waline.mjs';
-
-      function loadWaline() {
-        init({
-          el: '#waline',
-          serverURL: 'my-blog-reviews-lemon.vercel.app',
-          dark: 'body[class~="dark-mode"]',
-          reaction: false,
-          requiredMeta: ['nick', 'mail'],
-          emoji: [],
-                    lang: 'zh-CN',
+  // 已经加入了setTimeout
+  volantis.js = (src, cb) => {
+    return new Promise(resolve => {
+      setTimeout(function () {
+        var HEAD = document.getElementsByTagName("head")[0] || document.documentElement;
+        var script = document.createElement("script");
+        script.setAttribute("type", "text/javascript");
+        if (cb) {
+          if (JSON.stringify(cb)) {
+            for (let p in cb) {
+              if (p == "onload") {
+                script[p] = () => {
+                  cb[p]()
+                  resolve()
+                }
+              } else {
+                script[p] = cb[p]
+                script.onload = resolve
+              }
+            }
+          } else {
+            script.onload = () => {
+              cb()
+              resolve()
+            };
+          }
+        } else {
+          script.onload = resolve
+        }
+        script.setAttribute("src", src);
+        HEAD.appendChild(script);
+      });
+    });
+  }
+  volantis.css = (src) => {
+    return new Promise(resolve => {
+      setTimeout(function () {
+        var link = document.createElement('link');
+        link.rel = "stylesheet";
+        link.href = src;
+        link.onload = resolve;
+        document.getElementsByTagName("head")[0].appendChild(link);
+      });
+    });
+  }
+  /********************按需加载的插件********************************/
+  // volantis.import.jQuery().then(()=>{})
+  volantis.import = {
+    jQuery: () => {
+      if (typeof jQuery == "undefined") {
+        return volantis.js("https://unpkg.com/volantis-static@0.0.1654736714924/libs/jquery/dist/jquery.min.js")
+      } else {
+        return new Promise(resolve => {
+          resolve()
         });
       }
-
-      if (typeof swup !== 'undefined') {
-        loadWaline();
-      } else {
-        window.addEventListener('DOMContentLoaded', loadWaline);
+    }
+  }
+  /********************** requestAnimationFrame ********************************/
+  // 1、requestAnimationFrame 会把每一帧中的所有 DOM 操作集中起来，在一次重绘或回流中就完成，并且重绘或回流的时间间隔紧紧跟随浏览器的刷新频率，一般来说，这个频率为每秒60帧。
+  // 2、在隐藏或不可见的元素中，requestAnimationFrame 将不会进行重绘或回流，这当然就意味着更少的的 cpu，gpu 和内存使用量。
+  volantis.requestAnimationFrame = (fn)=>{
+    if (!window.requestAnimationFrame) {
+      window.requestAnimationFrame = window.requestAnimationFrame || window.mozRequestAnimationFrame || window.webkitRequestAnimationFrame;
+    }
+    window.requestAnimationFrame(fn)
+  }
+  /************************ layoutHelper *****************************************/
+  volantis.layoutHelper = (helper, html, opt)=>{
+    opt = Object.assign({clean:false, pjax:true}, opt)
+    function myhelper(helper, html, clean) {
+      volantis.tempDiv = document.createElement("div");
+      volantis.tempDiv.innerHTML = html;
+      let layoutHelper = document.querySelector("#layoutHelper-"+helper)
+      if (layoutHelper) {
+        if (clean) {
+          layoutHelper.innerHTML = ""
+        }
+        layoutHelper.append(volantis.tempDiv);
       }
-    </script>
+    }
+    myhelper(helper, html, opt.clean)
+    if (opt.pjax) {
+      volantis.pjax.push(()=>{
+        myhelper(helper, html, opt.clean)
+      },"layoutHelper-"+helper)
+    }
+  }
+  /****************************** 滚动事件处理 ****************************************/
+  volantis.scroll = {
+    engine: new RunItem(),
+    unengine: new RunItem(),
+  };
+  volantis.scroll = Object.assign(volantis.scroll, {
+    push: volantis.scroll.engine.push,
+  });
+  // 滚动条距离顶部的距离
+  volantis.scroll.getScrollTop = () =>{
+    let scrollPos;
+    if (window.pageYOffset) {
+      scrollPos = window.pageYOffset;
+    } else if (document.compatMode && document.compatMode != 'BackCompat') {
+      scrollPos = document.documentElement.scrollTop;
+    } else if (document.body) {
+      scrollPos = document.body.scrollTop;
+    }
+    return scrollPos;
+  }
+  // 使用 requestAnimationFrame 处理滚动事件
+  // `volantis.scroll.del` 中存储了一个数值, 该数值检测一定时间间隔内滚动条滚动的位移, 数值的检测频率是浏览器的刷新频率. 数值为正数时, 表示向下滚动. 数值为负数时, 表示向上滚动.
+  volantis.scroll.handleScrollEvents = () => {
+    volantis.scroll.lastScrollTop = volantis.scroll.getScrollTop()
+    function loop() {
+      const scrollTop = volantis.scroll.getScrollTop();
+      if (volantis.scroll.lastScrollTop !== scrollTop) {
+        volantis.scroll.del = scrollTop - volantis.scroll.lastScrollTop;
+        volantis.scroll.lastScrollTop = scrollTop;
+        // if (volantis.scroll.del > 0) {
+        //   console.log("向下滚动");
+        // } else {
+        //   console.log("向上滚动");
+        // }
+        // 注销过期的unengine未滚动事件
+        volantis.scroll.unengine.list=[]
+        volantis.scroll.engine.start();
+      }else{
+        volantis.scroll.unengine.start();
+      }
+      volantis.requestAnimationFrame(loop)
+    }
+    volantis.requestAnimationFrame(loop)
+  }
+  volantis.scroll.handleScrollEvents()
+  volantis.scroll.ele = null;
+  // 触发页面滚动至目标元素位置
+  volantis.scroll.to = (ele, option = {}) => {
+    if (!ele) return;
+    volantis.scroll.ele = ele;
+    // 默认配置
+    opt = {
+      top: ele.getBoundingClientRect().top + document.documentElement.scrollTop,
+      behavior: "smooth"
+    }
+    // 定义配置
+    if ("top" in option) {
+      opt.top = option.top
+    }
+    if ("behavior" in option) {
+      opt.behavior = option.behavior
+    }
+    if ("addTop" in option) {
+      opt.top += option.addTop
+    }
+    if (!("observerDic" in option)) {
+      option.observerDic = 100
+    }
+    // 滚动
+    window.scrollTo(opt);
+    // 监视器
+    // 监视并矫正元素滚动到指定位置
+    // 用于处理 lazyload 引起的 cls 导致的定位失败问题
+    // option.observer = false
+    if (option.observer) {
+      setTimeout(() => {
+        if (volantis.scroll.ele != ele) {
+          return
+        }
+        volantis.scroll.unengine.push(() => {
+          let me = ele.getBoundingClientRect().top
+          if(!(me >= -option.observerDic && me <= option.observerDic)){
+            volantis.scroll.to(ele, option)
+          }
+          volantis.scroll.unengine.remove("unengineObserver")
+        },"unengineObserver")
+      },1000)
+    }
+  }
+  /********************** Content Visibility ********************************/
+  // 见 source/css/first.styl 如果遇到任何问题 删除 .post-story 即可
+  // 一个元素被声明 content-visibility 属性后 如果元素不在 viewport 中 浏览器不会计算其后代元素样式和属性 从而节省 Style & Layout 耗时
+  // content-visibility 的副作用: 锚点失效 等等(实验初期 暂不明确), 使用此方法清除样式
+  volantis.cleanContentVisibility = ()=>{
+    if (document.querySelector(".post-story")) {
+      console.log("cleanContentVisibility");
+      document.querySelectorAll(".post-story").forEach(e=>{
+        e.classList.remove("post-story")
+      })
+    }
+  }
+  /******************************************************************************/
+  /******************************************************************************/
+  /******************************************************************************/
+  //图像加载出错时的处理
+  function errorImgAvatar(img) {
+    img.src = "https://unpkg.com/volantis-static@0.0.1654736714924/media/placeholder/avatar/round/3442075.svg";
+    img.onerror = null;
+  }
+  function errorImgCover(img) {
+    img.src = "https://unpkg.com/volantis-static@0.0.1654736714924/media/placeholder/cover/76b86c0226ffd.svg";
+    img.onerror = null;
+  }
+  /******************************************************************************/
+</script>
 
-
-
-        
+  <!-- import head_end begin -->
+  <!-- import head_end end -->
+  <!-- Custom Files headEnd begin-->
+  
+  <!-- Custom Files headEnd end-->
+  <!-- front-matter head_end begin -->
+  <!-- front-matter head_end end -->
+</head>
+  <body itemscope itemtype="http://schema.org/WebPage">
+    <!-- import body_begin begin-->
+    <!-- import body_begin end-->
+    <!-- Custom Files bodyBegin begin-->
     
-</div>
+    <!-- Custom Files bodyBegin end-->
+    <!-- front-matter body_begin begin -->
+    <!-- front-matter body_begin end -->
+    <header itemscope itemtype="http://schema.org/WPHeader" id="l_header" class="l_header auto shadow floatable blur show" style='opacity: 0' >
+  <div class='container'>
+  <div id='wrapper'>
+    <div class='nav-sub'>
+      <p class="title"></p>
+      <ul class='switcher nav-list-h m-phone' id="pjax-header-nav-list">
+        <li><a id="s-comment" class="fa-solid fa-comments fa-fw" target="_self"  href="/" onclick="return false;" title="comment"></a></li>
+        
+          <li><a id="s-toc" class="s-toc fa-solid fa-list fa-fw" target="_self"  href="/" onclick="return false;" title="toc"></a></li>
+        
+      </ul>
+    </div>
+		<div class="nav-main">
+      
+        
+        <a class="title flat-box" target="_self" href='/'>
+          
+            <img no-lazy class='logo' src='/images/feifei_avatar.png'/>
+          
+          
+          
+        </a>
+      
 
-		</div>
-		
-	</div>
-
-	
-	<div class="toc-content-container">
-		<div class="post-toc-wrap">
-	<div class="post-toc">
-		<div class="toc-title">On this page</div>
-		<div class="page-title">智慧树《劳动教育》（同济大学）课程考试答案汇总</div>
-		<ol class="nav"><li class="nav-item nav-level-2"><a class="nav-link" href="#%E6%9C%AC%E6%96%87%E6%B1%87%E6%80%BB%E4%BA%86%E6%99%BA%E6%85%A7%E6%A0%91%E7%9F%A5%E5%88%B0%E5%B9%B3%E5%8F%B0%EF%BC%8C%E7%94%B1%E5%90%8C%E6%B5%8E%E5%A4%A7%E5%AD%A6%E5%BC%80%E8%AE%BE%E7%9A%84%E3%80%8A%E5%8A%B3%E5%8A%A8%E6%95%99%E8%82%B2%E3%80%8B%E8%AF%BE%E7%A8%8B%E7%9A%84%E8%A7%81%E9%9D%A2%E8%AF%BE%E3%80%81%E7%AB%A0%E8%8A%82%E6%B5%8B%E8%AF%95%E5%8F%8A%E6%9C%9F%E6%9C%AB%E8%80%83%E8%AF%95%E7%9A%84%E9%A2%98%E7%9B%AE%E4%B8%8E%E7%AD%94%E6%A1%88%EF%BC%8C%E6%96%B9%E4%BE%BF%E5%90%8C%E5%AD%A6%E4%BB%AC%E5%AD%A6%E4%B9%A0%E5%92%8C%E5%A4%8D%E4%B9%A0%E3%80%82"><span class="nav-text">本文汇总了智慧树知到平台，由同济大学开设的《劳动教育》课程的见面课、章节测试及期末考试的题目与答案，方便同学们学习和复习。</span></a></li></ol>
-
-	</div>
-</div>
-	</div>
-	
-</div>
+			<div class='menu navigation'>
+				<ul class='nav-list-h m-pc'>
+          
+          
+          
+            
+            
+              <li>
+                <a class="menuitem flat-box faa-parent animated-hover"
+                href="/" title="博客"
+                  
+                  
+                  
+                    active-action="action-home"
+                  >
+                  <i class='fa-solid fa-rss fa-fw'></i>博客
+                </a>
+                
+              </li>
+            
+          
+          
+            
+            
+              <li>
+                <a class="menuitem flat-box faa-parent animated-hover"
+                href="/categories/" title="分类"
+                  
+                  
+                  
+                    active-action="action-categories"
+                  >
+                  <i class='fa-solid fa-folder-open fa-fw'></i>分类
+                </a>
+                
+              </li>
+            
+          
+          
+            
+            
+              <li>
+                <a class="menuitem flat-box faa-parent animated-hover"
+                href="/tags/" title="标签"
+                  
+                  
+                  
+                    active-action="action-tags"
+                  >
+                  <i class='fa-solid fa-tags fa-fw'></i>标签
+                </a>
+                
+              </li>
+            
+          
+          
+            
+            
+              <li>
+                <a class="menuitem flat-box faa-parent animated-hover"
+                href="/archives/" title="归档"
+                  
+                  
+                  
+                    active-action="action-archives"
+                  >
+                  <i class='fa-solid fa-archive fa-fw'></i>归档
+                </a>
+                
+              </li>
+            
+          
+          
+            
+            
+              <li>
+                <a class="menuitem flat-box faa-parent animated-hover"
+                href="/friends/" title="友链"
+                  
+                  
+                  
+                    active-action="action-friends"
+                  >
+                  <i class='fa-solid fa-link fa-fw'></i>友链
+                </a>
+                
+              </li>
+            
+          
+          
+            
+            
+              <li>
+                <a class="menuitem flat-box faa-parent animated-hover"
+                href="/about/" title="关于"
+                  
+                  
+                  
+                    active-action="action-about"
+                  >
+                  <i class='fa-solid fa-info-circle fa-fw'></i>关于
+                </a>
+                
+              </li>
+            
+          
+          
+				</ul>
 			</div>
+      
+      <div class="m_search">
+        <form name="searchform" class="form u-search-form">
+          <i class="icon fa-solid fa-search fa-fw"></i>
+          <input type="text" class="input u-search-input" placeholder="Search..." />
+        </form>
+      </div>
+      
 
-			
-		</div>
-
-		<div class="main-content-footer">
-			<footer class="footer mt-5 py-5 h-auto text-base text-third-text-color relative border-t-2 border-t-border-color">
-    <div class="info-container py-3 text-center">
-        
-        <div class="text-center">
-            &copy;
+			<ul class='switcher nav-list-h m-phone'>
+				
+					<li><a class="s-search fa-solid fa-search fa-fw" target="_self" href="/" onclick="return false;" title="search"></a></li>
+				
+				<li>
+          <a class="s-menu fa-solid fa-bars fa-fw" target="_self" href="/" onclick="return false;" title="menu"></a>
+          <ul class="menu-phone list-v navigation white-box">
             
-              <span>2025</span>
-              -
+              
             
-            2025&nbsp;&nbsp;<i class="fa-solid fa-heart fa-beat" style="--fa-animation-duration: 0.5s; color: #f54545"></i>&nbsp;&nbsp;<a href="/">Chenxu Qiao</a>
-            
+              <li>
+                <a class="menuitem flat-box faa-parent animated-hover"
+                href="/" title="博客"
+                  
+                  
+                  
+                    active-action="action-home"
+                  >
+                  <i class='fa-solid fa-rss fa-fw'></i>博客
+                </a>
                 
-                <p class="post-count space-x-0.5">
-                    <span>
-                        5 posts in total
-                    </span>
-                    
-                </p>
+              </li>
             
+          
+            
+              
+            
+              <li>
+                <a class="menuitem flat-box faa-parent animated-hover"
+                href="/categories/" title="分类"
+                  
+                  
+                  
+                    active-action="action-categories"
+                  >
+                  <i class='fa-solid fa-folder-open fa-fw'></i>分类
+                </a>
+                
+              </li>
+            
+          
+            
+              
+            
+              <li>
+                <a class="menuitem flat-box faa-parent animated-hover"
+                href="/tags/" title="标签"
+                  
+                  
+                  
+                    active-action="action-tags"
+                  >
+                  <i class='fa-solid fa-tags fa-fw'></i>标签
+                </a>
+                
+              </li>
+            
+          
+            
+              
+            
+              <li>
+                <a class="menuitem flat-box faa-parent animated-hover"
+                href="/archives/" title="归档"
+                  
+                  
+                  
+                    active-action="action-archives"
+                  >
+                  <i class='fa-solid fa-archive fa-fw'></i>归档
+                </a>
+                
+              </li>
+            
+          
+            
+              
+            
+              <li>
+                <a class="menuitem flat-box faa-parent animated-hover"
+                href="/friends/" title="友链"
+                  
+                  
+                  
+                    active-action="action-friends"
+                  >
+                  <i class='fa-solid fa-link fa-fw'></i>友链
+                </a>
+                
+              </li>
+            
+          
+            
+              
+            
+              <li>
+                <a class="menuitem flat-box faa-parent animated-hover"
+                href="/about/" title="关于"
+                  
+                  
+                  
+                    active-action="action-about"
+                  >
+                  <i class='fa-solid fa-info-circle fa-fw'></i>关于
+                </a>
+                
+              </li>
+            
+          
+            
+          </ul>
+        </li>
+			</ul>
+
+      <!-- Custom Files header begin -->
+      
+      <!-- Custom Files header end -->
+		</div>
+	</div>
+  </div>
+</header>
+
+    <div id="l_body">
+      <div id="l_cover">
+  
+    
+      <!-- see: /layout/_partial/scripts/_ctrl/coverCtrl.ejs -->
+      <div id="none" class='cover-wrapper post dock' style="display: none;">
+        
+  <div class='cover-bg lazyload placeholder' data-bg="/images/walllight.webp"></div>
+
+<div class='cover-body'>
+  <div class='top'>
+    
+    
+      <p class="title">Chenxu Qiao</p>
+    
+    
+      <p class="subtitle">Welcome to my blog :D</p>
+    
+  </div>
+  <div class='bottom'>
+    <div class='menu navigation'>
+      <div class='list-h'>
+        
+          
+            <a href="/v4/getting-started/"
+              
+              
+              active-action="action-v4getting-started">
+              <img src='https://unpkg.com/volantis-static@0.0.1654736714924/media/twemoji/assets/svg/1f5c3.svg'><p>文档</p>
+            </a>
+          
+            <a href="/faqs/"
+              
+              
+              active-action="action-faqs">
+              <img src='https://unpkg.com/volantis-static@0.0.1654736714924/media/twemoji/assets/svg/1f516.svg'><p>帮助</p>
+            </a>
+          
+            <a href="/examples/"
+              
+              
+              active-action="action-examples">
+              <img src='https://unpkg.com/volantis-static@0.0.1654736714924/media/twemoji/assets/svg/1f396.svg'><p>示例</p>
+            </a>
+          
+            <a href="/contributors/"
+              
+              
+              active-action="action-contributors">
+              <img src='https://unpkg.com/volantis-static@0.0.1654736714924/media/twemoji/assets/svg/1f389.svg'><p>社区</p>
+            </a>
+          
+            <a href="/archives/"
+              
+              
+              active-action="action-archives">
+              <img src='https://unpkg.com/volantis-static@0.0.1654736714924/media/twemoji/assets/svg/1f4f0.svg'><p>博客</p>
+            </a>
+          
+            <a target="_blank" rel="noopener" href="https://github.com/ChenxuQiao/ChenxuQiao.github.io"
+              
+              
+              active-action="action-https:githubcomChenxuQiaoChenxuQiaogithubio">
+              <img src='https://unpkg.com/volantis-static@0.0.1654736714924/media/twemoji/assets/svg/1f9ec.svg'><p>源码</p>
+            </a>
+          
+        
+      </div>
+    </div>
+  </div>
+</div>
+
+        <div id="scroll-down" style="display: none;"><i class="fa fa-chevron-down scroll-down-effects"></i></div>
+      </div>
+    
+  
+</div>
+
+      <div id="safearea">
+        <div class="body-wrapper">
+          
+<div id="l_main" class=''>
+  <article itemscope itemtype="http://schema.org/Article" class="article post white-box reveal md shadow floatable blur article-type-post" id="post" itemscope itemprop="blogPost">
+  <link itemprop="mainEntityOfPage" href="https://chenxuqiao.github.io/2025/09/07/智慧树《劳动教育》（同济大学）课程考试答案汇总/">
+  <span hidden itemprop="publisher" itemscope itemtype="http://schema.org/Organization">
+    <meta itemprop="name" content="Chenxu Qiao">
+  </span>
+  <span hidden itemprop="post" itemscope itemtype="http://schema.org/Post">
+    <meta itemprop="name" content="Chenxu Qiao">
+    <meta itemprop="description" content="分享关于学习、技术实践、产品设计和个人成长的思考与总结">
+  </span>
+  
+
+
+  
+    <span hidden>
+      <meta itemprop="image" content="https://unpkg.com/volantis-static@0.0.1654736714924/media/org.volantis/blog/favicon/android-chrome-192x192.png">
+    </span>
+  
+  <div class="article-meta" id="top">
+    
+    
+    
+      <h1 class="title" itemprop="name headline">
+        智慧树《劳动教育》（同济大学）课程考试答案汇总
+      </h1>
+      <div class='new-meta-box'>
+        
+          
+            
+<div class='new-meta-item author' itemprop="author" itemscope itemtype="http://schema.org/Person">
+  <a itemprop="url" class='author' href="/" rel="nofollow">
+    <img itemprop="image" src="/images/feifei_avatar.png" class="lazyload" data-srcset="/images/feifei_avatar.png" srcset="data:image/gif;base64,R0lGODlhAQABAIAAAP///////yH5BAEKAAEALAAAAAABAAEAAAICTAEAOw==">
+    <p itemprop="name">Chenxu Qiao</p>
+  </a>
+</div>
+
+          
+        
+          
+            
+  <div class='new-meta-item category'>
+    <i class="fa-solid fa-folder-open fa-fw" aria-hidden="true"></i>
+    <a class="category-link" href="/categories/%E4%B8%AD%E5%8D%97%E8%B4%A2%E8%AF%BE%E7%A8%8B%E8%B5%84%E6%BA%90/">中南财课程资源</a>
+    
+      <span hidden itemprop="about" itemscope itemtype="http://schema.org/Thing">
+        <a href="/categories/%E4%B8%AD%E5%8D%97%E8%B4%A2%E8%AF%BE%E7%A8%8B%E8%B5%84%E6%BA%90/" itemprop="url"><span itemprop="name">中南财课程资源</span></a>
+      </span>
+    
+  </div>
+
+
+          
+        
+          
+            <div class="new-meta-item date" itemprop="dateCreated datePublished" datetime="2025-09-07T05:40:00+08:00">
+  <a class='notlink'>
+    <i class="fa-solid fa-calendar-alt fa-fw" aria-hidden="true"></i>
+    <p>发布于：2025年9月7日</p>
+  </a>
+</div>
+
+          
+        
+          
+            
+
+
+<div class="new-meta-item browse">
+  <a class='notlink'>
+    <p>
+      <i class="fa-solid fa-eye fa-fw" aria-hidden="true"></i>
+      
+      <span data-path="/2025/09/07/%E6%99%BA%E6%85%A7%E6%A0%91%E3%80%8A%E5%8A%B3%E5%8A%A8%E6%95%99%E8%82%B2%E3%80%8B%EF%BC%88%E5%90%8C%E6%B5%8E%E5%A4%A7%E5%AD%A6%EF%BC%89%E8%AF%BE%E7%A8%8B%E8%80%83%E8%AF%95%E7%AD%94%E6%A1%88%E6%B1%87%E6%80%BB/" class="waline-pageview-count">
+        <i class="fa-solid fa-loader fa-spin fa-fw" aria-hidden="true"></i>
+      </span>
+      
+      <span>次浏览</span>
+    </p>
+  </a>
+</div>
+
+
+          
+        
+          
+            
+<div class="new-meta-item comments-count">
+   
+  
+  <a href="/2025/09/07/%E6%99%BA%E6%85%A7%E6%A0%91%E3%80%8A%E5%8A%B3%E5%8A%A8%E6%95%99%E8%82%B2%E3%80%8B%EF%BC%88%E5%90%8C%E6%B5%8E%E5%A4%A7%E5%AD%A6%EF%BC%89%E8%AF%BE%E7%A8%8B%E8%80%83%E8%AF%95%E7%AD%94%E6%A1%88%E6%B1%87%E6%80%BB/#comments">
+    <i class="fa-solid fa-comment-dots fa-fw"></i>
+    <p>
+      <span data-path="/2025/09/07/%E6%99%BA%E6%85%A7%E6%A0%91%E3%80%8A%E5%8A%B3%E5%8A%A8%E6%95%99%E8%82%B2%E3%80%8B%EF%BC%88%E5%90%8C%E6%B5%8E%E5%A4%A7%E5%AD%A6%EF%BC%89%E8%AF%BE%E7%A8%8B%E8%80%83%E8%AF%95%E7%AD%94%E6%A1%88%E6%B1%87%E6%80%BB/" class="waline-comment-count">
+        <i class="fa-solid fa-loader fa-spin fa-fw" aria-hidden="true"></i>
+      </span> 
+       
+        <span class="leancloud-comments-count">&nbsp;条评论</span> 
+       
+    </p>
+  </a>
+</div>
+
+
+          
+        
+        <!-- Custom Files topMeta begin-->
+        
+        <!-- Custom Files topMeta end-->
+      </div>
+    
+  </div>
+
+
+  <div id="layoutHelper-page-plugins"></div>
+  <div id="post-body" itemprop="articleBody">
+    <p>本文汇总了智慧树知到平台，由同济大学开设的《劳动教育》课程的见面课、章节测试及期末考试的题目与答案。</p>
+<hr />
+<a href="/2025/09/07/%E6%99%BA%E6%85%A7%E6%A0%91%E3%80%8A%E5%8A%B3%E5%8A%A8%E6%95%99%E8%82%B2%E3%80%8B%EF%BC%88%E5%90%8C%E6%B5%8E%E5%A4%A7%E5%AD%A6%EF%BC%89%E8%AF%BE%E7%A8%8B%E8%80%83%E8%AF%95%E7%AD%94%E6%A1%88%E6%B1%87%E6%80%BB/%E5%8A%B3%E5%8A%A8%E6%95%99%E8%82%B2%E7%AD%94%E6%A1%88.docx" title="点击此处下载答案">点击此处下载答案</a>
+<p>见面课：劳动教育在各专业中的实践<br />
+1、问题:研究生要结合学科开展劳动教育与评价。<br />
+选项：<br />
+A:对<br />
+B:错<br />
+答案: 【对】</p>
+<p>2、问题:劳动教育不需要与专业实践结合。<br />
+选项：<br />
+A:对<br />
+B:错<br />
+答案: 【错】</p>
+<p>3、问题:加强劳动教育对以下哪些具有重大意义？<br />
+选项：<br />
+A:全面提高国民综合素质<br />
+B:践行社会主义核心价值观<br />
+C:传承和弘扬中华民族优良传统<br />
+D:实现中华民族伟大复兴<br />
+答案: 【全面提高国民综合素质;<br />
+践行社会主义核心价值观;<br />
+传承和弘扬中华民族优良传统;<br />
+实现中华民族伟大复兴】</p>
+<p>4、问题:劳动教育线下实践环节将哪些相结合，形成同济特色劳动教育线下实践模式？<br />
+选项：<br />
+A:日常生活劳动<br />
+B:生产劳动<br />
+C:服务型劳动<br />
+D:创造性劳动<br />
+答案: 【日常生活劳动;<br />
+生产劳动;<br />
+服务型劳动;<br />
+创造性劳动】</p>
+<p>5、问题:（
+）年全国教育大会上，习近平总书记要求把劳动教育纳入培养社会主义建设者和接班人的总体要求之中，明确提出构建大中小学劳动教育体系。<br />
+选项：<br />
+A:2017<br />
+B:2018<br />
+C:2019<br />
+D:2020<br />
+答案: 【2018】<br />
+见面课：大学生实习与就业法律风险与防范<br />
+1、问题:劳动者无过失，用人单位解除劳动合同，如未依法提前通知，用人单位应额外支付劳动者一个月工资。（
+）<br />
+选项：<br />
+A:对<br />
+B:错<br />
+答案: 【对】</p>
+<p>2、问题:经济补偿按劳动者在本单位工作的年限，每满一年支付一个月工资的标准向劳动者支付。六个月以上不满一年的，按一年计算；不满六个月的，向劳动者支付半个月工资的经济补偿。（
+）<br />
+选项：<br />
+A:对<br />
+B:错<br />
+答案: 【对】</p>
+<p>3、问题:协商解除劳动合同情形中，即使由用人单位提出解除劳动合同的，用人单位也不需要支付经济补偿金（
+）<br />
+选项：<br />
+A:对<br />
+B:错<br />
+答案: 【错】</p>
+<p>4、问题:根据劳动法相关规定，在下列哪些情况下，用人单位有权解除合同，但是必须提前30日以书面的形式通知劳动者本人？（
+）<br />
+选项：<br />
+A:劳动者不能胜任工作，经过培训或者调整工作岗位，仍不能胜任工作的<br />
+B:劳动者在试用期间被证明不符合录用条件的<br />
+C:劳动者同时与其他用人单位建立劳动关系，对完成本单位的工作任务造成严重影响<br />
+D:劳动者患病或者非因工负伤，在规定的医疗期满后不能从事原工作，也不能从事由用人单位另行安排的工作的<br />
+E:在本单位因工负伤并被确认丧失或者部分丧失劳动能力的<br />
+答案:
+【劳动者不能胜任工作，经过培训或者调整工作岗位，仍不能胜任工作的;<br />
+劳动者患病或者非因工负伤，在规定的医疗期满后不能从事原工作，也不能从事由用人单位另行安排的工作的】</p>
+<p>5、问题:根据劳动法相关规定，以下哪些情形属于劳动合同法定终止情形？（
+）<br />
+选项：<br />
+A:用人单位被责令关闭的<br />
+B:用人单位决定提前解散的<br />
+C:劳动者达到法定退休年龄<br />
+D:劳动者开始依法享受基本养老保险待遇<br />
+E:劳动者被人民法院宣告失踪<br />
+答案: 【用人单位被责令关闭的;<br />
+用人单位决定提前解散的;<br />
+劳动者达到法定退休年龄;<br />
+劳动者开始依法享受基本养老保险待遇;<br />
+劳动者被人民法院宣告失踪】</p>
+<p>6、问题:在经济性裁员的情况下，用人单位从裁减人员之日起，（
+）内需要新招人员的，应当优先录用本单位被裁减的人员。<br />
+选项：<br />
+A:1个月<br />
+B:3个月<br />
+C:6个月<br />
+D:12个月<br />
+答案: 【6个月】</p>
+<p>7、问题:劳动者提前（
+）以书面形式通知用人单位，可以解除劳动合同。劳动者在试用期内提前（
+）通知用人单位，可以解除劳动合同。<br />
+选项：<br />
+A:30日；3日<br />
+B:15日；3日<br />
+C:30日；5日<br />
+D:15日；5日<br />
+答案: 【30日；3日】</p>
+<p>8、问题:用人单位有下列（
+）情形时，劳动者可以立即解除劳动合同，不需事先告知用人单位。<br />
+选项：<br />
+A:用人单位的规章制度违反法律、法规的规定，损害劳动者权益的<br />
+B:用人单位违章指挥、强令冒险作业危及劳动者人身安全的<br />
+C:未按照劳动合同约定提供劳动保护或者劳动条件的<br />
+D:未依法为劳动者缴纳社会保险费的<br />
+答案: 【用人单位违章指挥、强令冒险作业危及劳动者人身安全的】<br />
+见面课：浅谈新时代劳动教育<br />
+1、问题:2018
+年全国教育大会上，习近平强调“培养德智体美劳全面发展的社会主义（
+）”。<br />
+选项：<br />
+A: 劳动者<br />
+B:建设者<br />
+C:奋斗者<br />
+D:接班人<br />
+答案: 【建设者;<br />
+接班人】</p>
+<p>2、问题:马克思论述了异化劳动的四个规定是（ ）。<br />
+选项：<br />
+A:劳动者同劳动产品相异化<br />
+B:劳动者同劳动活动相异化<br />
+C:动者同人的类本质相异化<br />
+D:人同人相异化<br />
+答案: 【劳动者同劳动产品相异化;<br />
+劳动者同劳动活动相异化;<br />
+动者同人的类本质相异化;<br />
+人同人相异化】</p>
+<p>3、问题:邓小平劳动思想的重要着力点是（ ）。<br />
+选项：<br />
+A:尊重劳动<br />
+B:主张按劳分配的社会主义原则<br />
+C:重视教育和生产劳动相结合<br />
+D:培养有社会主义觉悟的有文化的劳动者<br />
+答案: 【主张按劳分配的社会主义原则】</p>
+<p>4、问题:只有物质生产领域的活劳动才是价值唯一源泉。<br />
+选项：<br />
+A:对<br />
+B:错<br />
+答案: 【错】</p>
+<p>5、问题:劳动教育的核心在于培养劳动价值观。<br />
+选项：<br />
+A:对<br />
+B:错<br />
+答案: 【对】<br />
+绪论 单元测试<br />
+1、 问题:《劳动教育》是一门什么性质的课程？（ ）。<br />
+选项：<br />
+A:选修课<br />
+B:必修课<br />
+C:专业课<br />
+答案: 【<br />
+必修课<br />
+】</p>
+<p>绪论单元测试<br />
+1.《劳动教育》是一门什么性质的课程？（ ）。<br />
+A:选修课<br />
+B:专业课<br />
+C:必修课</p>
+<p>答案:必修课</p>
+<p>第一章测试<br />
+1、【多选题】马克思的劳动异化理论主要包括（ ）。<br />
+A.劳动者同人的类本质相异化<br />
+B.劳动者同劳动产品相异化<br />
+C.劳动者同劳动活动相异化<br />
+D.人同人相异化<br />
+我的答案：ABCD</p>
+<p>2、【单选题】新中国成立伊始，被确立为全体中国人民应当遵守的社会公德的是（
+）。<br />
+A.爱学习<br />
+B.爱劳动<br />
+C.爱祖国<br />
+D.爱运动<br />
+我的答案：B</p>
+<p>3、【单选题】建国初期，我国劳动教育的总体目标是（ ）。<br />
+A.好好学习，天天向上<br />
+B.培养有社会主义觉悟、有文化的劳动者<br />
+C.知识就是力量<br />
+D.成功是奋斗出来的<br />
+我的答案：B</p>
+<p>4、【判断题】面对新时代多样化价值选择，我们的劳动教育需要训练劳动者掌握劳动技能，帮助劳动者提升劳动素质，努力使其具备奋斗精神和创新精神，并能在学习和实践中不断进取。（
+）<br />
+我的答案：√</p>
+<p>5、【多选题】高校落实和推动劳动教育必须意识到（ ）。<br />
+A.劳动教育关乎合格社会主义劳动者的长成<br />
+B.劳动教育关乎大学生正确爱情观的形成<br />
+C.劳动教育关乎大学生正确人生观和价值观的形成<br />
+D.劳动教育关乎大学生公民道德规范的养成<br />
+我的答案：ACD</p>
+<p>第二章单元测试<br />
+1.禁止用人单位招用未满十六岁周岁的未成年人。（ ）<br />
+A:错 B:对<br />
+答案:对<br />
+2.就业协议书约定违约金时应当遵循公平合理原则，一般不超过五千元人民币、一个月工资或者因招聘行为可能造成损失的一定比例。（
+）<br />
+A:错 B:对<br />
+我的答案：B</p>
+<p>3.下列属于大学生求职招聘过程中的风险有（ ）。<br />
+A:非法收费风险 B:侵犯个人隐私风险 C:引诱开展非法活动
+D:虚假招聘风险<br />
+我的答案：ABCD</p>
+<p>4.中华人民共和国公民有劳动的权利和义务。( )<br />
+A:错 B:对<br />
+我的答案：B</p>
+<p>5.勤工助学活动按照（
+）的原则，由学校在不影响正常教学秩序和学生正常学习的前提下有组织地开展。<br />
+A:立足校园、服务社会 B:竞争上岗、遵纪守法 C:学有余力、自愿申请
+D:信息公开、扶困优先<br />
+我的答案：BCD</p>
+<p>第三章测试<br />
+1、【多选题】土木工程试验研究中劳动的意义有哪些（ ）？<br />
+A.让研究者精神愉悦<br />
+B.促进研究者身体健康<br />
+C.让研究者获得丰厚的经济报酬<br />
+D.提高研究质量<br />
+我的答案：BD</p>
+<p>2、【判断题】土木试验中的劳动，包括脑力劳动和体力劳动。（ ）<br />
+我的答案：√</p>
+<p>3、【多选题】张郁与团队争分夺秒，凌晨、假期、甚至春假都坚守岗位，只为保障地铁的安全正常运行。请问这体现了张郁团队什么样的劳动精神？（
+)<br />
+A.艰苦奋斗<br />
+B.甘于奉献<br />
+C.争创一流<br />
+D.爱岗敬业<br />
+我的答案：ABCD</p>
+<p>4、【判断题】智慧运维的案例让我们明白，在劳动中不仅要勤奋，更重要的是要利用聪明才智、创新、巧干。（
+）<br />
+我的答案：√</p>
+<p>5、【判断题】劳模张郁给到同学们的成长建议是读好书、学好专业知识,提前做人生规划.(
+）<br />
+我的答案：√</p>
+<p>6、【多选题】作为建筑设计师，如何发扬工匠精神？（ )<br />
+A.拥有执着的品质<br />
+B.追求细节<br />
+C.保持专注的工作态度<br />
+我的答案：ABC</p>
+<p>7、【多选题】你认为雨水花园的设计，如钢栈桥、座椅、灯具、地面格栅等设计，体现了设计团队怎样的精神？（
+)<br />
+A.追求卓越<br />
+B.精益求精<br />
+C.一丝不苟<br />
+我的答案：ABC</p>
+<p>8、【多选题】章明教授给到同学们“自我修炼”的建议是：（ )<br />
+A.提升专业技能，做到熟能生巧<br />
+B.持续学习积累、锻炼自身修为<br />
+C.开阔眼界、提升自身能力<br />
+我的答案：ABC</p>
+<p>9、【判断题】国家体育总局，汽摩管理中心的领导用“中国赛车运动发展史上的里程碑”来赞扬姚启明对中国汽运做出的开创性的贡献。（
+）<br />
+我的答案：√</p>
+<p>10、【多选题】劳模精神的内涵是（ ）<br />
+A.勇于创新<br />
+B.艰苦奋斗<br />
+C.甘于奉献<br />
+D.爱岗敬业<br />
+E.争创一流<br />
+F.淡泊名利<br />
+我的答案：ABCDEF</p>
+<p>11、【多选题】劳模姚启明给到同学们的“逐梦”建议是（ ）<br />
+A.向身边的劳模们多学习<br />
+B.要培育热爱劳动，尊重劳动，崇尚劳动的这种价值观<br />
+C.要养成热爱劳动的好习惯<br />
+D.要真正明白劳动创作幸福的道理<br />
+我的答案：ABCD</p>
+<p>12、【多选题】初入汽车行业，在上汽大众工作时遇到了诸多挑战，付涛的解决方法有（
+）。<br />
+A.全身心付出<br />
+B.做好本职工作<br />
+C.虚心向前辈请教<br />
+D.严格要求自己<br />
+我的答案：ABCD</p>
+<p>13、【判断题】付涛在工作中一直秉持的优秀品质有肯吃苦、肯钻研以及精益求精的精神和勇气。（
+）<br />
+我的答案：√</p>
+<p>14、【判断题】工匠精神是我国从制造业大国走向制造业强国的基础、支撑、关键。（
+）<br />
+我的答案：√</p>
+<p>15、【判断题】城市更新中的工匠精神就是在传承传统工艺的基础上，不断采用新技术进行创新，把历史建筑修缮的更好。（
+）<br />
+我的答案：√</p>
+<p>16、【判断题】上海玉佛寺大雄宝殿移位运用了物联网技术，包括实时传感技术，对其进行安全监测。（
+）<br />
+我的答案：√</p>
+<p>17、【多选题】工匠精神应该如何传承（ ）?<br />
+A.要有进取心<br />
+B.要有自信心<br />
+C.要有专注心<br />
+D.要有责任心<br />
+我的答案：ABCD</p>
+<p>期末考试题库</p>
+<p>1.毕业生签订三方协议后没有如约去用人单位报到属于典型的单方违约行为。（
+）<br />
+答案:对</p>
+<p>2.不得以性别为由限制妇女求职就业、拒绝录用妇女。（ ）<br />
+答案:对</p>
+<p>3.就业协议书只能约定由毕业生承担的违约金。（ ）<br />
+答案:错</p>
+<p>4.判断是否存在劳动关系应该看双方签订了何种协议。（ ）<br />
+答案:错</p>
+<p>5.劳动教育应坚持因地制宜。根据各地区和学校实际，结合当地在自然、经济、文化等方面条件，充分挖掘行业企业、职业院校等可利用资源，宜工则工、宜农则农，采取多种方式开展劳动教育，避免“一刀切”。（
+）<br />
+答案:对</p>
+<p>6.用人单位可以安排应聘者参加“乙肝五项”和HBV-DNA检测等体检项目。（
+）<br />
+答案:错</p>
+<p>7.脑力劳动者的待遇和报酬应该高于体力劳动者。 （ ）<br />
+答案:错</p>
+<p>8.我们需要向劳模学习不畏艰难的意志品质，在挫折中沉淀与成长。（
+）<br />
+答案:对</p>
+<p>9.竞业限制的人员限于用人单位的高级管理人员、高级技术人员和其他负有保密义务的人员。（
+）<br />
+答案:对</p>
+<p>10.劳动教育是学校和家庭的事情，政府和社会不用承担责任。（ ）<br />
+答案:错</p>
+<p>11.劳模精神的特点是（ )<br />
+答案:劳模精神是社会主义核心价值观的具体化、人格化和现实化的体现。###劳模精神鲜活而生动的存在在我们的现实生活中。###劳模精神有鲜明的时代特征，随着国家意识形态、经济社会的形势和以及我们时代变迁在不断地演变和发展。</p>
+<p>12.劳动教育的总体目标是准确把握社会主义建设者和接班人的劳动精神面貌、劳动价值取向和劳动技能水平的培养要求，全面提高学生劳动素养，使学生：（
+）<br />
+答案:树立正确的劳动观念。###养成良好的劳动习惯和品质###具有必备的劳动能力。###培育积极的劳动精神。</p>
+<p>13.“一切劳动，一方面是人类劳动力在生理学意义上的耗费；就相同的或抽象的人类劳动这个属性来说，它形成商品价值。一切劳动，另一方面是人类劳动力在特殊的有一定目的的形式上的耗费；就具体的有用的劳动这个属性来说，它生产使用价值”阐释了劳动的二重性统一于劳动过程之中，这段话出自《资本论》。（
+）<br />
+答案:对</p>
+<p>14.科学家精神是指什么？（ ）<br />
+答案:淡泊名利、潜心研究的奉献精神###胸怀祖国、服务人民的爱国精神###勇攀高峰、敢为人先的创新精神</p>
+<p>15.中国发展生产力的必由之路是什么？（《邓小平文选》第三卷）（
+）<br />
+答案:改革</p>
+<p>16.劳动教育的关键环节包括（ ）<br />
+答案:讲解说明###淬炼操作###反思交流###榜样激励###项目实践</p>
+<p>17.教学型实习的特点有（ ）。<br />
+答案:单位管理较为宽松，学校参与度高###无报酬或只有较低的补贴###为了完成专业培养目标和教学计划###学生仍在接受学校教育</p>
+<p>18.劳动教育的总体目标包括（ ）。<br />
+答案:具备必要的劳动能力###树立正确的劳动观念###培养积极的劳动精神</p>
+<p>19.实习协议可以约定（ ）事项。<br />
+答案:.实习期限###意外伤害保险###实习方式、内容和岗位###实习终止条件</p>
+<p>20.马克思对劳动异化的阐述，处处体现了对于（ ）的控诉。<br />
+答案:资本主义</p>
+<p>21.马克思说，“在共产主义社会高级阶段上，迫使人们奴隶般地服从社会分工的情形已经消失，从而脑力劳动和体力劳动的（
+）也随之消失……”<br />
+答案:对立</p>
+<p>22.用人单位不能和（ ）类人员约定离职竞业限制义务<br />
+答案:实习生</p>
+<p>23.单选题：对开展日常生活劳动、生产劳动、服务性劳动三类劳动教育，哪个描述是错误的？（
+）<br />
+答案:三类劳动教育内容不同，各学段可以有所侧重，总体上看可以偏重。</p>
+<p>24.新时代劳动教育的核心是培养学生的（ ）。<br />
+答案:劳动价值观</p>
+<p>25.加强劳动教育对以下哪些具有重大意义？<br />
+答案:践行社会主义核心价值观###传承和弘扬中华民族优良传统###全面提高国民综合素质###实现中华民族伟大复兴</p>
+<p>26.劳动教育不需要与专业实践结合。<br />
+答案:错</p>
+<p>27.研究生要结合学科开展劳动教育与评价。<br />
+答案:对</p>
+<p>28.劳动教育线下实践环节将哪些相结合，形成同济特色劳动教育线下实践模式？<br />
+答案:生产劳动###日常生活劳动###服务型劳动###创造性劳动</p>
+<p>29.（
+ ）年全国教育大会上，习近平总书记要求把劳动教育纳入培养社会主义建设者和接班人的总体要求之中，明确提出构建大中小学劳动教育体系。<br />
+答案:2018</p>
+<p>30.经济补偿按劳动者在本单位工作的年限，每满一年支付一个月工资的标准向劳动者支付。六个月以上不满一年的，按一年计算；不满六个月的，向劳动者支付半个月工资的经济补偿。（  ）<br />
+答案:对</p>
+<p>31.根据劳动法相关规定，在下列哪些情况下，用人单位有权解除合同，但是必须提前30日以书面的形式通知劳动者本人？（
+  ）<br />
+答案:劳动者不能胜任工作，经过培训或者调整工作岗位，仍不能胜任工作的###劳动者患病或者非因工负伤，在规定的医疗期满后不能从事原工作，也不能从事由用人单位另行安排的工作的</p>
+<p>32.用人单位有下列（
+ ）情形时，劳动者可以立即解除劳动合同，不需事先告知用人单位。<br />
+答案:用人单位违章指挥、强令冒险作业危及劳动者人身安全的</p>
+<p>33.劳动者无过失，用人单位解除劳动合同，如未依法提前通知，用人单位应额外支付劳动者一个月工资。（
+ ）<br />
+答案:对</p>
+<p>34.根据劳动法相关规定，以下哪些情形属于劳动合同法定终止情形？（
+  ）<br />
+答案:劳动者开始依法享受基本养老保险待遇###劳动者达到法定退休年龄###劳动者被人民法院宣告失踪###用人单位被责令关闭的###用人单位决定提前解散的</p>
+<p>35.协商解除劳动合同情形中，即使由用人单位提出解除劳动合同的，用人单位也不需要支付经济补偿金（  ）<br />
+答案:错</p>
+<p>36.在经济性裁员的情况下，用人单位从裁减人员之日起，（
+  ）内需要新招人员的，应当优先录用本单位被裁减的人员。<br />
+答案:6个月</p>
+<p>37.劳动者提前（
+  ）以书面形式通知用人单位，可以解除劳动合同。劳动者在试用期内提前（
+   ）通知用人单位，可以解除劳动合同。<br />
+答案:30日；3日</p>
+<p>38.只有物质生产领域的活劳动才是价值唯一源泉。<br />
+答案:错</p>
+<p>39.劳动教育的核心在于培养劳动价值观。<br />
+答案:对</p>
+<p>40.马克思论述了异化劳动的四个规定是（ ）。<br />
+答案:人同人相异化###劳动者同劳动活动相异化###动者同人的类本质相异化###劳动者同劳动产品相异化</p>
+<p>41.邓小平劳动思想的重要着力点是（ ）。<br />
+答案:主张按劳分配的社会主义原则</p>
+<p>42.家庭应在劳动教育中发挥主导作用，注重衣食住行等日常生活中的劳动实践机会，鼓励孩子自觉参与，自己动手，随时随地、坚持不懈进行劳动，掌握洗衣做饭等必要的家务劳动技能，每年有针对性地学会1至2项生活技能。（
+）<br />
+答案:错</p>
+<p>43.未采取书面形式的劳动合同无效。（ ）<br />
+答案:错</p>
+<p>44.劳动教育是国民教育体系的重要内容，是学生成长的必要途径，具有树德、增智、强体、育美的综合育人价值。（
+）<br />
+答案:对</p>
+<p>45.列宁的共产主义概念仅仅是指共产主义的最高社会形态。（ ）<br />
+答案:错</p>
+<p>46.劳动创造了人本身，是促进人全面发展的必由之路。 （ ）<br />
+答案:对</p>
+<p>47.1949年9月29日，中国人民政治协商会议第一届全体会议通过《中国人民政治协商会议共同纲领》，在文化教育政策部分明确指出，“提倡（
+）、爱护公共财物为中华人民共和国全体国民的公德。“<br />
+答案:爱祖国###爱劳动###爱科学###爱人民</p>
+<p>48.下面( )单位可以作为用人单位？<br />
+答案:国家机关、事业单位、社会团体###民办非企业单位###企业、个体经济组织、</p>
+<p>49.马克思在《青年在选择职业时的考虑》一文中提到，“如果我们选择了最能为（
+）而劳动的职业，那么，重担就不能使我们压倒……”<br />
+答案:人类福利</p>
+<p>50.我国将（ ）作为劳动教育的指导原则。<br />
+答案:尊重知识###尊重劳动###尊重创造###尊重人才</p>
+<p>51.1949年，中国人民政治协商会议第一届全体会议通过《中国人民政治协商会议共同纲领》，其中第42条规定了什么作为中华人民共和国全体国民的公德，可见劳动教育在建国之初的重要性。（
+）<br />
+答案:提倡爱祖国、爱人民、爱劳动、爱科学、爱护公共财物</p>
+<p>52.树立科学的劳动观念，首先就要坚持（ ）的社会主义分配原则。<br />
+答案:按劳分配</p>
+<p>53.中共中央
+国务院《关于全面加强新时代大中小学劳动教育的意见》发布的时间？（
+）<br />
+答案:2020年</p>
+<p>54.“工人生产的财富越多，他就越贫穷。工人创造的商品越多，他就越变成廉价的商品”出自以下哪本马恩经典？（
+）<br />
+答案:《1844年经济学哲学手稿》</p>
+<p>55.”加强劳动保护，改善劳动条件“是我国宪法为保护劳动者在生产过程中的（
+）而制定的原则。<br />
+答案:安全与健康</p>
+<p>56.“剩余劳动”是指“一切为养活不劳动的人而从事的劳动”，而且“支配着这种剩余劳动的不是工人，而是资本家”（
+）<br />
+答案:对</p>
+<p>57.社会应在劳动教育中发挥基础作用，充分利用社会各方面资源，为劳动教育提供必要保障。（
+）<br />
+答案:错</p>
+<p>58.大学生一律不是劳动者。（ ）<br />
+答案:错</p>
+<p>59.强烈的民族自尊心促使姚启明萌生“中国人的赛道应该由中国人自己设计”的想法。（
+）<br />
+答案:对</p>
+<p>60.下面（ ）不是劳动法意义上的劳动者？<br />
+答案:家庭保姆###警察###法官###私人保镖</p>
+<p>61.典型的招聘陷阱有（ ）<br />
+答案:信息泄露###骗入传销组织###押金、保证金、诚意金###培训贷款</p>
+<p>62.“共产主义星期六义务劳动”是由以下哪位领导人提出的？（ ）<br />
+答案:列宁</p>
+<p>63.允许一部分人先富起来与崇尚劳动最光荣是矛盾的。 （ ）<br />
+答案:错</p>
+<p>64.劳动教育的基本理念（ ）<br />
+答案:发挥主体作用，激发创新创造。###强化劳动观念，弘扬劳动精神。###强调身心参与，注重手脑并用。###继承优良传统，彰显时代特征。</p>
+<p>65.劳动不仅决定和制约着（
+），而且劳动状况也决定着人的发展状况。<br />
+答案:社会面貌###社会结构###社会性质</p>
+<p>66.毛泽东指出，社会主义劳动教育就是要培养（ ）的劳动者。<br />
+答案:有社会主义觉悟###有文化</p>
+<p>67.1957年，毛泽东同志在《关于正确处理人民内部矛盾的问题》一文中指出：“我们的教育方针，应该使受教育者在（
+）几个方面都得到发展。A.德、智<br />
+答案:德、智、体、美</p>
+<p>68.劳动教育评价不包括（ ）<br />
+答案:过程性评价</p>
+<p>69.广东省的实习协议可以根据实习的性质和需要，约定意外伤害保险的投保人、投保额度、损害赔偿、实习报酬、保密等其他事项。（
+）<br />
+答案:对</p>
+<p>70.高校落实和推动劳动教育必须意识到（ ）。<br />
+答案:劳动教育关乎合格社会主义劳动者的长成###劳动教育关乎大学生公民道德规范的养成###劳动教育关乎大学生正确人生观和价值观的形成</p>
+<p>71.新中国成立伊始，被确立为全体中国人民应当遵守的社会公德的是（
+）。<br />
+答案:爱劳动</p>
+<p>72.建国初期，我国劳动教育的总体目标是（ ）。<br />
+答案:培养有社会主义觉悟、有文化的劳动者</p>
+<p>73.面对新时代多样化价值选择，我们的劳动教育需要训练劳动者掌握劳动技能，帮助劳动者提升劳动素质，努力使其具备奋斗精神和创新精神，并能在学习和实践中不断进取。（
+）<br />
+答案:对</p>
+<p>74.马克思的劳动异化理论主要包括（ ）。<br />
+答案:劳动者同劳动产品相异化###人同人相异化###劳动者同劳动活动相异化###劳动者同人的类本质相异化</p>
+<p>75.中国古代对劳动的问题上是有缺陷的，就是所谓的“劳心者治人，劳力者治于人”，读书人是不动手的。（
+）<br />
+答案:对</p>
+<p>76.章明教授建设的杨浦滨江南段公共空间，得到了习近平总书记的评价“人民城市人民建”。（
+）<br />
+答案:对</p>
+<p>77.对工作的执着源于你对工作的热爱，热爱是基本的出发点。（ ）<br />
+答案:对</p>
+<p>78.建筑设计师设计作品时不需要考虑历史、文化等因素。（ ）<br />
+答案:错</p>
+<p>79.劳动教育是中国特色社会主义教育制度的重要内容，间接决定社会主义建设者和接班人的劳动精神面貌、劳动价值取向和劳动技能水平。（
+）<br />
+答案:错</p>
+<p>80.对历史建筑进行改造时，要带着社会责任感和对历史建筑的敬畏心。（
+）<br />
+答案:对</p>
+<p>81.智慧运维的本质是提高地铁运行的维护质量，宗旨是提升市民的出行感受。（
+）<br />
+答案:对</p>
+<p>82.工艺文档的维护的制度，包括零件的投产的管理，工装夹具的管理，人员生产组织安排，成本的控制，特殊车辆的制作。（
+）<br />
+答案:对</p>
+<p>83.在试验研究中，研究人员只需要参与设计，不需要亲自动手。（ ）<br />
+答案:错</p>
+<p>84.将历史建筑“修旧如故”，最大程度接近的还原，是对历史建筑保护最大的尊重。（
+）<br />
+答案:对</p>
+<p>85.马克思认为，劳动是创造价值的唯一源泉。 （ ）<br />
+答案:对</p>
+<p>86.用人单位在试用期无需为劳动者缴纳社会保险。（ ）<br />
+答案:错</p>
+<p>87.面试过程中HR问有没有男朋友，打算什么时候结婚，以后打算生几胎，面对这些问题你必须如实回答。（
+）<br />
+答案:错</p>
+<p>88.无论哪一种行业，想要做好，成为行业精英，都离不开坚持不懈、勤于钻研的精神。（
+）<br />
+答案:对</p>
+<p>89.“劳心者治人，劳力者治于人”，所以体力劳动是没本事，无能的表现（
+）<br />
+答案:错</p>
+<p>90.劳动是一切价值的创造者，是脑力和体力的统一，机器大工业、现代社会的分工导致了体力劳动与脑力劳动的二次分离，也必将促进二者在更高水平上的结合。（
+）<br />
+答案:对</p>
+<p>91.地铁出现5分钟晚点，对于社会的影响不是很大。（ ）<br />
+答案:错</p>
+<p>92.新时代劳动教育强调教育与劳动相结合。 （ ）<br />
+答案:对</p>
+<p>93.用人单位招用劳动者未订立书面劳动合同，但同时具备下列（
+）情形的，劳动关系成立？<br />
+答案:用人单位和劳动者符合法律、法规规定的主体资格###劳动者提供的劳动是用人单位业务的组成部分###用人单位依法制定的各项劳动规章制度适用于劳动者，劳动者受用人单位的劳动管理，从事用人单位安排的有报酬的劳动</p>
+<p>94.劳模精神是指什么？（ ）<br />
+答案:淡泊名利、甘于奉献###艰苦奋斗、勇于创新###爱岗敬业、争创一流</p>
+<p>95.“向史而新”的意义是（ )<br />
+答案:眷顾过去###映射未来###映射当下</p>
+<p>96.劳动教育应遵循教育规律。符合学生年龄特点，以体力劳动为主，注意手脑并用、安全适度，强化实践体验，让学生亲历劳动过程，提升育人实效性。（
+）<br />
+答案:对</p>
+<p>97.招聘时用人单位有权了解（ ）情况<br />
+答案:学习经历###职业资格###工作经验</p>
+<p>98.目前国家非常重视劳动教育，新时代劳动教育的内涵与意义以下哪些说法是正确的？（
+）<br />
+答案:新时代劳动教育强调教育与劳动相结合。教育与劳动相结合是马克思主义教育的基本思想，也是我国《教育法》规定的明确要求。强调劳动教育重点是要让学生在系统的文化知识学习之外有目的、有计划地参加劳动实践，实现知行合一，获得身心全面发展。###新时代劳动教育关注劳动素养的培养。与侧重劳动有关的知识、技能、方法等传统劳动教育方式不同，新时代劳动教育观更重视对学生劳动价值观、劳动精神、劳动思维等更深层次素养的培养。###新时代劳动教育体现了我国教育坚持综合育人理念。新时代劳动教育立足于人的整体性，融合多学科知识，对人、社会和自然进行整合，将理论知识有机融入现实社会，对学生健全人格发展起着重要作用。###新时代劳动教育直接体现了我国教育的本质。马克思主义认为，劳动创造了世界，劳动创造了历史，劳动创造了人本身。新时代劳动教育是社会主义教育的重要内容，是我国教育体系不可缺少的一部分，是学校教育教学工作的重要一环。</p>
+<p>99.实务中认定劳动关系需要的条件有（ ）。<br />
+答案:劳动者提供的劳动是用人单位的业务组成部分###用人单位和劳动者都要符合法律法规规定的主体资格###用人单位和劳动者之间有管理和被管理的关系，劳动者从事的是用人单位安排的有报酬的劳动</p>
+<p>100.付涛认为成为一个合格的工匠，不仅要不断磨砺自己而且要戒骄戒躁。（
+）<br />
+答案:对</p>
+<p>101.用工之日起满一年，用人单位仍未与劳动者签订书面劳动合同的，视为已订立无固定期限劳动合同。（
+）<br />
+答案:对</p>
+<p>102.列宁所赞赏并推崇的共产主义劳动态度，是（ ）的劳动态度。<br />
+答案:自愿的###忘我的###不计报酬的###人人为我、我为人人</p>
+<p>103.落实劳动教育，高校应该（ ）<br />
+答案:努力通过多种途径构建大学生的劳动教育环境###从理论教学和实践教学相结合的角度构建劳动教育体系###从意识形态建设的高度重视劳动教育</p>
+<p>104.就业协议书有（ ）作用<br />
+答案:为毕业生办理就业落户手续等有关事项的重要依据。###用人单位确认毕业生相关信息真实可靠以及接收毕业生的重要凭据###高校进行毕业生就业管理、编制就业方案的依据###毕业生和用人单位确立就业关系、明确双方权利和义务</p>
+<p>105.劳动者就（ ）情况没有如实说明义务<br />
+答案:婚姻状态###恋爱经历</p>
+<p>106.下面（ ）情形下用人单位可以约定由劳动者承担的违约金？<br />
+答案:劳动者在劳动合同期限届满之前辞职###用人单位为劳动者办理了户口</p>
+<p>107.下面（ ）不属于劳动合同的必备条款？<br />
+答案:违约金</p>
+<p>108.高等学校劳动教育的主要内容是什么？ （ ）<br />
+答案:使学生掌握通用劳动科学知识，深刻理解马克思主义劳动观和社会主义劳动关系，树立正确的择业就业创业观，具有到艰苦地区和行业工作的奋斗精神###使学生强化服务性劳动，自觉参与教室、食堂、校园场所的卫生保洁、绿化美化和管理服务等，结合“三支一扶”、大学生志愿服务西部计划、“青年红色筑梦之旅”“三下乡”等社会实践活动开展服务性劳动，强化公共服务意识和面对重大疫情、灾害等危机主动作为的奉献精神###使学生巩固良好日常生活劳动习惯，自觉做好宿舍卫生保洁，独立处理个人生活事务，积极参加勤工助学活动，提高劳动自立自强能力###使学生重视生产劳动锻炼，积极参加实习实训、专业服务和创新创业活动，重视新知识、新技术、新工艺、新方法的运用，提高在生产实践中发现问题和创造性解决问题的能力，在动手实践的过程中创造有价值的物化劳动成果。</p>
+<p>109.工匠精神是指什么？（ ）<br />
+答案:追求卓越的创新精神###协作共进的团队精神###精益求精的品质精神###爱岗敬业的职业精神</p>
+<p>110.智力劳动在勤劳上的表现（ ）<br />
+答案:精力集中###独立思考###保持好奇心</p>
+<p>111.“劳动是整个人类生活的第一个基本条件······劳动创造了人本身”出自下列哪本著作，他的作者是？（
+）<br />
+答案:《劳动在从猿到人转变过程中的作用》恩格斯</p>
+<p>112.2018
+年全国教育大会上，习近平强调“培养德智体美劳全面发展的社会主义（
+）”。<br />
+答案:建设者###接班人</p>
+<p>113.《劳动合同法》对以下（ ）没有规定<br />
+答案:试用期期间的社保缴纳</p>
+<p>114.单选题：为了培养大学生的劳动观念和劳动纪律，使之掌握一些劳动技能，应组织大学生参加（
+）社会实践活动<br />
+答案:生产劳动</p>
+<p>115.1957年，毛泽东同志在《关于正确处理人民内部矛盾的问题》一文中指出：“我们的教育方针，应该使受教育者在（
+）几个方面都得到发展。<br />
+答案:德、智、体</p>
+<p>116.马克思哪两个划时代的伟大发现，都是建立在劳动学说基础上的？（
+）<br />
+答案:唯物史观 剩余价值理论</p>
+<p>117.马克思主义劳动观包括 ？ （ ）<br />
+答案:劳动创造世界 劳动创造历史 劳动创造人本身</p>
+<p>118.单选题：劳动教育具有的特征（ ）<br />
+答案:思想性、实践性、社会性</p>
+<p>119.1876年，马克思的亲密战友恩格斯写作了《劳动在从猿到人的转变中的作用》一书，详尽阐释了什么论断？（
+）<br />
+答案:劳动创造人本身</p>
+<p>120.以下哪个主体应在新时代劳动教育中发挥主导作用？（ ）<br />
+答案:学校</p>
+<p>121.通过劳动教育，使学生树立马克思主义劳动观，包括以下哪些方面？（
+）<br />
+答案:劳动最光荣 劳动最崇高 劳动最伟大 劳动最美丽</p>
+<p>122.工匠精神是我国从制造业大国走向制造业强国的基础、支撑、关键。（
+）<br />
+答案:对</p>
+<p>123.付涛在工作中一直秉持的优秀品质有肯吃苦、肯钻研以及精益求精的精神和勇气。（
+）<br />
+答案:对</p>
+<p>124.初入汽车行业，在上汽大众工作时遇到了诸多挑战，付涛的解决方法有（
+）。<br />
+答案:做好本职工作###全身心付出###严格要求自己###虚心向前辈请教</p>
+<p>125.劳模姚启明给到同学们的“逐梦”建议是（ ）<br />
+答案:向身边的劳模们多学习###要养成热爱劳动的好习惯###要培育热爱劳动，尊重劳动，崇尚劳动的这种价值观###要真正明白劳动创作幸福的道理</p>
+<p>126.上海玉佛寺大雄宝殿移位运用了物联网技术，包括实时传感技术，对其进行安全监测。（
+）<br />
+答案:对</p>
+<p>127.工匠精神应该如何传承（ ）?<br />
+答案:要有责任心###要有进取心###要有专注心###要有自信心</p>
+<p>128.城市更新中的工匠精神就是在传承传统工艺的基础上，不断采用新技术进行创新，把历史建筑修缮的更好。（
+）<br />
+答案:对</p>
+<p>129.章明教授给到同学们“自我修炼”的建议是：（ )<br />
+答案:持续学习积累、锻炼自身修为###提升专业技能，做到熟能生巧###开阔眼界、提升自身能力</p>
+<p>130.张郁与团队争分夺秒，凌晨、假期、甚至春假都坚守岗位，只为保障地铁的安全正常运行。请问这体现了张郁团队什么样的劳动精神？（
+)<br />
+答案:艰苦奋斗###爱岗敬业###甘于奉献###争创一流</p>
+<p>131.作为建筑设计师，如何发扬工匠精神？（ )<br />
+答案:拥有执着的品质###追求细节###保持专注的工作态度</p>
+<p>132.土木工程试验研究中劳动的意义有哪些（ ）？<br />
+答案:促进研究者身体健康###提高研究质量</p>
+<p>133.国家体育总局，汽摩管理中心的领导用“中国赛车运动发展史上的里程碑”来赞扬姚启明对中国汽运做出的开创性的贡献。（
+）<br />
+答案:对</p>
+<p>134.你认为雨水花园的设计，如钢栈桥、座椅、灯具、地面格栅等设计，体现了设计团队怎样的精神？（
+)<br />
+答案:追求卓越###一丝不苟###精益求精</p>
+<p>135.土木试验中的劳动，包括脑力劳动和体力劳动。（ ）<br />
+答案:对</p>
+<p>136.智慧运维的案例让我们明白，在劳动中不仅要勤奋，更重要的是要利用聪明才智、创新、巧干。（
+）<br />
+答案:对</p>
+<p>137.劳模精神的内涵是（ ）<br />
+答案:勇于创新###甘于奉献###艰苦奋斗###争创一流###爱岗敬业###淡泊名利</p>
+<p>138.劳模张郁给到同学们的成长建议是读好书、学好专业知识,提前做人生规划.(
+）<br />
+答案:对</p>
+<p>139.学生的身份并不当然的限制郭懿作为一个普通的劳动者加入劳动力的群体。（
+）<br />
+答案:对</p>
+<p>140.求职中可能遇到的陷阱有（ ）。<br />
+答案:培训贷款###押金、保证金、诚意金###信息泄露###骗入传销组织</p>
+<p>141.劳动合同法的新规定有（ ）。<br />
+答案:试用期期间的工资###禁止重复约定试用期###试用期期限与合同期限挂钩###禁止约定试用期的情形###试用期期间解除劳动合同</p>
+<p>142.三方协议的法律性质虽然属于民事协议，但是由它引起的争议也需要经过劳动仲裁再进入法院的一审和二审程序。（
+）<br />
+答案:错</p>
+<p>143.《劳动教育》是一门什么性质的课程？（ ）。<br />
+答案:必修课</p>
+<p>144.【判断题】进入改革开放时期之后，为了践行让全体劳动者共享发展成果的新时期劳动教育观，在农村实行家庭联产承包责任制以调动广大农民的生产积极性；在城市推动城乡统一的劳动力市场建设以允许劳动者自由流动、自主择业。（
+） 答案：对</p>
+<p>145.【判断题】1、一般年满十八周岁的在校大学生被视为法律上的完全民事行为能力人。（ 
+） 答案：对</p>
+<p>146
+【判断题】依据相关法律规定，符合条件的在校大学生可以成立雇佣关系，订立合法的民事雇佣协议。（
+） 答案：对</p>
+<p>147
+【判断题】用人单位招用劳动者，不得扣押劳动者的居民身份证和其他证件，不得要求劳动者提供担保或者以其他名义向劳动者收取财物。（ 
+） 答案：对</p>
+<p>148
+【判断题】签订劳动合同过程中，可能存在缔约双方主体不合格、未在法律规定的期限内签署书面合同；用人单位收取相关身份证件或财物、违法签订试用期合同、不给劳动者正式劳动合同文本；劳动合同内容违反法律法规等风险。（ 
+） 答案：对</p>
+<p>【判断题】中国古代对劳动的问题上是有缺陷的，就是所谓的“劳心者治人，劳力者治于人”，读书人是不动手的。（
+） 答案：对</p>
+<p>【多选题】汪品先院士从Slavin教授处学到的习惯是（ ）
+答案：不喝水；不戴帽子；不吃饭</p>
+<p>【判断题】即使没有安排工作任务，我们也需要凸显的勤奋？ 答案：错</p>
+<p>【多选题】2010年上海世博会的亮点有
+这是历史上第一个公交世博会；世博园规划中，大量保留及改造了老厂房；同济大学多门学科的教师及学生团队参与建设及运营</p>
+<p>【判断题】劳动是快乐的，劳动会促使个人成长，促使团队创新。 对</p>
+<p>【判断题】科学研究的过程中，学习的是研究思路及研究方法。 对</p>
+<p>【判断题】同济大学的校训是“严谨求实、团结创新” 对</p>
+
+  </div>
+  
+  
+    
+    <div class='footer'>
+       <!-- 参考资料、相关资料等 -->
+      
+       <!-- 相关文章 -->
+      
+      <!-- 版权声明组件 -->
+      
+      <!-- 打赏组件 -->
+      
+    </div>
+  
+  
+    
+
+
+  <div class='article-meta' id="bottom">
+    <div class='new-meta-box'>
+      
+        
+          <div class="new-meta-item date" itemprop="dateModified" datetime="2025-09-07T18:06:44+08:00">
+  <a class='notlink'>
+    <i class="fa-solid fa-edit fa-fw" aria-hidden="true"></i>
+    <p>更新于：2025年9月7日</p>
+  </a>
+</div>
+
+        
+      
+        
+          
+  
+  <div class="new-meta-item meta-tags"><a class="tag" href="/tags/%E6%99%BA%E6%85%A7%E6%A0%91/" rel="nofollow"><i class="fa-solid fa-hashtag fa-fw" aria-hidden="true"></i><p>智慧树</p></a></div> <div class="new-meta-item meta-tags"><a class="tag" href="/tags/%E5%90%8C%E6%B5%8E%E5%A4%A7%E5%AD%A6/" rel="nofollow"><i class="fa-solid fa-hashtag fa-fw" aria-hidden="true"></i><p>同济大学</p></a></div> <div class="new-meta-item meta-tags"><a class="tag" href="/tags/%E5%8A%B3%E5%8A%A8%E6%95%99%E8%82%B2/" rel="nofollow"><i class="fa-solid fa-hashtag fa-fw" aria-hidden="true"></i><p>劳动教育</p></a></div> <div class="new-meta-item meta-tags"><a class="tag" href="/tags/%E8%AF%BE%E7%A8%8B%E7%AD%94%E6%A1%88/" rel="nofollow"><i class="fa-solid fa-hashtag fa-fw" aria-hidden="true"></i><p>课程答案</p></a></div> <div class="new-meta-item meta-tags"><a class="tag" href="/tags/%E8%80%83%E8%AF%95%E7%AD%94%E6%A1%88/" rel="nofollow"><i class="fa-solid fa-hashtag fa-fw" aria-hidden="true"></i><p>考试答案</p></a></div>
+  <span hidden itemprop="keywords">智慧树 同济大学 劳动教育 课程答案 考试答案</span>
+
+
+        
+      
+        
+          
+  <div class="new-meta-item share -mob-share-list">
+  <div class="-mob-share-list share-body">
+    
+      
+        <a class="-mob-share-qq" title="" rel="external nofollow noopener noreferrer noopener"
+          
+          target="_blank" href="http://connect.qq.com/widget/shareqq/index.html?url=https://chenxuqiao.github.io/2025/09/07/%E6%99%BA%E6%85%A7%E6%A0%91%E3%80%8A%E5%8A%B3%E5%8A%A8%E6%95%99%E8%82%B2%E3%80%8B%EF%BC%88%E5%90%8C%E6%B5%8E%E5%A4%A7%E5%AD%A6%EF%BC%89%E8%AF%BE%E7%A8%8B%E8%80%83%E8%AF%95%E7%AD%94%E6%A1%88%E6%B1%87%E6%80%BB/&title=智慧树《劳动教育》（同济大学）课程考试答案汇总 - Chenxu Qiao&summary="
+          
+          >
+          
+            <img src="https://unpkg.com/volantis-static@0.0.1654736714924/media/org.volantis/logo/128/qq.png" class="lazyload" data-srcset="https://unpkg.com/volantis-static@0.0.1654736714924/media/org.volantis/logo/128/qq.png" srcset="data:image/gif;base64,R0lGODlhAQABAIAAAP///////yH5BAEKAAEALAAAAAABAAEAAAICTAEAOw==">
+          
+        </a>
+      
+    
+      
+        <a class="-mob-share-qzone" title="" rel="external nofollow noopener noreferrer noopener"
+          
+          target="_blank" href="https://sns.qzone.qq.com/cgi-bin/qzshare/cgi_qzshare_onekey?url=https://chenxuqiao.github.io/2025/09/07/%E6%99%BA%E6%85%A7%E6%A0%91%E3%80%8A%E5%8A%B3%E5%8A%A8%E6%95%99%E8%82%B2%E3%80%8B%EF%BC%88%E5%90%8C%E6%B5%8E%E5%A4%A7%E5%AD%A6%EF%BC%89%E8%AF%BE%E7%A8%8B%E8%80%83%E8%AF%95%E7%AD%94%E6%A1%88%E6%B1%87%E6%80%BB/&title=智慧树《劳动教育》（同济大学）课程考试答案汇总 - Chenxu Qiao&summary="
+          
+          >
+          
+            <img src="https://unpkg.com/volantis-static@0.0.1654736714924/media/org.volantis/logo/128/qzone.png" class="lazyload" data-srcset="https://unpkg.com/volantis-static@0.0.1654736714924/media/org.volantis/logo/128/qzone.png" srcset="data:image/gif;base64,R0lGODlhAQABAIAAAP///////yH5BAEKAAEALAAAAAABAAEAAAICTAEAOw==">
+          
+        </a>
+      
+    
+      
+        <a class="-mob-share-weibo" title="" rel="external nofollow noopener noreferrer noopener"
+          
+          target="_blank" href="http://service.weibo.com/share/share.php?url=https://chenxuqiao.github.io/2025/09/07/%E6%99%BA%E6%85%A7%E6%A0%91%E3%80%8A%E5%8A%B3%E5%8A%A8%E6%95%99%E8%82%B2%E3%80%8B%EF%BC%88%E5%90%8C%E6%B5%8E%E5%A4%A7%E5%AD%A6%EF%BC%89%E8%AF%BE%E7%A8%8B%E8%80%83%E8%AF%95%E7%AD%94%E6%A1%88%E6%B1%87%E6%80%BB/&title=智慧树《劳动教育》（同济大学）课程考试答案汇总 - Chenxu Qiao&summary="
+          
+          >
+          
+            <img src="https://unpkg.com/volantis-static@0.0.1654736714924/media/org.volantis/logo/128/weibo.png" class="lazyload" data-srcset="https://unpkg.com/volantis-static@0.0.1654736714924/media/org.volantis/logo/128/weibo.png" srcset="data:image/gif;base64,R0lGODlhAQABAIAAAP///////yH5BAEKAAEALAAAAAABAAEAAAICTAEAOw==">
+          
+        </a>
+      
+    
+      
+    
+      
+    
+  </div>
+</div>
+
+
+
+        
+      
+    </div>
+    <!-- Custom Files bottomMeta begin -->
+    
+    <!-- Custom Files bottomMeta end -->
+  </div>
+
+
+  
+  
+
+  
+    <div class="prev-next">
+      
+        <a class='prev' href='/2025/09/20/%E5%8C%BF%E5%90%8D%E6%8F%90%E9%97%AE%E7%AE%B1/'>
+          <p class='title'><i class="fa-solid fa-chevron-left" aria-hidden="true"></i>匿名提问箱问答记录</p>
+          <p class='content'>最近，我将之前在匿名提问箱收到的一些问题和我的回答整理到了这里。
+主要原因是原平台的互动性较弱，并且有 500
+字的回答限制。现在将它迁移到自己的网站上，不仅可以更完整地记录我的思考，也希望能借...</p>
+        </a>
+      
+      
+        <a class='next' href='/2025/09/03/%E4%B8%AD%E5%8D%97%E8%B4%A2%E7%BB%8F%E6%94%BF%E6%B3%95%E5%A4%A7%E5%AD%A6%E8%8B%B1%E6%96%87%E6%8E%A8%E8%8D%90%E4%BF%A1/'>
+          <p class='title'>中南财经政法大学英文推荐信 LaTeX 模板（工商管理学院）<i class="fa-solid fa-chevron-right" aria-hidden="true"></i></p>
+          <p class='content'>本模板是基于 Overleaf 平台的 NENU
+Letter Template 改编而成的中南财经政法大学工商管理学院英文推荐信
+LaTeX 模板。
+使用说明
+git clone https:...</p>
+        </a>
+      
+    </div>
+  
+  <!-- Custom Files postEnd begin-->
+  
+  <!-- Custom Files postEnd end-->
+</article>
+
+
+  
+
+
+  <article class="post white-box shadow floatable blur" id="comments">
+    <span hidden>
+      <meta itemprop="discussionUrl" content="/2025/09/07/%E6%99%BA%E6%85%A7%E6%A0%91%E3%80%8A%E5%8A%B3%E5%8A%A8%E6%95%99%E8%82%B2%E3%80%8B%EF%BC%88%E5%90%8C%E6%B5%8E%E5%A4%A7%E5%AD%A6%EF%BC%89%E8%AF%BE%E7%A8%8B%E8%80%83%E8%AF%95%E7%AD%94%E6%A1%88%E6%B1%87%E6%80%BB/#comments">
+    </span>
+    <p ct><i class='fa-solid fa-comments'></i> 评论</p>
+    
+
+    <div id="layoutHelper-comments"></div>
+
+  </article>
+
+
+
+
+
+
+</div>
+<aside id='l_side' itemscope itemtype="http://schema.org/WPSideBar">
+  
+
+  
+    
+    
+      
+    
+  
+
+
+<div class="widget-sticky pjax">
+
+  
+  
+
+
+  <div class="">
+    <!-- pjax占位 -->
+  </div>
+
+  
+
+</div>
+
+
+<!-- 没有 pjax 占位会报错 万恶的 pjax -->
+
+  <div class="pjax">
+    <!-- pjax占位 -->
+  </div>
+
+  <div class="pjax">
+    <!-- pjax占位 -->
+  </div>
+
+  <div class="pjax">
+    <!-- pjax占位 -->
+  </div>
+
+  <div class="pjax">
+    <!-- pjax占位 -->
+  </div>
+
+  <div class="pjax">
+    <!-- pjax占位 -->
+  </div>
+
+  <div class="pjax">
+    <!-- pjax占位 -->
+  </div>
+
+  <div class="pjax">
+    <!-- pjax占位 -->
+  </div>
+
+  <div class="pjax">
+    <!-- pjax占位 -->
+  </div>
+
+  <div class="pjax">
+    <!-- pjax占位 -->
+  </div>
+
+  <div class="pjax">
+    <!-- pjax占位 -->
+  </div>
+
+  <!-- Custom Files side begin -->
+  
+  <!-- Custom Files side end -->
+</aside>
+
+
+
+          <!--此文件用来存放一些不方便取值的变量-->
+<!--思路大概是将值藏到重加载的区域内-->
+
+<pjax>
+<script>
+  window.pdata={}
+  pdata.ispage=true;
+  pdata.commentPath="";
+  pdata.commentPlaceholder="";
+  pdata.commentConfig={};
+  //  see: /layout/_partial/scripts/_ctrl/coverCtrl.ejs
+  
+    // header
+    var l_header=document.getElementById("l_header");
+    
+    l_header.classList.add("show");
+    
+    
+      // cover
+      var cover_wrapper=document.querySelector('#l_cover .cover-wrapper');
+      var scroll_down=document.getElementById('scroll-down');
+      cover_wrapper.id="none";
+      cover_wrapper.style.display="none";
+      scroll_down.style.display="none";
+    
+  
+</script>
+</pjax>
         </div>
         
-            <script data-swup-reload-script src="https://cn.vercount.one/js"></script>
-            <div class="relative text-center lg:absolute lg:right-[20px] lg:top-1/2 lg:-translate-y-1/2 lg:text-right">
-                
-                    <span id="busuanzi_container_site_uv" class="lg:!block">
-                        <span class="text-sm">VISITOR COUNT</span>
-                        <span id="busuanzi_value_site_uv"></span>
-                    </span>
-                
-                
-                    <span id="busuanzi_container_site_pv" class="lg:!block">
-                        <span class="text-sm">TOTAL PAGE VIEWS</span>
-                        <span id="busuanzi_value_site_pv"></span>
-                    </span>
-                
-            </div>
-        
-        <div class="relative text-center lg:absolute lg:left-[20px] lg:top-1/2 lg:-translate-y-1/2 lg:text-left">
-            <span class="lg:block text-sm">POWERED BY <?xml version="1.0" encoding="utf-8"?><!DOCTYPE svg PUBLIC "-//W3C//DTD SVG 1.1//EN" "http://www.w3.org/Graphics/SVG/1.1/DTD/svg11.dtd"><svg class="relative top-[2px] inline-block align-baseline" version="1.1" id="圖層_1" xmlns="http://www.w3.org/2000/svg" xmlns:xlink="http://www.w3.org/1999/xlink" x="0px" y="0px" width="1rem" height="1rem" viewBox="0 0 512 512" enable-background="new 0 0 512 512" xml:space="preserve"><path fill="#0E83CD" d="M256.4,25.8l-200,115.5L56,371.5l199.6,114.7l200-115.5l0.4-230.2L256.4,25.8z M349,354.6l-18.4,10.7l-18.6-11V275H200v79.6l-18.4,10.7l-18.6-11v-197l18.5-10.6l18.5,10.8V237h112v-79.6l18.5-10.6l18.5,10.8V354.6z"/></svg><a target="_blank" class="text-base" href="https://hexo.io">Hexo</a></span>
-            <span class="text-sm lg:block">THEME&nbsp;<a class="text-base" target="_blank" href="https://github.com/EvanNotFound/hexo-theme-redefine">Redefine v2.8.5</a></span>
+  
+  <footer class="footer clearfix"  itemscope itemtype="http://schema.org/WPFooter">
+    <br><br>
+    
+      
+        <div class="aplayer-container">
+          
+
+
         </div>
-        
-        
-            <div>
-                Blog up for <span class="odometer" id="runtime_days" ></span> days <span class="odometer" id="runtime_hours"></span> hrs <span class="odometer" id="runtime_minutes"></span> Min <span class="odometer" id="runtime_seconds"></span> Sec
-            </div>
-        
-        
-            <script data-swup-reload-script>
-                try {
-                    function odometer_init() {
-                    const elements = document.querySelectorAll('.odometer');
-                    elements.forEach(el => {
-                        new Odometer({
-                            el,
-                            format: '( ddd).dd',
-                            duration: 200
-                        });
-                    });
-                    }
-                    odometer_init();
-                } catch (error) {}
-            </script>
-        
-        
-        
-    </div>  
-</footer>
-		</div>
-	</div>
-
-	
-	<div class="post-tools">
-		<div class="post-tools-container">
-	<ul class="article-tools-list">
-		<!-- TOC aside toggle -->
-		
-		<li class="right-bottom-tools page-aside-toggle">
-			<i class="fa-regular fa-outdent"></i>
-		</li>
-		
-
-		<!-- go comment -->
-		
-		<li class="go-comment">
-			<i class="fa-regular fa-comments"></i>
-		</li>
-		
-	</ul>
+      
+    
+      
+        <br>
+        <div class="social-wrapper" itemprop="about" itemscope itemtype="http://schema.org/Thing">
+          
+            
+          
+            
+          
+            
+          
+        </div>
+      
+    
+      
+        <div><p>博客内容遵循 <a
+target="_blank" rel="noopener" href="https://creativecommons.org/licenses/by-nc-sa/4.0/deed.zh">署名-非商业性使用-相同方式共享
+4.0 国际 (CC BY-NC-SA 4.0) 协议</a></p>
 </div>
-	</div>
-	
+      
+    
+      
+        本站使用
+        <a href="https://github.com/volantis-x/hexo-theme-volantis/#5.8.0" target="_blank" class="codename">Volantis</a>
+        作为主题
+      
+    
+      
+        <div class='copyright'>
+        <p><a href="/">Copyright © since 2025</a></p>
 
-	<div class="right-side-tools-container">
-		<div class="side-tools-container">
-	<ul class="hidden-tools-list">
-		<li class="right-bottom-tools tool-font-adjust-plus flex justify-center items-center">
-			<i class="fa-regular fa-magnifying-glass-plus"></i>
-		</li>
-
-		<li class="right-bottom-tools tool-font-adjust-minus flex justify-center items-center">
-			<i class="fa-regular fa-magnifying-glass-minus"></i>
-		</li>
-
-		<li class="right-bottom-tools tool-dark-light-toggle flex justify-center items-center">
-			<i class="fa-regular fa-moon"></i>
-		</li>
-
-		<!-- rss -->
-		
-
-		
-
-		<li class="right-bottom-tools tool-scroll-to-bottom flex justify-center items-center">
-			<i class="fa-regular fa-arrow-down"></i>
-		</li>
-	</ul>
-
-	<ul class="visible-tools-list">
-		<li class="right-bottom-tools toggle-tools-list flex justify-center items-center">
-			<i class="fa-regular fa-cog fa-spin"></i>
-		</li>
-		
-		<li class="right-bottom-tools tool-scroll-to-top flex justify-center items-center">
-			<i class="arrow-up fas fa-arrow-up"></i>
-			<span class="percent"></span>
-		</li>
-		
-		
-	</ul>
-</div>
-	</div>
-
-	<div class="image-viewer-container">
-	<img src="">
-</div>
-
-	
-
-</main>
+        </div>
+      
+    
+    <!-- Custom Files footer begin-->
+    
+    <!-- Custom Files footer end-->
+  </footer>
 
 
-
-<script src="/js/build/libs/Swup.min.js"></script>
-
-<script src="/js/build/libs/SwupSlideTheme.min.js"></script>
-
-<script src="/js/build/libs/SwupScriptsPlugin.min.js"></script>
-
-<script src="/js/build/libs/SwupProgressPlugin.min.js"></script>
-
-<script src="/js/build/libs/SwupScrollPlugin.min.js"></script>
-
-<script src="/js/build/libs/SwupPreloadPlugin.min.js"></script>
+        <a id="s-top" class="fa-solid fa-arrow-up fa-fw" href="/" onclick="return false;" title="top"></a>
+      </div>
+    </div>
+    <div>
+      <script>
+  /******************** volantis.dom ********************************/
+  // 页面选择器 将dom对象缓存起来 see: /source/js/app.js etc.
+  volantis.dom.bodyAnchor = volantis.dom.$(document.getElementById("safearea")); // 页面主体
+  volantis.dom.topBtn = volantis.dom.$(document.getElementById('s-top')); // 向上
+  volantis.dom.wrapper = volantis.dom.$(document.getElementById('wrapper')); // 整个导航栏
+  volantis.dom.coverAnchor = volantis.dom.$(document.querySelector('#l_cover .cover-wrapper')); // 1个
+  volantis.dom.switcher = volantis.dom.$(document.querySelector('#l_header .switcher .s-search')); // 搜索按钮   移动端 1个
+  volantis.dom.header = volantis.dom.$(document.getElementById('l_header')); // 移动端导航栏
+  volantis.dom.search = volantis.dom.$(document.querySelector('#l_header .m_search')); // 搜索框 桌面端 移动端 1个
+  volantis.dom.mPhoneList = volantis.dom.$(document.querySelectorAll('#l_header .m-phone .list-v')); //  手机端 子菜单 多个
+</script>
 
 <script>
-    const swup = new Swup({
-        plugins: [
-            new SwupScriptsPlugin({
-                optin: true,
-            }),
-            new SwupProgressPlugin(),
-            new SwupScrollPlugin({
-                offset: 80,
-            }),
-            new SwupSlideTheme({
-                mainElement: ".main-content-body",
-            }),
-            new SwupPreloadPlugin(),
-        ],
-        containers: ["#swup"],
-    });
+  
+  volantis.css("true");
+  
+  
+  
+</script>
+
+<!-- required -->
+
+
+<!-- internal -->
+
+<script src="/js/app.js"></script>
+
+
+
+
+
+
+<!-- rightmenu要在darkmode之前（ToggleButton） darkmode要在comments之前（volantis.dark.push）-->
+
+
+
+<script>
+  function loadIssuesJS() {
+    
+      const sites_api = document.getElementById('sites-api');
+      if (sites_api != undefined && typeof SitesJS === 'undefined') {
+        volantis.js("/js/plugins/tags/sites.js")
+      }
+    
+    
+      const friends_api = document.getElementById('friends-api');
+      if (friends_api != undefined && typeof FriendsJS === 'undefined') {
+        volantis.js("/js/plugins/tags/friends.js")
+      }
+    
+    
+      const contributors_api = document.getElementById('contributors-api');
+      if (contributors_api != undefined && typeof ContributorsJS === 'undefined') {
+        volantis.js("/js/plugins/tags/contributors.js")
+      }
+    
+  };
+  loadIssuesJS()
+  volantis.pjax.push(()=>{
+    loadIssuesJS();
+  })
+
 </script>
 
 
 
 
-	
-<script src="/js/build/tools/imageViewer.js" type="module"></script>
-
-<script src="/js/build/utils.js" type="module"></script>
-
-<script src="/js/build/main.js" type="module"></script>
-
-<script src="/js/build/layouts/navbarShrink.js" type="module"></script>
-
-<script src="/js/build/tools/scrollTopBottom.js" type="module"></script>
-
-<script src="/js/build/tools/lightDarkSwitch.js" type="module"></script>
-
-<script src="/js/build/layouts/categoryList.js" type="module"></script>
-
-
-
-
-
-    
-<script src="/js/build/tools/codeBlock.js" type="module"></script>
-
-
-
-
-    
-<script src="/js/build/layouts/lazyload.js" type="module"></script>
-
-
-
-
-    
-<script src="/js/build/tools/runtime.js"></script>
-
-    
-<script src="/js/build/libs/odometer.min.js"></script>
-
-    
-<link rel="stylesheet" href="/assets/odometer-theme-minimal.css">
+  <script defer src="https://unpkg.com/volantis-static@0.0.1654736714924/libs/vanilla-lazyload/dist/lazyload.min.js"></script>
+<script>
+  // https://www.npmjs.com/package/vanilla-lazyload
+  // Set the options globally
+  // to make LazyLoad self-initialize
+  window.lazyLoadOptions = {
+    elements_selector: ".lazyload",
+    threshold: 0
+  };
+  // Listen to the initialization event
+  // and get the instance of LazyLoad
+  window.addEventListener(
+    "LazyLoad::Initialized",
+    function (event) {
+      window.lazyLoadInstance = event.detail.instance;
+    },
+    false
+  );
+  document.addEventListener('DOMContentLoaded', function () {
+    lazyLoadInstance.update();
+  });
+  document.addEventListener('pjax:complete', function () {
+    lazyLoadInstance.update();
+  });
+</script>
 
 
 
 
   
-<script src="/js/build/libs/Typed.min.js"></script>
 
+<script>
+  window.FPConfig = {
+	delay: 0,
+	ignoreKeywords: ["#"],
+	maxRPS: 6,
+	hoverDelay: 0
+  };
+</script>
+<script defer src="https://unpkg.com/volantis-static@0.0.1654736714924/libs/flying-pages/flying-pages.min.js"></script>
+
+
+
+
+
+
+
+
+
+      <script>
+  volantis.layoutHelper("comments",`<div id="waline"><i class="fa-solid fa-cog fa-spin fa-fw fa-2x"></i></div>`)
   
-<script src="/js/build/plugins/typed.js" type="module"></script>
+  function pjax_waline() {
+    if(!document.querySelector("#waline"))return;
+    let locale = {};
+    let path = pdata.commentPath;
+    let pagePlaceholder = pdata.commentPlaceholder || "";
+    if (path.length == 0) {
+      let defaultPath = '';
+      path = defaultPath || decodeURI(window.location.pathname);
+    }
+    if(pagePlaceholder.length != 0) {
+      locale.placeholder = pagePlaceholder;
+    }
 
+    try {
+      Waline.init(Object.assign(Object.assign({"js":"https://unpkg.com/@waline/client@v2/dist/waline.js","css":"https://unpkg.com/@waline/client@v2/dist/waline.css","path":null,"placeholder":null,"serverURL":"https://my-blog-reviews-lemon.vercel.app","imageUploader":{"api":null,"token":null,"resp":null,"fileName":null,"tokenName":null},"pageview":true,"comment":true}, {
+        el: '#waline',
+        path: path,
+        // https://github.com/volantis-x/hexo-theme-volantis/issues/713
+        
+        locale,
+      }),pdata.commentConfig));
+    } catch (error) {
+      alert(`Waline ${error}`)
+    }
+    fancybox_waline()
+  }
 
+  function fancybox_waline() {
+    if(typeof VolantisFancyBox === "undefined") {
+      const checkFancyBox = setInterval(() => {
+        if(typeof VolantisFancyBox === "undefined") return;
+        clearInterval(checkFancyBox);
+        VolantisFancyBox.bind('#waline .wl-content img:not(.wl-emoji)');
+      })
+    } else {
+      VolantisFancyBox.bind('#waline .wl-content img:not(.wl-emoji)');
+    }
+  }
 
-
-
-
-
-
+  volantis.css('https://unpkg.com/@waline/client@v2/dist/waline.css')
+  volantis.js('https://unpkg.com/@waline/client@v2/dist/waline.js').then(pjax_waline)
+  volantis.pjax.push(pjax_waline);
+</script>
     
-<script src="/js/build/libs/anime.min.js"></script>
 
 
 
 
 
+<!-- optional -->
+
+  <script>
+  const SearchServiceDataPathRoot = ("/" || "/").endsWith("/") ?
+    "/" || "/" :
+    "//" || "/";
+  const SearchServiceDataPath = SearchServiceDataPathRoot + "content.json";
+
+  function loadSearchScript() {
+    // see: layout/_partial/scripts/_ctrl/cdnCtrl.ejs
+    return volantis.js("/js/search/hexo.js");
+  }
+
+  function loadSearchService() {
+    loadSearchScript();
+    document.querySelectorAll(".input.u-search-input").forEach((e) => {
+      e.removeEventListener("focus", loadSearchService, false);
+    });
+
+    document.querySelectorAll(".u-search-form").forEach((e) => {
+      e.addEventListener("submit", (event) => {
+        event.preventDefault();
+      }, false);
+    });
+  }
+
+  // 打开并搜索 字符串 s
+  function OpenSearch(s) {
+    if (typeof SearchService === 'undefined')
+      loadSearchScript().then(() => {
+        SearchService.setQueryText(s);
+        SearchService.search();
+      });
+    else {
+      SearchService.setQueryText(s);
+      SearchService.search();
+    }
+  }
+
+  // 访问含有 ?s=xxx  的链接时打开搜索 // 与搜索引擎 structured data 相关: /scripts/helpers/structured-data/lib/config.js
+  if (window.location.search && /^\?s=/g.test(window.location.search)) {
+    let queryText = decodeURI(window.location.search)
+      .replace(/\ /g, "-")
+      .replace(/^\?s=/g, "");
+    OpenSearch(queryText);
+  }
+
+  // 搜索输入框获取焦点时加载搜索
+  document.querySelectorAll(".input.u-search-input").forEach((e) => {
+    e.addEventListener("focus", loadSearchService, false);
+  });
+</script>
+
+
+
+
+
+
+
+  <script>
+
+
+
+  function pjax_highlightjs_copyCode(){
+    if (!(document.querySelector(".highlight .code pre") ||
+      document.querySelector(".article pre code"))) {
+      return;
+    }
+    VolantisApp.utilCopyCode(".highlight .code pre, .article pre code")
+  }
+  volantis.requestAnimationFrame(pjax_highlightjs_copyCode)
+  volantis.pjax.push(pjax_highlightjs_copyCode)
+
+</script>
+
+
+
+
+
+
+
+
+
+
+
+
+  <script>
+  function load_swiper() {
+    if (!document.querySelectorAll(".swiper-container")[0]) return;
+    volantis.css("https://unpkg.com/volantis-static@0.0.1654736714924/libs/swiper/swiper-bundle.min.css");
+    volantis.js("https://unpkg.com/volantis-static@0.0.1654736714924/libs/swiper/swiper-bundle.min.js").then(() => {
+      pjax_swiper();
+    });
+  }
+
+  load_swiper();
+
+  function pjax_swiper() {
+    volantis.swiper = new Swiper('.swiper-container', {
+      slidesPerView: 'auto',
+      spaceBetween: 8,
+      centeredSlides: true,
+      loop: true,
+      pagination: {
+        el: '.swiper-pagination',
+        clickable: true,
+      },
+      navigation: {
+        nextEl: '.swiper-button-next',
+        prevEl: '.swiper-button-prev',
+      },
+    });
+  }
+
+  volantis.pjax.push(() => {
+    if (!document.querySelectorAll(".swiper-container")[0]) return;
+    if (typeof volantis.swiper === "undefined") {
+      load_swiper();
+    } else {
+      pjax_swiper();
+    }
+  });
+</script>
+
+
+<!-- pjax 标签必须存在于所有页面 否则 pjax error -->
+<pjax>
+
+</pjax>
+
+<script>
+  function listennSidebarTOC() {
+    const navItems = document.querySelectorAll(".toc li");
+    if (!navItems.length) return;
+    let targets = []
+    const sections = [...navItems].map((element) => {
+      const link = element.querySelector(".toc-link");
+      const target = document.getElementById(
+        decodeURI(link.getAttribute("href")).replace("#", "")
+      );
+      targets.push(target)
+      // 解除 a 标签 href 的 锚点定位, a 标签 href 的 锚点定位 会随机启用?? 产生错位???
+      link.setAttribute("onclick","return false;")
+      link.setAttribute("toc-action","toc-"+decodeURI(link.getAttribute("href")).replace("#", ""))
+      link.setAttribute("href","/")
+      // 配置 点击 触发新的锚点定位
+      link.addEventListener("click", (event) => {
+        event.preventDefault();
+        // 这里的 addTop 是通过错位使得 toc 自动展开.
+        volantis.scroll.to(target,{addTop: 5, observer:true})
+        // Anchor id
+        history.pushState(null, document.title, "#" + target.id);
+      });
+      return target;
+    });
+
+    function activateNavByIndex(target) {
+      if (target.classList.contains("active-current")) return;
+
+      document.querySelectorAll(".toc .active").forEach((element) => {
+        element.classList.remove("active", "active-current");
+      });
+      target.classList.add("active", "active-current");
+      let parent = target.parentNode;
+      while (!parent.matches(".toc")) {
+        if (parent.matches("li")) parent.classList.add("active");
+        parent = parent.parentNode;
+      }
+    }
+
+    // 方案一：
+    volantis.activateNavIndex=0
+    activateNavByIndex(navItems[volantis.activateNavIndex])
+    volantis.scroll.push(()=>{
+      if (targets[0].getBoundingClientRect().top >= 0) {
+        volantis.activateNavIndex = 0
+      }else if (targets[targets.length-1].getBoundingClientRect().top < 0) {
+        volantis.activateNavIndex = targets.length-1
+      } else {
+        for (let index = 0; index < targets.length; index++) {
+          const target0 = targets[index];
+          const target1 = targets[(index+1)%targets.length];
+          if (target0.getBoundingClientRect().top < 0&&target1.getBoundingClientRect().top >= 0) {
+            volantis.activateNavIndex=index
+            break;
+          }
+        }
+      }
+      activateNavByIndex(navItems[volantis.activateNavIndex])
+    })
+
+    // 方案二：
+    // IntersectionObserver 不是完美精确到像素级别 也不是低延时性的
+    // function findIndex(entries) {
+    //   let index = 0;
+    //   let entry = entries[index];
+    //   if (entry.boundingClientRect.top > 0) {
+    //     index = sections.indexOf(entry.target);
+    //     return index === 0 ? 0 : index - 1;
+    //   }
+    //   for (; index < entries.length; index++) {
+    //     if (entries[index].boundingClientRect.top <= 0) {
+    //       entry = entries[index];
+    //     } else {
+    //       return sections.indexOf(entry.target);
+    //     }
+    //   }
+    //   return sections.indexOf(entry.target);
+    // }
+    // function createIntersectionObserver(marginTop) {
+    //   marginTop = Math.floor(marginTop + 10000);
+    //   let intersectionObserver = new IntersectionObserver(
+    //     (entries, observe) => {
+    //       let scrollHeight = document.documentElement.scrollHeight;
+    //       if (scrollHeight > marginTop) {
+    //         observe.disconnect();
+    //         createIntersectionObserver(scrollHeight);
+    //         return;
+    //       }
+    //       let index = findIndex(entries);
+    //       activateNavByIndex(navItems[index]);
+    //     }, {
+    //       rootMargin: marginTop + "px 0px -100% 0px",
+    //       threshold: 0,
+    //     }
+    //   );
+    //   sections.forEach((element) => {
+    //     element && intersectionObserver.observe(element);
+    //   });
+    // }
+    // createIntersectionObserver(document.documentElement.scrollHeight);
+  }
+
+  document.addEventListener("DOMContentLoaded", ()=>{
+    volantis.requestAnimationFrame(listennSidebarTOC)
+  });
+  document.addEventListener("pjax:success", ()=>{
+    volantis.requestAnimationFrame(listennSidebarTOC)
+  });
+</script>
+
+
+
+<script>
+  document.onreadystatechange = function () {
+    if (document.readyState == 'complete') {
+      // 页面加载完毕 样式加载失败，或是当前网速慢，或是开启了省流模式
+      const { saveData, effectiveType } = navigator.connection || navigator.mozConnection || navigator.webkitConnection || {}
+      if (getComputedStyle(document.querySelector("#safearea"), null)["display"] == "none" || saveData || /2g/.test(effectiveType)) {
+        document.querySelectorAll(".reveal").forEach(function (e) {
+          e.style["opacity"] = "1";
+        });
+        document.querySelector("#safearea").style["display"] = "block";
+      }
+    }
+  }
+</script>
+
+
+  <script type="application/ld+json">[{"@context":"http://schema.org","@type":"Organization","name":"Chenxu Qiao","url":"https://chenxuqiao.github.io/","logo":{"@type":"ImageObject","url":"https://unpkg.com/volantis-static@0.0.1654736714924/media/org.volantis/blog/favicon/android-chrome-192x192.png","width":192,"height":192}},{"@context":"http://schema.org","@type":"Person","name":"Chenxu Qiao","image":{"@type":"ImageObject","url":"https://unpkg.com/volantis-static@0.0.1654736714924/media/org.volantis/blog/favicon/android-chrome-192x192.png"},"url":"https://chenxuqiao.github.io/","sameAs":["https://github.com/volantis-x"],"description":"分享关于学习、技术实践、产品设计和个人成长的思考与总结"},{"@context":"http://schema.org","@type":"BreadcrumbList","itemListElement":[{"@type":"ListItem","position":1,"item":{"@id":"https://chenxuqiao.github.io/","name":"Chenxu Qiao"}},{"@type":"ListItem","position":2,"item":{"@id":"https://chenxuqiao.github.io/categories/中南财课程资源/","name":"中南财课程资源"}},{"@type":"ListItem","position":3,"item":{"@id":"https://chenxuqiao.github.io/2025/09/07/智慧树《劳动教育》（同济大学）课程考试答案汇总/","name":"智慧树《劳动教育》（同济大学）课程考试答案汇总"}}]},{"@context":"http://schema.org","@type":"WebSite","name":"Chenxu Qiao","url":"https://chenxuqiao.github.io/","keywords":null,"description":"分享关于学习、技术实践、产品设计和个人成长的思考与总结","author":{"@type":"Person","name":"Chenxu Qiao","image":{"@type":"ImageObject","url":"https://unpkg.com/volantis-static@0.0.1654736714924/media/org.volantis/blog/favicon/android-chrome-192x192.png"},"url":"https://chenxuqiao.github.io/","description":"分享关于学习、技术实践、产品设计和个人成长的思考与总结"},"publisher":{"@type":"Organization","name":"Chenxu Qiao","url":"https://chenxuqiao.github.io/","logo":{"@type":"ImageObject","url":"https://unpkg.com/volantis-static@0.0.1654736714924/media/org.volantis/blog/favicon/android-chrome-192x192.png","width":192,"height":192}},"potentialAction":{"@type":"SearchAction","name":"Site Search","target":{"@type":"EntryPoint","urlTemplate":"https://chenxuqiao.github.io?s={search_term_string}"},"query-input":"required name=search_term_string"}},{"@context":"http://schema.org","@type":"BlogPosting","headline":"智慧树《劳动教育》（同济大学）课程考试答案汇总","description":"分享关于学习、技术实践、产品设计和个人成长的思考与总结","inLanguage":"zh-CN","mainEntityOfPage":{"@type":"WebPage","@id":"https://chenxuqiao.github.io/2025/09/07/%E6%99%BA%E6%85%A7%E6%A0%91%E3%80%8A%E5%8A%B3%E5%8A%A8%E6%95%99%E8%82%B2%E3%80%8B%EF%BC%88%E5%90%8C%E6%B5%8E%E5%A4%A7%E5%AD%A6%EF%BC%89%E8%AF%BE%E7%A8%8B%E8%80%83%E8%AF%95%E7%AD%94%E6%A1%88%E6%B1%87%E6%80%BB/"},"author":{"@type":"Person","name":"Chenxu Qiao","image":{"@type":"ImageObject","url":"https://unpkg.com/volantis-static@0.0.1654736714924/media/org.volantis/blog/favicon/android-chrome-192x192.png"},"url":"https://chenxuqiao.github.io/"},"publisher":{"@type":"Organization","name":"Chenxu Qiao","logo":{"@type":"ImageObject","url":"https://unpkg.com/volantis-static@0.0.1654736714924/media/org.volantis/blog/favicon/android-chrome-192x192.png","width":192,"height":192}},"url":"https://chenxuqiao.github.io/2025/09/07/%E6%99%BA%E6%85%A7%E6%A0%91%E3%80%8A%E5%8A%B3%E5%8A%A8%E6%95%99%E8%82%B2%E3%80%8B%EF%BC%88%E5%90%8C%E6%B5%8E%E5%A4%A7%E5%AD%A6%EF%BC%89%E8%AF%BE%E7%A8%8B%E8%80%83%E8%AF%95%E7%AD%94%E6%A1%88%E6%B1%87%E6%80%BB/","wordCount":0,"datePublished":"2025-09-06T21:40:00.000Z","dateModified":"2025-09-07T10:06:44.551Z","articleSection":"中南财课程资源","keywords":"智慧树,同济大学,劳动教育,课程答案,考试答案","image":{"@type":"ImageObject","url":"https://unpkg.com/volantis-static@0.0.1654736714924/media/org.volantis/blog/favicon/android-chrome-192x192.png","width":192,"height":192}}]</script>
+
+
+
+      
+        <!--
+  pjax重载区域接口：
+  1.  <pjax></pjax> 标签 pjax 标签必须存在于所有页面 否则 pjax error
+  2.  script[data-pjax]
+  3.  .pjax-reload script
+  4.  .pjax
+-->
+
+
+
+<script src="https://unpkg.com/volantis-static@0.0.1654736714924/libs/pjax/pjax.min.js"></script>
+
+
+<script>
+    var pjax;
+    document.addEventListener('DOMContentLoaded', function () {
+      pjax = new Pjax({
+        elements: 'a[href]:not([href^="#"]):not([href="javascript:void(0)"]):not([pjax-fancybox]):not([onclick="return false;"]):not([onclick="return!1"]):not([target="_blank"]):not([target="view_window"]):not([href$=".xml"])',
+        selectors: [
+          "head title",
+          "head meta[name=keywords]",
+          "head meta[name=description]",
+          
+          "#l_main",
+          "#pjax-header-nav-list",
+          ".pjax",
+          "pjax", // <pjax></pjax> 标签
+          "script[data-pjax], .pjax-reload script" // script标签添加data-pjax 或 script标签外层添加.pjax-reload 的script代码段重载
+        ],
+        cacheBust: false,   // url 地址追加时间戳，用以避免浏览器缓存
+        timeout: 5000,
+        
+      });
+    });
+
+    document.addEventListener('pjax:send', function (e) {
+      //window.stop(); // 相当于点击了浏览器的停止按钮
+
+      try {
+        var currentUrl = window.location.pathname;
+        var targetUrl = e.triggerElement.href;
+        var banUrl = [""];
+        if (banUrl[0] != "") {
+          banUrl.forEach(item => {
+            if(currentUrl.indexOf(item) != -1 || targetUrl.indexOf(item) != -1) {
+              window.location.href = targetUrl;
+            }
+          });
+        }
+      } catch (error) {}
+
+      // 使用 volantis.pjax.send 方法传入pjax:send回调函数 参见layout/_partial/scripts/global.ejs
+      volantis.pjax.method.send.start();
+    });
+
+    document.addEventListener('pjax:complete', function () {
+      // 使用 volantis.pjax.push 方法传入重载函数 参见layout/_partial/scripts/global.ejs
+      volantis.pjax.method.complete.start();
+    });
+
+    document.addEventListener('pjax:error', function (e) {
+      if(volantis.debug) {
+        console.error(e);
+        console.log('pjax error: \n' + JSON.stringify(e));
+      }else{
+        // 使用 volantis.pjax.error 方法传入pjax:error回调函数 参见layout/_partial/scripts/global.ejs
+        volantis.pjax.method.error.start();
+        window.location.href = e.triggerElement.href;
+      }
+    });
+</script>
+
+      
+    </div>
+    <!-- import body_end begin-->
+    <!-- import body_end end-->
+    <!-- Custom Files bodyEnd begin-->
     
-<script src="/js/build/tools/tocToggle.js" type="module" data-swup-reload-script=""></script>
-
-<script src="/js/build/layouts/toc.js" type="module" data-swup-reload-script=""></script>
-
-<script src="/js/build/plugins/tabs.js" type="module" data-swup-reload-script=""></script>
-
-
-
-
-<script src="/js/build/libs/moment-with-locales.min.js" data-swup-reload-script=""></script>
-
-
-<script src="/js/build/layouts/essays.js" type="module" data-swup-reload-script=""></script>
-
-
-
-
-
-	
-</body>
-
+    <!-- Custom Files bodyEnd end-->
+    <!-- front-matter body_end begin -->
+    <!-- front-matter body_end end -->
+  </body>
 </html>
