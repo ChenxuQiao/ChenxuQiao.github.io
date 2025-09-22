@@ -47,7 +47,7 @@
 <meta property="og:locale" content="zh_CN">
 <meta property="og:image" content="https://unpkg.com/volantis-static@0.0.1654736714924/media/org.volantis/blog/favicon/android-chrome-192x192.png">
 <meta property="article:published_time" content="2025-09-20T02:50:05.000Z">
-<meta property="article:modified_time" content="2025-09-20T02:56:28.419Z">
+<meta property="article:modified_time" content="2025-09-22T16:10:50.497Z">
 <meta property="article:author" content="Chenxu Qiao">
 <meta property="article:tag" content="提问">
 <meta property="article:tag" content="匿名">
@@ -901,6 +901,158 @@ button {
     -moz-opacity: 1;
   }
 }
+@media (prefers-color-scheme: dark) {
+  :root {
+    --color-mode: 'dark';
+  }
+  :root:not([color-scheme]) {
+    --color-site-body: #121212;
+    --color-read-bkg: #1f1f1f;
+    --color-read-post: #262626;
+    --color-site-bg: #1f1f1f;
+    --color-site-inner: rgba(238,238,238,0.871);
+    --color-site-footer: rgba(170,170,170,0.871);
+    --color-card: #262626;
+    --color-text: rgba(238,238,238,0.871);
+    --color-block: #434343;
+    --color-codeblock: #1f1f1f;
+    --color-inlinecode: #d56d28;
+    --color-h1: rgba(255,255,255,0.871);
+    --color-h2: rgba(255,255,255,0.871);
+    --color-h3: rgba(255,255,255,0.6);
+    --color-h4: rgba(255,255,255,0.6);
+    --color-h5: rgba(255,255,255,0.6);
+    --color-h6: rgba(255,255,255,0.6);
+    --color-p: rgba(217,217,217,0.871);
+    --color-list: rgba(217,217,217,0.871);
+    --color-list-hl: #63e0c4;
+    --color-meta: rgba(191,191,191,0.871);
+    --color-link: rgba(191,191,191,0.871);
+    --color-copyright-bkg: #21252b;
+  }
+  :root:not([color-scheme]) img {
+    filter: brightness(70%) !important;
+  }
+  :root:not([color-scheme]) .blur {
+    background: rgba(31,31,31,0.9) !important;
+  }
+  :root:not([color-scheme]) .white-box.blur {
+    background: rgba(38,38,38,0.9) !important;
+  }
+  :root:not([color-scheme]) .nav-main .u-search-input {
+    background: var(--color-card) !important;
+  }
+  :root:not([color-scheme]) #l_main .article .prev-next>a {
+    background: var(--color-block) !important;
+  }
+  :root:not([color-scheme]) #l_main .article .prev-next>a:hover {
+    background: var(--color-site-bg) !important;
+  }
+  :root:not([color-scheme]) .article blockquote {
+    background: var(--color-block) !important;
+  }
+  :root:not([color-scheme]) .article-title a {
+    color: var(--color-h1) !important;
+  }
+  :root:not([color-scheme]) details>summary {
+    color: var(--color-p) !important;
+    background: var(--color-site-bg) !important;
+  }
+  :root:not([color-scheme]) details {
+    border: 1px solid var(--color-site-bg) !important;
+    background: var(--color-site-bg) !important;
+  }
+  :root:not([color-scheme]) #u-search .modal,
+  :root:not([color-scheme]) #u-search .modal-header,
+  :root:not([color-scheme]) #u-search .modal-body {
+    background: var(--color-card) !important;
+  }
+  :root:not([color-scheme]) #u-search .modal-body .modal-results .result:hover {
+    background: var(--color-block) !important;
+  }
+  :root:not([color-scheme]) .u-search-input:hover {
+    background: var(--color-block) !important;
+  }
+  :root:not([color-scheme]) .u-search-input:focus {
+    background: var(--color-site-body) !important;
+  }
+}
+[color-scheme='dark'] {
+  --color-site-body: #121212;
+  --color-read-bkg: #1f1f1f;
+  --color-read-post: #262626;
+  --color-site-bg: #1f1f1f;
+  --color-site-inner: rgba(238,238,238,0.871);
+  --color-site-footer: rgba(170,170,170,0.871);
+  --color-card: #262626;
+  --color-text: rgba(238,238,238,0.871);
+  --color-block: #434343;
+  --color-codeblock: #1f1f1f;
+  --color-inlinecode: #d56d28;
+  --color-h1: rgba(255,255,255,0.871);
+  --color-h2: rgba(255,255,255,0.871);
+  --color-h3: rgba(255,255,255,0.6);
+  --color-h4: rgba(255,255,255,0.6);
+  --color-h5: rgba(255,255,255,0.6);
+  --color-h6: rgba(255,255,255,0.6);
+  --color-p: rgba(217,217,217,0.871);
+  --color-list: rgba(217,217,217,0.871);
+  --color-list-hl: #63e0c4;
+  --color-meta: rgba(191,191,191,0.871);
+  --color-link: rgba(191,191,191,0.871);
+  --color-copyright-bkg: #21252b;
+}
+[color-scheme='dark'] img {
+  filter: brightness(70%) !important;
+}
+[color-scheme='dark'] .blur {
+  background: rgba(31,31,31,0.9) !important;
+}
+[color-scheme='dark'] .white-box.blur {
+  background: rgba(38,38,38,0.9) !important;
+}
+[color-scheme='dark'] .nav-main .u-search-input {
+  background: var(--color-card) !important;
+}
+[color-scheme='dark'] #l_main .article .prev-next>a {
+  background: var(--color-block) !important;
+}
+[color-scheme='dark'] #l_main .article .prev-next>a:hover {
+  background: var(--color-site-bg) !important;
+}
+[color-scheme='dark'] .article blockquote {
+  background: var(--color-block) !important;
+}
+[color-scheme='dark'] .article-title a {
+  color: var(--color-h1) !important;
+}
+[color-scheme='dark'] details>summary {
+  color: var(--color-p) !important;
+  background: var(--color-site-bg) !important;
+}
+[color-scheme='dark'] details {
+  border: 1px solid var(--color-site-bg) !important;
+  background: var(--color-site-bg) !important;
+}
+[color-scheme='dark'] #u-search .modal,
+[color-scheme='dark'] #u-search .modal-header,
+[color-scheme='dark'] #u-search .modal-body {
+  background: var(--color-card) !important;
+}
+[color-scheme='dark'] #u-search .modal-body .modal-results .result:hover {
+  background: var(--color-block) !important;
+}
+[color-scheme='dark'] .u-search-input:hover {
+  background: var(--color-block) !important;
+}
+[color-scheme='dark'] .u-search-input:focus {
+  background: var(--color-site-body) !important;
+}
+@media screen and (max-width: 500px) {
+  [color-scheme='dark'] .l_header .m_search {
+    background: var(--color-site-bg) !important;
+  }
+}
 @font-face {
   font-family: 'UbuntuMono';
   src: url("https://unpkg.com/volantis-static@0.0.1654736714924/media/fonts/UbuntuMono/UbuntuMono-Regular.ttf");
@@ -1737,10 +1889,21 @@ ul.list-v >li>a:hover {
     padding: 0px;
   }
 }
+@media screen and (prefers-color-scheme: dark) and (max-width: 500px) {
+  .l_header .m_search {
+    background: var(--color-site-bg) !important;
+  }
+}
 
   </style>
   <link rel="stylesheet" href="/css/style.css" media="print" onload="this.media='all';this.onload=null">
   <noscript><link rel="stylesheet" href="/css/style.css"></noscript>
+    <script>
+      let userColorScheme=localStorage.getItem("color-scheme")
+      if(userColorScheme){
+        document.documentElement.setAttribute("color-scheme", userColorScheme);
+      }
+    </script>
   
 <script>
 if (/*@cc_on!@*/false || (!!window.MSInputMethodContext && !!document.documentMode))
@@ -1814,7 +1977,7 @@ if (/*@cc_on!@*/false || (!!window.MSInputMethodContext && !!document.documentMo
     debug: "env",
     cdn: {"js":{"app":"/js/app.js","parallax":"/js/plugins/parallax.js","rightMenu":"/js/plugins/rightMenu.js","rightMenus":"/js/plugins/rightMenus.js","sites":"/js/plugins/tags/sites.js","friends":"/js/plugins/tags/friends.js","contributors":"/js/plugins/tags/contributors.js","search":"/js/search/hexo.js"},"css":{"style":"/css/style.css"}},
     default: {"avatar":"https://unpkg.com/volantis-static@0.0.1654736714924/media/placeholder/avatar/round/3442075.svg","link":"https://unpkg.com/volantis-static@0.0.1654736714924/media/placeholder/link/8f277b4ee0ecd.svg","cover":"https://unpkg.com/volantis-static@0.0.1654736714924/media/placeholder/cover/76b86c0226ffd.svg","image":"https://unpkg.com/volantis-static@0.0.1654736714924/media/placeholder/image/2659360.svg"},
-    lastupdate: new Date(1758545252509),
+    lastupdate: new Date(1758557787714),
     sidebar: {
       for_page: ["blogger","tagcloud","donate","category","webinfo"],
       for_post: ["toc"],
@@ -2249,7 +2412,7 @@ if (/*@cc_on!@*/false || (!!window.MSInputMethodContext && !!document.documentMo
     <!-- Custom Files bodyBegin end-->
     <!-- front-matter body_begin begin -->
     <!-- front-matter body_begin end -->
-    <header itemscope itemtype="http://schema.org/WPHeader" id="l_header" class="l_header auto shadow floatable blur " style='opacity: 0' >
+    <header itemscope itemtype="http://schema.org/WPHeader" id="l_header" class="l_header always shadow floatable blur "  >
   <div class='container'>
   <div id='wrapper'>
     <div class='nav-sub'>
@@ -2340,23 +2503,6 @@ if (/*@cc_on!@*/false || (!!window.MSInputMethodContext && !!document.documentMo
                     active-action="action-archives"
                   >
                   <i class='fa-solid fa-archive fa-fw'></i>归档
-                </a>
-                
-              </li>
-            
-          
-          
-            
-            
-              <li>
-                <a class="menuitem flat-box faa-parent animated-hover"
-                href="/friends/" title="友链"
-                  
-                  
-                  
-                    active-action="action-friends"
-                  >
-                  <i class='fa-solid fa-link fa-fw'></i>友链
                 </a>
                 
               </li>
@@ -2471,23 +2617,6 @@ if (/*@cc_on!@*/false || (!!window.MSInputMethodContext && !!document.documentMo
                     active-action="action-archives"
                   >
                   <i class='fa-solid fa-archive fa-fw'></i>归档
-                </a>
-                
-              </li>
-            
-          
-            
-              
-            
-              <li>
-                <a class="menuitem flat-box faa-parent animated-hover"
-                href="/friends/" title="友链"
-                  
-                  
-                  
-                    active-action="action-friends"
-                  >
-                  <i class='fa-solid fa-link fa-fw'></i>友链
                 </a>
                 
               </li>
@@ -2663,11 +2792,8 @@ if (/*@cc_on!@*/false || (!!window.MSInputMethodContext && !!document.documentMo
 
   <div id="layoutHelper-page-plugins"></div>
   <div id="post-body" itemprop="articleBody">
-    <p>最近，我将之前在匿名提问箱收到的一些问题和我的回答整理到了这里。</p>
-<p>主要原因是原平台的互动性较弱，并且有 500
-字的回答限制。现在将它迁移到自己的网站上，不仅可以更完整地记录我的思考，也希望能借助
-Waline 评论系统，与大家有更进一步的、更开放的交流。</p>
-<p>以下是本次整理的问答内容：</p>
+    <p>我将之前在匿名提问箱收到的一些问题和我的回答整理到了这里。</p>
+<span id="more"></span>
 <hr />
 <blockquote>
 <p><strong>问：你觉得哪段时期的同伴关系对你来说影响最大？</strong></p>
@@ -2738,6 +2864,11 @@ you?”，这也构成了我初期大部分的对话。慢慢地，我发现自�
                 <div class="license-meta-text">2025年9月20日</div>
               </div>
               
+              <div class="license-meta-item">
+                <div class="license-meta-title">更新于</div>
+                <div class="license-meta-text">2025年9月23日</div>
+              </div>
+              
               
               <div class="license-meta-item">
                 <div class="license-meta-title">许可协议</div>
@@ -2760,10 +2891,10 @@ you?”，这也构成了我初期大部分的对话。慢慢地，我发现自�
     <div class='new-meta-box'>
       
         
-          <div class="new-meta-item date" itemprop="dateModified" datetime="2025-09-20T10:56:28+08:00">
+          <div class="new-meta-item date" itemprop="dateModified" datetime="2025-09-23T00:10:50+08:00">
   <a class='notlink'>
     <i class="fa-solid fa-edit fa-fw" aria-hidden="true"></i>
-    <p>更新于：2025年9月20日</p>
+    <p>更新于：2025年9月23日</p>
   </a>
 </div>
 
@@ -2786,7 +2917,7 @@ you?”，这也构成了我初期大部分的对话。慢慢地，我发现自�
       
         <a class="-mob-share-qq" title="" rel="external nofollow noopener noreferrer noopener"
           
-          target="_blank" href="http://connect.qq.com/widget/shareqq/index.html?url=https://chenxuqiao.github.io/2025/09/20/%E5%8C%BF%E5%90%8D%E6%8F%90%E9%97%AE%E7%AE%B1/&title=匿名提问箱问答记录 - Chenxu Qiao&summary="
+          target="_blank" href="http://connect.qq.com/widget/shareqq/index.html?url=https://chenxuqiao.github.io/2025/09/20/%E5%8C%BF%E5%90%8D%E6%8F%90%E9%97%AE%E7%AE%B1/&title=匿名提问箱问答记录 - Chenxu Qiao&summary=我将之前在匿名提问箱收到的一些问题和我的回答整理到了这里。"
           
           >
           
@@ -2798,7 +2929,7 @@ you?”，这也构成了我初期大部分的对话。慢慢地，我发现自�
       
         <a class="-mob-share-qzone" title="" rel="external nofollow noopener noreferrer noopener"
           
-          target="_blank" href="https://sns.qzone.qq.com/cgi-bin/qzshare/cgi_qzshare_onekey?url=https://chenxuqiao.github.io/2025/09/20/%E5%8C%BF%E5%90%8D%E6%8F%90%E9%97%AE%E7%AE%B1/&title=匿名提问箱问答记录 - Chenxu Qiao&summary="
+          target="_blank" href="https://sns.qzone.qq.com/cgi-bin/qzshare/cgi_qzshare_onekey?url=https://chenxuqiao.github.io/2025/09/20/%E5%8C%BF%E5%90%8D%E6%8F%90%E9%97%AE%E7%AE%B1/&title=匿名提问箱问答记录 - Chenxu Qiao&summary=我将之前在匿名提问箱收到的一些问题和我的回答整理到了这里。"
           
           >
           
@@ -2810,7 +2941,7 @@ you?”，这也构成了我初期大部分的对话。慢慢地，我发现自�
       
         <a class="-mob-share-weibo" title="" rel="external nofollow noopener noreferrer noopener"
           
-          target="_blank" href="http://service.weibo.com/share/share.php?url=https://chenxuqiao.github.io/2025/09/20/%E5%8C%BF%E5%90%8D%E6%8F%90%E9%97%AE%E7%AE%B1/&title=匿名提问箱问答记录 - Chenxu Qiao&summary="
+          target="_blank" href="http://service.weibo.com/share/share.php?url=https://chenxuqiao.github.io/2025/09/20/%E5%8C%BF%E5%90%8D%E6%8F%90%E9%97%AE%E7%AE%B1/&title=匿名提问箱问答记录 - Chenxu Qiao&summary=我将之前在匿名提问箱收到的一些问题和我的回答整理到了这里。"
           
           >
           
@@ -3085,6 +3216,10 @@ target="_blank" rel="noopener" href="https://creativecommons.org/licenses/by-nc-
 </script>
 
 <!-- required -->
+
+  
+<script src="https://unpkg.com/volantis-static@0.0.1654736714924/libs/jquery/dist/jquery.min.js"></script>
+
 
 
 <!-- internal -->
@@ -3450,6 +3585,122 @@ target="_blank" rel="noopener" href="https://creativecommons.org/licenses/by-nc-
 
 <!-- rightmenu要在darkmode之前（ToggleButton） darkmode要在comments之前（volantis.dark.push）-->
 
+  <script>
+const rootElement = document.documentElement;
+const darkModeStorageKey = "color-scheme";
+const rootElementDarkModeAttributeName = "color-scheme";
+const setLS = (k, v) => {
+    localStorage.setItem(k, v);
+};
+const removeLS = (k) => {
+    localStorage.removeItem(k);
+};
+const getLS = (k) => {
+    return localStorage.getItem(k);
+};
+const getModeFromCSSMediaQuery = () => {
+  return window.matchMedia("(prefers-color-scheme: dark)").matches
+    ? "dark"
+    : "light";
+};
+const resetRootDarkModeAttributeAndLS = () => {
+  rootElement.removeAttribute(rootElementDarkModeAttributeName);
+  removeLS(darkModeStorageKey);
+};
+const validColorModeKeys = {
+  dark: true,
+  light: true,
+};
+const applyCustomDarkModeSettings = (mode) => {
+  const currentSetting = mode || getLS(darkModeStorageKey);
+  getCustomDarkMode();
+  if (currentSetting === getModeFromCSSMediaQuery()) {
+    resetRootDarkModeAttributeAndLS();
+  } else if (validColorModeKeys[currentSetting]) {
+    rootElement.setAttribute(rootElementDarkModeAttributeName, currentSetting);
+  } else {
+    resetRootDarkModeAttributeAndLS();
+  }
+};
+const invertDarkModeObj = {
+  dark: "light",
+  light: "dark",
+};
+/**
+ * get target mode
+ */
+ const getCustomDarkMode = () => {
+  let currentSetting = getLS(darkModeStorageKey);
+  if (validColorModeKeys[currentSetting]) {
+    currentSetting = invertDarkModeObj[currentSetting];
+  } else if (currentSetting === null) {
+    currentSetting = invertDarkModeObj[getModeFromCSSMediaQuery()];
+  } else {
+    return;
+  }
+  if(currentSetting=="dark"){
+    volantis.dark.mode="light";
+  }else{
+    volantis.dark.mode="dark";
+  }
+  // console.log(volantis.dark.mode)
+};
+const toggleCustomDarkMode = () => {
+  let currentSetting = getLS(darkModeStorageKey);
+  if (validColorModeKeys[currentSetting]) {
+    currentSetting = invertDarkModeObj[currentSetting];
+  } else if (currentSetting === null) {
+    currentSetting = invertDarkModeObj[getModeFromCSSMediaQuery()];
+  } else {
+    return;
+  }
+  setLS(darkModeStorageKey, currentSetting);
+  return currentSetting;
+};
+/**
+ * 暗黑模式触发器
+ */
+volantis.dark.toggle=()=>{
+  const mode = toggleCustomDarkMode();
+  applyCustomDarkModeSettings(mode);
+  // 使用 volantis.dark.push 方法传入volantis.dark.toggle回调函数 参见layout/_partial/scripts/global.ejs
+  volantis.dark.method.toggle.start();
+}
+/**
+ * bind event for toggle button
+ */
+
+function bindToggleButton() {
+  var btn= document.querySelectorAll("#wrapper .toggle-mode-btn,#rightmenu-wrapper .toggle-mode-btn")
+  btn.forEach(function (e) {
+    volantis.dom.$(e).on('click',volantis.dark.toggle);
+  })
+}
+applyCustomDarkModeSettings();
+document.addEventListener("DOMContentLoaded", ()=>{
+  volantis.requestAnimationFrame(bindToggleButton)
+});
+volantis.pjax.push(bindToggleButton);
+
+const darkModelListeners={
+  dark:(mediaQueryList )=>{
+    if(mediaQueryList.matches){
+      volantis.dark.mode = "dark";
+    }
+    volantis.dark.method.toggle.start();
+  },
+  light:(mediaQueryList)=>{
+    if(mediaQueryList.matches){
+      volantis.dark.mode = "light";
+    }
+    volantis.dark.method.toggle.start();
+  }
+}
+window.matchMedia('(prefers-color-scheme: dark)').addListener(darkModelListeners.dark)
+window.matchMedia('(prefers-color-scheme: light)').addListener(darkModelListeners.light)
+</script>
+
+
 
 
 <script>
@@ -3744,7 +3995,7 @@ document.addEventListener("DOMContentLoaded", function () {
 
 
   <script>
-  let imgs = ["/images/wallpapers/IMG_3388.webp","/images/wallpapers/DSC_3450.webp","/images/wallpapers/DSC_1669.webp","/images/wallpapers/IMG_0312.webp","/images/wallpapers/DSC_2405.webp","/images/wallpapers/DSC_9016.webp","/images/wallpapers/DSC_9705.webp","/images/wallpapers/DSC_0502.webp","/images/wallpapers/DSC_3488.webp","/images/wallpapers/DSC_0221.webp","/images/wallpapers/IMG_0528.webp","/images/wallpapers/DSC_4941.webp","/images/wallpapers/DSC_0777.webp","/images/wallpapers/IMG_9281.webp","/images/wallpapers/DSC_0254.webp","/images/wallpapers/DSC_1943.webp","/images/wallpapers/DSC_0698.webp","/images/wallpapers/IMG_1924.webp"];
+  let imgs = ["/images/wallpapers/DSC_0777.webp","/images/wallpapers/IMG_3388.webp","/images/wallpapers/DSC_3488.webp","/images/wallpapers/DSC_2405.webp","/images/wallpapers/DSC_1943.webp","/images/wallpapers/DSC_0502.webp","/images/wallpapers/DSC_9016.webp","/images/wallpapers/DSC_9705.webp","/images/wallpapers/DSC_0698.webp","/images/wallpapers/IMG_1924.webp","/images/wallpapers/DSC_1669.webp","/images/wallpapers/IMG_0312.webp","/images/wallpapers/IMG_9281.webp","/images/wallpapers/DSC_4941.webp","/images/wallpapers/DSC_0254.webp","/images/wallpapers/IMG_0528.webp","/images/wallpapers/DSC_3450.webp","/images/wallpapers/DSC_0221.webp"];
   let index = 0;
   let IntervalParallax = null;
 
@@ -3973,7 +4224,7 @@ document.addEventListener("DOMContentLoaded", function () {
 </script>
 
 
-  <script type="application/ld+json">[{"@context":"http://schema.org","@type":"Organization","name":"Chenxu Qiao","url":"https://chenxuqiao.github.io/","logo":{"@type":"ImageObject","url":"https://unpkg.com/volantis-static@0.0.1654736714924/media/org.volantis/blog/favicon/android-chrome-192x192.png","width":192,"height":192}},{"@context":"http://schema.org","@type":"Person","name":"Chenxu Qiao","image":{"@type":"ImageObject","url":"https://unpkg.com/volantis-static@0.0.1654736714924/media/org.volantis/blog/favicon/android-chrome-192x192.png"},"url":"https://chenxuqiao.github.io/","sameAs":["https://github.com/volantis-x"],"description":"分享关于学习、技术实践、产品设计和个人成长的思考与总结"},{"@context":"http://schema.org","@type":"BreadcrumbList","itemListElement":[{"@type":"ListItem","position":1,"item":{"@id":"https://chenxuqiao.github.io/","name":"Chenxu Qiao"}},{"@type":"ListItem","position":2,"item":{"@id":"https://chenxuqiao.github.io/categories/生活随想/","name":"生活随想"}},{"@type":"ListItem","position":2,"item":{"@id":"https://chenxuqiao.github.io/categories/生活随想/匿名问答/","name":"匿名问答"}},{"@type":"ListItem","position":3,"item":{"@id":"https://chenxuqiao.github.io/2025/09/20/匿名提问箱/","name":"匿名提问箱问答记录"}}]},{"@context":"http://schema.org","@type":"WebSite","name":"Chenxu Qiao","url":"https://chenxuqiao.github.io/","keywords":null,"description":"分享关于学习、技术实践、产品设计和个人成长的思考与总结","author":{"@type":"Person","name":"Chenxu Qiao","image":{"@type":"ImageObject","url":"https://unpkg.com/volantis-static@0.0.1654736714924/media/org.volantis/blog/favicon/android-chrome-192x192.png"},"url":"https://chenxuqiao.github.io/","description":"分享关于学习、技术实践、产品设计和个人成长的思考与总结"},"publisher":{"@type":"Organization","name":"Chenxu Qiao","url":"https://chenxuqiao.github.io/","logo":{"@type":"ImageObject","url":"https://unpkg.com/volantis-static@0.0.1654736714924/media/org.volantis/blog/favicon/android-chrome-192x192.png","width":192,"height":192}},"potentialAction":{"@type":"SearchAction","name":"Site Search","target":{"@type":"EntryPoint","urlTemplate":"https://chenxuqiao.github.io?s={search_term_string}"},"query-input":"required name=search_term_string"}},{"@context":"http://schema.org","@type":"BlogPosting","headline":"匿名提问箱问答记录","description":"整理并回答了一些来自匿名提问箱的问题，关于同伴关系、个人成长变化、未来规划等方面的思考和感悟。","inLanguage":"zh-CN","mainEntityOfPage":{"@type":"WebPage","@id":"https://chenxuqiao.github.io/2025/09/20/%E5%8C%BF%E5%90%8D%E6%8F%90%E9%97%AE%E7%AE%B1/"},"author":{"@type":"Person","name":"Chenxu Qiao","image":{"@type":"ImageObject","url":"https://unpkg.com/volantis-static@0.0.1654736714924/media/org.volantis/blog/favicon/android-chrome-192x192.png"},"url":"https://chenxuqiao.github.io/"},"publisher":{"@type":"Organization","name":"Chenxu Qiao","logo":{"@type":"ImageObject","url":"https://unpkg.com/volantis-static@0.0.1654736714924/media/org.volantis/blog/favicon/android-chrome-192x192.png","width":192,"height":192}},"url":"https://chenxuqiao.github.io/2025/09/20/%E5%8C%BF%E5%90%8D%E6%8F%90%E9%97%AE%E7%AE%B1/","wordCount":0,"datePublished":"2025-09-20T02:50:05.000Z","dateModified":"2025-09-20T02:56:28.419Z","articleSection":"生活随想","keywords":"提问,匿名,个人思考","image":{"@type":"ImageObject","url":"https://unpkg.com/volantis-static@0.0.1654736714924/media/org.volantis/blog/favicon/android-chrome-192x192.png","width":192,"height":192}}]</script>
+  <script type="application/ld+json">[{"@context":"http://schema.org","@type":"Organization","name":"Chenxu Qiao","url":"https://chenxuqiao.github.io/","logo":{"@type":"ImageObject","url":"https://unpkg.com/volantis-static@0.0.1654736714924/media/org.volantis/blog/favicon/android-chrome-192x192.png","width":192,"height":192}},{"@context":"http://schema.org","@type":"Person","name":"Chenxu Qiao","image":{"@type":"ImageObject","url":"https://unpkg.com/volantis-static@0.0.1654736714924/media/org.volantis/blog/favicon/android-chrome-192x192.png"},"url":"https://chenxuqiao.github.io/","sameAs":["https://github.com/volantis-x"],"description":"分享关于学习、技术实践、产品设计和个人成长的思考与总结"},{"@context":"http://schema.org","@type":"BreadcrumbList","itemListElement":[{"@type":"ListItem","position":1,"item":{"@id":"https://chenxuqiao.github.io/","name":"Chenxu Qiao"}},{"@type":"ListItem","position":2,"item":{"@id":"https://chenxuqiao.github.io/categories/生活随想/","name":"生活随想"}},{"@type":"ListItem","position":2,"item":{"@id":"https://chenxuqiao.github.io/categories/生活随想/匿名问答/","name":"匿名问答"}},{"@type":"ListItem","position":3,"item":{"@id":"https://chenxuqiao.github.io/2025/09/20/匿名提问箱/","name":"匿名提问箱问答记录"}}]},{"@context":"http://schema.org","@type":"WebSite","name":"Chenxu Qiao","url":"https://chenxuqiao.github.io/","keywords":null,"description":"分享关于学习、技术实践、产品设计和个人成长的思考与总结","author":{"@type":"Person","name":"Chenxu Qiao","image":{"@type":"ImageObject","url":"https://unpkg.com/volantis-static@0.0.1654736714924/media/org.volantis/blog/favicon/android-chrome-192x192.png"},"url":"https://chenxuqiao.github.io/","description":"分享关于学习、技术实践、产品设计和个人成长的思考与总结"},"publisher":{"@type":"Organization","name":"Chenxu Qiao","url":"https://chenxuqiao.github.io/","logo":{"@type":"ImageObject","url":"https://unpkg.com/volantis-static@0.0.1654736714924/media/org.volantis/blog/favicon/android-chrome-192x192.png","width":192,"height":192}},"potentialAction":{"@type":"SearchAction","name":"Site Search","target":{"@type":"EntryPoint","urlTemplate":"https://chenxuqiao.github.io?s={search_term_string}"},"query-input":"required name=search_term_string"}},{"@context":"http://schema.org","@type":"BlogPosting","headline":"匿名提问箱问答记录","description":"整理并回答了一些来自匿名提问箱的问题，关于同伴关系、个人成长变化、未来规划等方面的思考和感悟。","inLanguage":"zh-CN","mainEntityOfPage":{"@type":"WebPage","@id":"https://chenxuqiao.github.io/2025/09/20/%E5%8C%BF%E5%90%8D%E6%8F%90%E9%97%AE%E7%AE%B1/"},"author":{"@type":"Person","name":"Chenxu Qiao","image":{"@type":"ImageObject","url":"https://unpkg.com/volantis-static@0.0.1654736714924/media/org.volantis/blog/favicon/android-chrome-192x192.png"},"url":"https://chenxuqiao.github.io/"},"publisher":{"@type":"Organization","name":"Chenxu Qiao","logo":{"@type":"ImageObject","url":"https://unpkg.com/volantis-static@0.0.1654736714924/media/org.volantis/blog/favicon/android-chrome-192x192.png","width":192,"height":192}},"url":"https://chenxuqiao.github.io/2025/09/20/%E5%8C%BF%E5%90%8D%E6%8F%90%E9%97%AE%E7%AE%B1/","wordCount":29,"datePublished":"2025-09-20T02:50:05.000Z","dateModified":"2025-09-22T16:10:50.497Z","articleSection":"生活随想","keywords":"提问,匿名,个人思考","image":{"@type":"ImageObject","url":"https://unpkg.com/volantis-static@0.0.1654736714924/media/org.volantis/blog/favicon/android-chrome-192x192.png","width":192,"height":192}}]</script>
 
 
 
